@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="fr" class="no-js">
 
 
 <!-- Mirrored from themesdesign.in/jobya/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 13:53:45 GMT -->
