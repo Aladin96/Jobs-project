@@ -1,0 +1,58 @@
+<?
+========= MY LARAVEL 6 DOCUMENTATION ============
+
+# VIEW:
+   Directory : Resources/Views/
+   Name Of Views: name.blade.php
+# CONTROLLER:
+  Directory:app/http/Controllers
+  Name Of controller: NameController.php [  ]
+  Declaration From Commande Line: php artisan make:controller NameController
+# MODEL:
+  Directory: app/
+  Name of Model: Article ( au singulier 1ere lettre en MAJ)
+  Commande line:
+
+  php artisan make:model Name
+
+  > if the table name doest support laravel structure we need to add this in modal
+    protected $table = 'my-table';
+
+  > create Model and the table
+    php artisan make:model Post -m
+
+# MIGRATION:
+ Directory : database/migrations
+ Commande Line:
+
+ // Always name the table on pluriel first letter letter on Lowercase
+  php artisan make:migration create_names_table --create=names
+
+  php artisan make:migration create_names_table // best practice
+
+  // Modification table
+  php artisan add_slug --table=names
+
+  * Delete Column from table
+
+  ** In the method down()
+    $table->dropColumn('names') // One by one
+    $table->dropColumn(['names1', 'names']) // By array
+
+  > execute this With migrate:rollback
+
+
+  php artisan migrate //
+  php artisan migrate:rollback //  Rollback the last database migration
+
+# TINKER
+  Tinker is shell commande
+  Commande line: php artisan tinker
+    $exemple = new Exemple() // Instancie Model
+
+    $exemple::all() // Call all the data we Should Use cursor from Laravel 6
+    $exemple::cursor() // the best practice
+
+    $exemple::find(1) // find data by ID we can use an array
+
+# RESOURCE
