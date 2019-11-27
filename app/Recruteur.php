@@ -5,14 +5,14 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Recruteur extends Model
+class Recruteur extends Authenticatable
 {
   use Notifiable;
 
       protected $guard = 'recruteur';
 
       protected $fillable = [
-          'nom', 'email', 'password',
+          'nom', 'email', 'password', 'type', 'adresse', 'tel', 'site_web'
       ];
 
       protected $hidden = [

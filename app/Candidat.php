@@ -12,10 +12,10 @@ class Candidat extends Authenticatable
      protected $guard = 'candidat';
 
      protected $fillable = [
-         'nom', 'email', 'password',
+         'nom', 'prenom', 'email', 'password', 'civilite', 'tel', 'adresse', 'date_de_naissance'
      ];
 
      protected $hidden = [
-         'password', 'remember_token',
+         'password', 'remember_token'
      ];
 }

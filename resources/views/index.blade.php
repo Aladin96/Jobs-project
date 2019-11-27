@@ -1,4 +1,4 @@
-@extends('layout.header_footer')
+@extends('layouts.header_footer')
 
 @section('content_body')
 
@@ -1862,5 +1862,7 @@
      </div>
  </section>
  <!-- subscribe end -->
+
+ @include('layouts.footer')
 
 @endsection

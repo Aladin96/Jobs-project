@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Candidat;
+use App\Recruteur;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -38,6 +41,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:candidat');
+        $this->middleware('guest:recruteur');
     }
 
     /**
@@ -68,5 +73,67 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * Create a new Candidat instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Candidat
+     */
+    protected function createCandidat(Request $request)
+    {
+
+        $civilite = $request->input('civilite');
+        if( $civilite == 1 ) $civilite = 'M';
+        elseif($civilite == 2 ) $civilite = 'Mme';
+        elseif($civilite == 3 ) $civilite = 'Mlle';
+        elseif($civilite == 4 ) $civilite = 'Dr';
+        else $civilite = 'Pr';
+        return Candidat::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'civilite' => $civilite,
+            'tel' => $request->tel,
+            'adresse' => $request->adresse,
+            'date_de_naissance' => $request->date_de_naissance,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+    }
+
+    protected function createCandidatView()
+    {
+      return view('auth.register_candidat');
+    }
+
+    /**
+     * Create a new Candidat instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Recruteur
+     */
+    protected function createRecruteur(Request $request)
+    {
+
+        $type = $request->input('type');
+
+        if( $type == 1 ) $civilite = 'Public';
+        else $type = 'Société';
+
+        return Recruteur::create([
+            'nom' => $request->nom,
+            'type' => $type,
+            'tel' => $request->tel,
+            'site_web' => $request->site_web,
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+    }
+
+    protected function createRecruteurView()
+    {
+      return view('auth.register_recruteur');
     }
 }

@@ -12,11 +12,30 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-
-});
-
-Route::get('/index', function () {
     return view('index');
 
 });
+
+
+// Authentification
+Auth::routes();
+
+//Register
+
+  // |--> CANDIDAT
+Route::get('/register/candidat', 'Auth\RegisterController@createCandidatView');
+Route::Post('/register/candidat', 'Auth\RegisterController@createCandidat');
+
+   // |--> RECRUTEUR
+Route::get('/register/recruteur', 'Auth\RegisterController@createRecruteurView');
+Route::Post('/register/recruteur', 'Auth\RegisterController@createRecruteur');
+
+// LOGIN
+
+  // |--> CANDIDAT
+Route::get('/login/candidat', 'Auth\LoginController@candidatLoginView');
+Route::Post('/login/candidat', 'Auth\LoginController@candidatLogin');
+
+// |--> RECRUTEUR
+Route::get('/login/recruteur', 'Auth\LoginController@recruteurLoginView');
+Route::Post('/login/recruteur', 'Auth\LoginController@recruteurLogin');

@@ -46,6 +46,17 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'candidat' => [
+            'driver' => 'session',
+            'provider' => 'candidats',
+        ],
+
+        'recruteur' => [
+            'driver' => 'session',
+            'provider' => 'recruteurs',
+        ],
+
     ],
 
     /*
@@ -69,6 +80,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'candidats' => [
+            'driver' => 'eloquent',
+            'model' => App\Candidat::class,
+        ],
+
+        'recruteurs' => [
+            'driver' => 'eloquent',
+            'model' => App\Recruteur::class,
         ],
 
         // 'users' => [
