@@ -93,4 +93,6 @@ class LoginController extends Controller
      return back()->with('error', 'Email ou mot de passe incorrect !');
 
     }
+
+
 }

@@ -39,3 +39,6 @@ Route::Post('/login/candidat', 'Auth\LoginController@candidatLogin');
 // |--> RECRUTEUR
 Route::get('/login/recruteur', 'Auth\LoginController@recruteurLoginView');
 Route::Post('/login/recruteur', 'Auth\LoginController@recruteurLogin');
+
+// logout
+Route::get('/logout', 'Auth\LoginController@logout');
