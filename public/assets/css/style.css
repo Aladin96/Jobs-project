@@ -2607,7 +2607,17 @@ hr {
   font-size: 16px;
   font-weight: bold;
 }
-
+.img-center {
+  margin: auto !important;
+  height: 180px;
+  width: 180px;
+}
+.new-Pad {
+  padding: 200px 0 150px 0 ;
+}
+.noTopPadding {
+  padding-top: 20px;
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);

@@ -15,12 +15,14 @@ Route::get('/', function () {
     return view('index');
 
 });
+Route::view('company' , 'recruteurs.show');
 
 Route::get('/candidat/{show}', 'CandidatsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 
 Route::put('/candidat/{id}', 'CandidatsController@update');
 
+Route::get('/recruteur/{show}', 'RecruteursController@show');
 
 // Authentification
 Auth::routes();
