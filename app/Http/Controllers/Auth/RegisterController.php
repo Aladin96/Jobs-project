@@ -90,7 +90,8 @@ class RegisterController extends Controller
         elseif($civilite == 3 ) $civilite = 'Mlle';
         elseif($civilite == 4 ) $civilite = 'Dr';
         else $civilite = 'Pr';
-        return Candidat::create([
+        $request->session()->flash('register-success','inscription avec succes , veuillez verifier votre boite mail');
+        Candidat::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'civilite' => $civilite,
@@ -100,6 +101,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        return redirect('/register/candidat');
     }
 
     protected function createCandidatView()

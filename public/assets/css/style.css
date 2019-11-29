@@ -2596,6 +2596,13 @@ hr {
   animation: scaleIn .6s infinite ease-out;
 }
 
+/* ==== addes by fianso ====*/
+.register-success {
+  color : #4f9;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 @keyframes scaleIn {
   from{
     transform: scale(1);
