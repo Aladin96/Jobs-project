@@ -16,6 +16,7 @@ Route::get('/', function () {
 
 });
 
+Route::get('/candidat/{show}', 'CandidatsController@show');
 
 // Authentification
 Auth::routes();

@@ -2402,7 +2402,7 @@ a.job-list[data-toggle=collapse].collapsed:before {
 }
 
 /********************
-        PRICING  
+        PRICING
 *********************/
 .pricing-box {
   -webkit-transition: all 0.5s ease;
@@ -2591,3 +2591,16 @@ hr {
   border-top: 1px solid #333744;
 }
 /*# sourceMappingURL=style.css.map */
+
+.btn-cv{
+  animation: scaleIn .6s infinite ease-out;
+}
+
+@keyframes scaleIn {
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.1);
+  }
+}
