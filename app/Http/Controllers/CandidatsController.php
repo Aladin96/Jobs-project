@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use App\Candidat;
+use Auth;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
@@ -17,12 +18,20 @@ class CandidatsController extends Controller
 
     public function edit($id){
 
+      if( Auth::guard('candidat')->id() !== intval($id) ){
+        return abort('404');
+      }
+
+
       $candidat = Candidat::findOrFail($id);
       return view('candidats.edit', compact('candidat'));
     }
 
     public function update(Request $request, $id){
 
+      if( Auth::guard('candidat')->id() !== intval($id) ){
+        return abort('404');
+      }
 
       $candidat = Candidat::findOrFail($id);
 
@@ -80,7 +89,7 @@ class CandidatsController extends Controller
       }
 
       $candidat->save();
-      
+
       return redirect('/candidat/' . $candidat->id . '/edit'  );
 
     }
