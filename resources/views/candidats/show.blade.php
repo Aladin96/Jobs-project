@@ -19,7 +19,7 @@
             <div class="col-md-6">
                 <div class="candidates-profile-details text-center">
                     <img src="{{ asset($candidat->photo) }}" height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
-                    <h5 class="text-white mb-2">{{ $candidat->nom  }} {{ $candidat->prenom  }}</h5>
+                    <h5 class="text-white mb-2"><span class="badge badge-primary">{{ $candidat->civilite}}</span>  {{ $candidat->nom . ' ' .  $candidat->prenom }}</h5>
                 </div>
             </div>
         </div>
