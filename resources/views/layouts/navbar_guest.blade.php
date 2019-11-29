@@ -18,7 +18,7 @@
                            <a href="{{ url('login/candidat') }}" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i> Candidat </a>
                        </div><!--end login button-->
                        <div class="buy-button mr-2">
-                         <span style="color:#fff">Se connecter:</span>
+                         <span>Se connecter : </span>
                            <a href="{{ url('login/recruteur') }}" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i> Recruteur </a>
                        </div><!--end login button-->
 

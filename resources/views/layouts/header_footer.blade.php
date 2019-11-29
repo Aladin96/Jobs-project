@@ -60,7 +60,7 @@
 <script src="{{ URL::asset('assets/js/jquery.nice-select.min.js') }}"></script>
 
 <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ URL::asset('assets/js/counter.int.j') }}"></script>
+<script src="{{ URL::asset('assets/js/counter.int.js') }}"></script>
 
 <script src="{{ URL::asset('assets/js/app.js') }}"></script>
 <script src="{{ URL::asset('assets/js/home.js') }}"></script>

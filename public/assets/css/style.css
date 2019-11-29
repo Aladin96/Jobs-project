@@ -2602,6 +2602,11 @@ hr {
   font-size: 18px;
   font-weight: bold;
 }
+.buy-button.mr-2 span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 @keyframes scaleIn {
   from{

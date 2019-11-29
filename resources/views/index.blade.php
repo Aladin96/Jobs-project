@@ -11,7 +11,7 @@
   @include('layouts.navbar_guest')
 @endif
  <!-- Start Home -->
- <section class="bg-home" style="background: url('images/bg-home.jpg') center center;">
+ <section class="bg-home" style="background: url({{asset('assets/images/bg-home.jpg')}}) center center;">
      <div class="bg-overlay"></div>
      <div class="home-center">
          <div class="home-desc-center">
