@@ -12,6 +12,9 @@
                         <div class="login_page bg-white shadow rounded p-4">
                             <div class="text-center">
                                 <h4 class="mb-4">Inscription Recruteur</h4>
+                                @if(session()->has("register-success"))
+                                <p class="register-success">{{ session()->get('register-success') }}</p>
+                                @endif
                             </div>
                             <form class="login-form" method="POST" action="{{ url('register/recruteur') }}">
                               @csrf

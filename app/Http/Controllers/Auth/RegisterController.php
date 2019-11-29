@@ -122,8 +122,8 @@ class RegisterController extends Controller
 
         if( $type == 1 ) $civilite = 'Public';
         else $type = 'Société';
-
-        return Recruteur::create([
+        $request->session()->flash('register-success','inscription avec succes , veuillez verifier votre boite mail');
+        Recruteur::create([
             'nom' => $request->nom,
             'type' => $type,
             'tel' => $request->tel,
@@ -132,6 +132,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        return redirect('/register/recruteur');
     }
 
     protected function createRecruteurView()
