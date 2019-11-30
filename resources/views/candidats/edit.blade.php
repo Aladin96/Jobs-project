@@ -36,6 +36,9 @@
             <div class="col-12 mt-3">
                 <div class="custom-form p-4 border rounded">
                     <img src="{{asset($candidat->photo)}}" class="img-fluid avatar avatar-medium d-block mx-auto rounded-pill" alt="">
+                    @if( session()->has('modified') )
+                    <p class="alert alert-success">{{ session()->get('modified')}}</p>
+                    @endif
                     <form method="POST" action="{{ url('candidat/' . $candidat->id) }}" enctype="multipart/form-data">
                       @csrf
                       @method('PUT')

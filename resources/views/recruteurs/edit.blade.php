@@ -36,6 +36,9 @@
             <div class="col-12 mt-3">
                 <div class="custom-form p-4 border rounded">
                     <img src="{{asset($data->logo)}}" class="img-fluid avatar avatar-medium d-block mx-auto rounded-pill" alt="">
+                    @if( session()->has('modified') )
+                    <p class="alert alert-success">{{ session()->get('modified')}}</p>
+                    @endif
                     <form method="POST" action="{{ url('recruteur/' . $data->id) }}" enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
@@ -74,6 +77,18 @@
                                 <div class="form-group position-relative">
                                     <label>Email: </label>
                                     <input type="email" class="form-control" placeholder="Email" name="email" value="{{$data->email}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group app-label">
+                                    <label class="text-muted">Type : </label>
+                                    <div class="form-button">
+                                        <select class="form-control" style="" name="type">
+                                            <option value="1" {{ $data->type == 1 ? 'selected' : ''}}>Public</option>
+                                            <option value="2" {{ $data->type == 2 ? 'selected' : ''}}>Société</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 

@@ -89,7 +89,7 @@ class CandidatsController extends Controller
       }
 
       $candidat->save();
-
+      $request->session()->flash('modified' , 'Changement effectué avec succès');
       return redirect('/candidat/' . $candidat->id . '/edit'  );
 
     }
