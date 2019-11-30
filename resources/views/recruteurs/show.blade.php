@@ -18,7 +18,7 @@
                 <div class="col-md-6">
                     <div class="text-center text-white">
                         <div class="text-sm-center">
-                            <img src="{{ asset($recruteur->logo) }}" alt="" class="img-fluid mx-md-auto d-block img-center">
+                            <img src="{{ asset($recruteur ?? ''->logo) }}" alt="" class="img-fluid mx-md-auto d-block img-center">
                             <h4 class="mt-3"><a href="#" class="text-white">{{ $recruteur->nom }}</a></h4>
                             <ul class="list-inline mb-0">
                                 <li class="list-inline-item mr-3">

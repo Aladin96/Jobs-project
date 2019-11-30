@@ -84,13 +84,24 @@ class RegisterController extends Controller
     protected function createCandidat(Request $request)
     {
 
+       $request->validate([
+         'nom'                 => 'bail|required|alpha',
+         'prenom'              => 'bail|required|alpha',
+         'civilite'            => 'bail|required|integer|in:1,2,3,4,5',
+         'tel'                 => 'bail|required|numeric',
+         'adresse'             => 'bail|required|string',
+         'date_de_naissance'   => 'bail|required|date',
+         'email'               => 'bail|required|email|unique:candidats,email|unique:recruteurs,email',
+         'password'            => 'bail|required|confirmed|min:5'
+        ]);
+
         $civilite = $request->input('civilite');
         if( $civilite == 1 ) $civilite = 'M';
         elseif($civilite == 2 ) $civilite = 'Mme';
         elseif($civilite == 3 ) $civilite = 'Mlle';
         elseif($civilite == 4 ) $civilite = 'Dr';
         else $civilite = 'Pr';
-        $request->session()->flash('register-success','inscription avec succes , veuillez verifier votre boite mail');
+        $request->session()->flash('register-success','Inscription avec succes');
         Candidat::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
@@ -118,11 +129,21 @@ class RegisterController extends Controller
     protected function createRecruteur(Request $request)
     {
 
+      $request->validate([
+        'nom'          => 'bail|required|alpha',
+        'type'         => 'bail|required|in:1,2',
+        'tel'          => 'bail|required|numeric',
+        'adresse'      => 'bail|required|string',
+        'site_web'     => 'bail|required|string',
+        'email'        => 'bail|required|email|unique:candidats,email|unique:recruteurs,email',
+        'password'     => 'bail|required|confirmed|min:5'
+       ]);
+
         $type = $request->input('type');
 
         if( $type == 1 ) $civilite = 'Public';
         else $type = 'Société';
-        $request->session()->flash('register-success','inscription avec succes , veuillez verifier votre boite mail');
+        $request->session()->flash('register-success','Inscription avec succes.');
         Recruteur::create([
             'nom' => $request->nom,
             'type' => $type,
