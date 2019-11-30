@@ -69,6 +69,8 @@ class RecruteursController extends Controller
 
     $recruteur->email = $request->email;
 
+    $recruteur->type = $request->type;
+
     if( !empty( $request->password ) ){
 
         $new_password = Hash::make($request->password);
@@ -80,7 +82,7 @@ class RecruteursController extends Controller
     }
 
     $recruteur->save();
-
+    $request->session()->flash('modified' , 'Changement effectué avec succès');
     return redirect('/recruteur/' . $recruteur->id . '/edit'  );
 
   }
