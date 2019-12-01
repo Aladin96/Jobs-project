@@ -139,9 +139,9 @@ class RegisterController extends Controller
         'password'     => 'bail|required|confirmed|min:5'
        ]);
 
-        $type = $request->input('type');
+        $type = intval($request->input('type'));
 
-        if( $type == 1 ) $civilite = 'Public';
+        if( $type == 1 ) $type = 'Public';
         else $type = 'Société';
         $request->session()->flash('register-success','Inscription avec succes.');
         Recruteur::create([

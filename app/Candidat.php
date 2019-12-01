@@ -18,4 +18,8 @@ class Candidat extends Authenticatable
      protected $hidden = [
          'password', 'remember_token'
      ];
+
+     public function offres(){
+       return $this->hasMany('App\Offre');
+     }
 }

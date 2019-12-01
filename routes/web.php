@@ -16,14 +16,16 @@ Route::get('/', function () {
 
 });
 
+// Candidats Routes
 Route::get('/candidat/{show}', 'CandidatsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
-
 Route::put('/candidat/{id}', 'CandidatsController@update');
 
+// RECRUTEUR Routes
 Route::get('/recruteur/{show}', 'RecruteursController@show');
 Route::get('/recruteur/{show}/edit', 'RecruteursController@edit');
 Route::put('/recruteur/{id}', 'RecruteursController@update');
+Route::get('/offre/create', 'OffresController@create');
 
 // Authentification
 Auth::routes();
