@@ -17,6 +17,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\CandidatsController' => $baseDir . '/app/Http/Controllers/CandidatsController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\OffresController' => $baseDir . '/app/Http/Controllers/OffresController.php',
     'App\\Http\\Controllers\\RecruteursController' => $baseDir . '/app/Http/Controllers/RecruteursController.php',
     'App\\Http\\Controllers\\TestsController' => $baseDir . '/app/Http/Controllers/TestsController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

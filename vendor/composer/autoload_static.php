@@ -426,6 +426,7 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CandidatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidatsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\OffresController' => __DIR__ . '/../..' . '/app/Http/Controllers/OffresController.php',
         'App\\Http\\Controllers\\RecruteursController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecruteursController.php',
         'App\\Http\\Controllers\\TestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
