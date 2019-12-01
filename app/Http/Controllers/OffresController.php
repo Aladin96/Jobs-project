@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class OffresController extends Controller
 {
@@ -11,6 +12,8 @@ class OffresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         //
@@ -23,7 +26,11 @@ class OffresController extends Controller
      */
     public function create()
     {
-        //
+
+        if( ! Auth::guard('recruteur')->check() ){
+          return abort('404');
+        }
+        return view('offres.create');
     }
 
     /**
