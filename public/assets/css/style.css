@@ -2622,6 +2622,10 @@ hr {
   border-color: #a2a2a2;
   margin: 20px auto;
 }
+.job-box img {
+  height: 100px;
+  width: auto;
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);
