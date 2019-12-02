@@ -2618,6 +2618,10 @@ hr {
 .noTopPadding {
   padding-top: 20px;
 }
+.sep {
+  border-color: #a2a2a2;
+  margin: 20px auto;
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);

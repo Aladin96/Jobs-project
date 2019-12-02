@@ -37,7 +37,7 @@
             </a>
         </div>
         <div class="buy-button">
-            <a href="#" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i> Déposer un CV</a>
+            <a href="{{url('/cv')}}" class="btn btn-primary"><i class="mdi mdi-cloud-upload"></i> Déposer un CV</a>
         </div><!--end login button-->
         <!-- End Logo container-->
         <div class="menu-extras">

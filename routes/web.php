@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/candidat/{show}', 'CandidatsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
+Route::get('/cv' , 'CvsController@index');
 
 // RECRUTEUR Routes
 Route::get('/recruteur/{show}', 'RecruteursController@show');
