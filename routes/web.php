@@ -26,6 +26,7 @@ Route::get('/recruteur/{show}', 'RecruteursController@show');
 Route::get('/recruteur/{show}/edit', 'RecruteursController@edit');
 Route::put('/recruteur/{id}', 'RecruteursController@update');
 Route::get('/offre/create', 'OffresController@create');
+Route::post('/offre/create', 'OffresController@store');
 
 // Authentification
 Auth::routes();

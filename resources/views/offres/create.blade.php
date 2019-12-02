@@ -11,13 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="text-center text-white">
-                    <h4 class="text-uppercase title mb-4">Create A new Job</h4>
-                    <ul class="page-next d-inline-block mb-0">
-                        <li><a href="index-2.html" class="text-uppercase font-weight-bold">Home</a></li>
-                        <li>
-                            <span class="text-uppercase text-white font-weight-bold">Post A Job</span>
-                        </li>
-                    </ul>
+                    <h4 class="text-uppercase title mb-4">Déposer un offre</h4>
                 </div>
             </div>
         </div>
@@ -32,14 +26,19 @@
             <div class="col-lg-10">
                 <div class="rounded shadow bg-white p-4">
                     <div class="custom-form">
-                        <div id="message3"></div>
-                        <form method="post" action="" name="contact-form" id="contact-form3">
-                            <h4 class="text-dark mb-3">Post a New Job :</h4>
+                        <div id="message3">
+                        @if( session()->has('publiée') )
+                          <p class="alert alert-success">{{ session()->get('publiée')}}</p>
+                        @endif
+                      </div>
+                        <form method="POST" action="{{url('/offre/create')}}" name="contact-form" id="contact-form3">
+                          @csrf
+                            <h4 class="text-dark mb-3">Déposer un offre :</h4>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Job Title</label>
-                                        <input id="company-name" type="text" class="form-control resume" placeholder="">
+                                        <label class="">Intitulé</label>
+                                        <input id="company-name" type="text" class="form-control resume" name="intitule" placeholder="" value="{{old('intitule')}}" required>
                                     </div>
                                 </div>
                             </div>
@@ -47,28 +46,20 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Job Type</label>
+                                        <label class="">Type:</label>
                                         <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Job Type">Job Type</option>
-                                                <option value="1">Full Time</option>
-                                                <option value="2">Part Time</option>
+                                            <select class="form-control" name="type" required>
+                                                <option value="1">Stage</option>
+                                                <option value="2">Cdi</option>
+                                                <option value="3">Cdd</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Job Category</label>
-                                        <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Category">Category</option>
-                                                <option value="1">Web Developer</option>
-                                                <option value="2">PHP Developer</option>
-                                                <option value="3">Web Designer</option>
-                                                <option value="4">Graphic Designer</option>
-                                            </select>
-                                        </div>
+                                        <label class="">Domaine: </label>
+                                        <input type="text" class="form-control resume" name="domaine" placeholder="" value="{{old('domaine')}}" required>
                                     </div>
                                 </div>
                             </div>
@@ -76,22 +67,15 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">City</label>
-                                        <input id="city" type="text" class="form-control resume" placeholder="">
+                                        <label class="">Lieu de travail: </label>
+                                        <input type="text" class="form-control resume" name="lieu" placeholder="" value="{{old('lieu')}}" required>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Country</label>
-                                        <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Country">Country</option>
-                                                <option value="1">Afghanistan</option>
-                                                <option value="2">Bangladesh</option>
-                                                <option value="3">Canada</option>
-                                                <option value="4">Dominica</option>
-                                            </select>
-                                        </div>
+                                        <label class="">Diplôme: </label>
+                                        <input type="text" class="form-control resume" name="diplome" placeholder="" value="{{old('diplome')}}" required>
                                     </div>
                                 </div>
                             </div>
@@ -99,43 +83,47 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Minimum Salary</label>
-                                        <input id="minimum-salary" type="text" class="form-control resume" placeholder="$8000">
+                                        <label class="">Competences: </label>
+                                        <input type="text" class="form-control resume" name="competences" placeholder="Exemple: Laravel6, jQuery, VueJs" value="{{old('competences')}}" required>
+                                        <span class="text-muted">Separer chaque competence par une vergule (,)</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Maximum Salary</label>
-                                        <input id="maximum-salary" type="text" class="form-control resume" placeholder="$20000">
+                                        <label class="">Rémunération: </label>
+                                        <input id="maximum-salary" type="text" class="form-control resume" name="remuneration" placeholder="" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Education Level</label>
+                                        <label class="">Date de début prévu: </label>
+                                        <input type="date" name="date_debut" class="form-control" value="{{old('date_debut')}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group app-label mt-2">
+                                        <label class="">Nombre d'année d'experience</label>
                                         <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Level">Level</option>
-                                                <option value="1">Level-1</option>
-                                                <option value="2">Level-2</option>
-                                                <option value="3">Level-3</option>
-                                                <option value="4">Level-4</option>
+                                            <select class="form-control" name="annee_experience" required>
+                                                @for ($i=1; $i <= 30; $i++)
+                                                  <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
                                             </select>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Year of Experience</label>
+                                        <label class="">Durée: </label>
                                         <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Experience">Experience</option>
-                                                <option value="1">1 Year</option>
-                                                <option value="2">2 Year</option>
-                                                <option value="3">3 Year</option>
+                                            <select class="form-control" name="duree" required>
+                                                <option value="1">CDD</option>
+                                                <option value="2">Stage</option>
                                             </select>
                                         </div>
                                     </div>
@@ -145,87 +133,15 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Website</label>
-                                        <input id="url" type="url" class="form-control resume" placeholder="">
+                                        <label class="">Description: </label>
+                                        <textarea id="description" rows="6" class="form-control resume" name="description" placeholder="" required>{{old('description')}}</textarea>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Email Address</label>
-                                        <input id="email-address" type="text" class="form-control resume" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Phone Number</label>
-                                        <input id="number" type="text" class="form-control resume" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Gender</label>
-                                        <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Gender">Gender</option>
-                                                <option value="1">Male</option>
-                                                <option value="2">Female</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Shift</label>
-                                        <div class="form-button">
-                                            <select class="nice-select rounded">
-                                                <option data-display="Shift">Shift</option>
-                                                <option value="1">Morning</option>
-                                                <option value="2">Evening</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group app-label mt-2">
-                                        <label class="text-muted">Job Description</label>
-                                        <textarea id="description" rows="6" class="form-control resume" placeholder=""></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item">
-                                            <div class="input-group mt-2 mb-2">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                                    <label class="custom-file-label rounded"><i class="mdi mdi-cloud-upload mr-1"></i> Upload Files</label>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="list-inline-item">
-                                            <h6 class="text-muted mb-0">Upload Images Or Documents.</h6>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row">
+                              <div class="row">
                                 <div class="col-lg-12 mt-2">
-                                    <a href="#" class="btn btn-primary">Post a Job</a>
+                                    <input type="submit" class="btn btn-primary" value="Confirmer">
                                 </div>
                             </div>
                         </form>
