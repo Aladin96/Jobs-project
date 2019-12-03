@@ -18,4 +18,8 @@ class Recruteur extends Authenticatable
       protected $hidden = [
           'password', 'remember_token',
       ];
+
+      public function offres(){
+        return $this->hasMany('App\Offre', 'id_recruteur', 'id');
+      }
 }

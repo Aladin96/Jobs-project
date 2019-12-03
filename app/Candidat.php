@@ -19,7 +19,5 @@ class Candidat extends Authenticatable
          'password', 'remember_token'
      ];
 
-     public function offres(){
-       return $this->hasMany('App\Offre');
-     }
+
 }
