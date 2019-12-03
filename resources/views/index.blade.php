@@ -482,12 +482,8 @@
                          <div class="row">
                              <div class="col-lg-12">
 
-                                 <?php
-                                  use App\Offre;
-                                  use App\Recruteur;
-                                  $offers = Offre::Cursor();
-                                  foreach ($offers as $offer ) {
-                                    $rec = Recruteur::Find($offer->id_recruteur); ?>
+
+                                  @foreach ($offers as $offer )
                                  <div class="job-box bg-white overflow-hidden border rounded mt-4 position-relative overflow-hidden">
                                      <div class="lable text-center pt-2 pb-2">
                                          <ul class="list-unstyled best text-white mb-0 text-uppercase">
@@ -498,28 +494,28 @@
                                          <div class="row align-items-center">
                                              <div class="col-md-2">
                                                  <div class="mo-mb-2">
-                                                     <img src="{{asset($rec->logo)}}" class="img-fluid mx-auto d-block">
+                                                     <img src="{{asset($offer->recruteur->logo)}}" class="img-fluid mx-auto d-block">
                                                  </div>
                                              </div>
                                              <div class="col-md-3">
                                                  <div>
-                                                     <h5 class="f-18"><a href="#" class="text-dark"><?php echo $offer->intitule; ?></a></h5>
-                                                     <p class="text-muted mb-0"><?php echo $rec->nom; ?></p>
+                                                     <h5 class="f-18"><a href="#" class="text-dark">{{$offer->intitule}}</a></h5>
+                                                     <p class="text-muted mb-0">{{$offer->recruteur->nom}}</p>
                                                  </div>
                                              </div>
                                              <div class="col-md-3">
                                                  <div>
-                                                     <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i><?php echo $offer->lieu_de_travail; ?></p>
+                                                     <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>{{$offer->lieu_de_travail}}</p>
                                                  </div>
                                              </div>
                                              <div class="col-md-2">
                                                  <div>
-                                                     <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span><?php echo $offer->remuneration . " DA"; ?></p>
+                                                     <p class="text-muted mb-0 mo-mb-2"><span class="text-primary"><i class="fab fa-dyalog"></i> </span>{{$offer->remuneration}} DA</p>
                                                  </div>
                                              </div>
                                              <div class="col-md-2">
                                                  <div>
-                                                     <p class="text-muted mb-0"><?php echo $offer->type; ?></p>
+                                                     <p class="text-muted mb-0"><i class="fas fa-suitcase text-primary mr-2"></i>{{$offer->type}}</p>
                                                  </div>
                                              </div>
                                          </div>
@@ -528,12 +524,12 @@
                                          <div class="row">
                                              <div class="col-md-4">
                                                  <div>
-                                                     <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Experience : </span><?php echo $offer->annee_experience." année(s)"; ?></p>
+                                                     <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Experience : </span>{{$offer->annee_experience}} Année(s)</p>
                                                  </div>
                                              </div>
                                              <div class="col-md-6">
                                                  <div>
-                                                     <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Compétences :</span> <?php echo $offer->competences; ?> </p>
+                                                     <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Compétences :</span> {{$offer->competences}}</p>
                                                  </div>
                                              </div>
                                              <div class="col-md-2">
@@ -545,7 +541,7 @@
                                      </div>
                                  </div>
 
-                               <?php  }?>
+                               @endforeach
 
                              </div>
                          </div>
