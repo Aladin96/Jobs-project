@@ -13,6 +13,9 @@ class CandidatsController extends Controller
 
     public function index(){
 
+      $candidats = Candidat::paginate(10);
+      return view('candidats.index', compact('candidats'));
+
     }
 
 
@@ -22,8 +25,8 @@ class CandidatsController extends Controller
         return abort('404');
       }
 
-
       $candidat = Candidat::findOrFail($id);
+
       return view('candidats.edit', compact('candidat'));
     }
 
