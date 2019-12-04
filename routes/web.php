@@ -15,11 +15,13 @@ Route::get('/','HomeController@index');
 
 
 // Candidats Routes
-Route::get('/candidat/{show}', 'CandidatsController@show');
+Route::get('/candidats', 'CandidatsController@index');
+Route::get('/candidat/{show}', 'CandidatsController@show')->name('candidat');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::get('/cv' , 'CvsController@index');
 Route::post('/cv' , 'CvsController@store');
+
 
 // RECRUTEUR Routes
 Route::get('/recruteur/{show}', 'RecruteursController@show');
