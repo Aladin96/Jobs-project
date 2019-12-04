@@ -416,8 +416,12 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
 
     public static $classMap = array (
         'App\\Candidat' => __DIR__ . '/../..' . '/app/Candidat.php',
+        'App\\Competence' => __DIR__ . '/../..' . '/app/Competence.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Cv' => __DIR__ . '/../..' . '/app/Cv.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Experience' => __DIR__ . '/../..' . '/app/Experience.php',
+        'App\\Formation' => __DIR__ . '/../..' . '/app/Formation.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -426,6 +430,8 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CandidatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidatsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\CvsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CvsController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\OffresController' => __DIR__ . '/../..' . '/app/Http/Controllers/OffresController.php',
         'App\\Http\\Controllers\\RecruteursController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecruteursController.php',
         'App\\Http\\Controllers\\TestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestsController.php',

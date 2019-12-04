@@ -10,17 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('index');
-//
-// });
+// route racine
 Route::get('/','HomeController@index');
+
+
 // Candidats Routes
 Route::get('/candidat/{show}', 'CandidatsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::get('/cv' , 'CvsController@index');
+Route::post('/cv' , 'CvsController@store');
 
 // RECRUTEUR Routes
 Route::get('/recruteur/{show}', 'RecruteursController@show');

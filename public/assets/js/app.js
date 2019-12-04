@@ -49,10 +49,15 @@
         return false;
     });
 
+
     // adding a training
-    $(".add-more").click(function () {
-      let element = $(this).parent().parent().parent().children('form');
-      element.append("<div class='col-12'><hr class='sep'></div>"+ element.first().html()  );
+    $(".add-more").click(function (event) {
+      event.preventDefault();
+      let element = $(this).parent().parent().parent().children('.section-wrapper');
+      element.append("<div class='col-12'><hr class='sep'></div> <div class ='row'>"
+                      + element.children().first().html() + "</div>" );
+
+    //  element.append("<div class='col-12'><hr class='sep'></div>"+ element.first().html()  );
     })
 
 })(jQuery)

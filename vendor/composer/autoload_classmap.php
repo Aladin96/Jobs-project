@@ -7,8 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Candidat' => $baseDir . '/app/Candidat.php',
+    'App\\Competence' => $baseDir . '/app/Competence.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Cv' => $baseDir . '/app/Cv.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Experience' => $baseDir . '/app/Experience.php',
+    'App\\Formation' => $baseDir . '/app/Formation.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -17,6 +21,8 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\CandidatsController' => $baseDir . '/app/Http/Controllers/CandidatsController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\CvsController' => $baseDir . '/app/Http/Controllers/CvsController.php',
+    'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\OffresController' => $baseDir . '/app/Http/Controllers/OffresController.php',
     'App\\Http\\Controllers\\RecruteursController' => $baseDir . '/app/Http/Controllers/RecruteursController.php',
     'App\\Http\\Controllers\\TestsController' => $baseDir . '/app/Http/Controllers/TestsController.php',

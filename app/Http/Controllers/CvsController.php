@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Cv;
+use Auth;
+use App\Formation;
+use App\Experience;
+use App\Competence;
 
 class CvsController extends Controller
 {
@@ -14,7 +19,11 @@ class CvsController extends Controller
      */
     public function index()
     {
-        return view ('candidats.resume');
+        if(Auth::guard('candidat')->check())
+          return view ('candidats.resume');
+        else {
+          return ('404');
+        }
     }
 
     /**
@@ -35,7 +44,42 @@ class CvsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cv = new Cv();
+        $cv->id_candidat = 1 ;
+        $cv->titre = $request->intitule_cv ;
+        $cv->divers = "" ;
+        $cv->document = "" ;
+        $cv->save();
+
+        foreach ($request->diplome as $index => $diplome) {
+          $formation = new Formation();
+          $formation->id_cv = $cv->id;
+          $formation->diplome = $diplome;
+          $formation->domaine = $request->domaine[$index];
+          $formation->lieu = $request->lieu[$index];
+          $formation->date_debut = $request->dd_formation[$index];
+          $formation->date_fin = $request->df_formation[$index];
+          $formation->save();
+        }
+
+        foreach ($request->intitule_experience as $index => $intitule) {
+          $experience = new Experience();
+          $experience->intitule = $intitule;
+          $experience->id_cv = $cv->id;
+          $experience->lieu = $request->wilaya[$index];
+          $experience->date_debut = $request->dd_experience[$index];
+          $experience->date_fin = $request->df_experience[$index];
+          $experience->save();
+        }
+
+        foreach ($request->intitule_competence as $index => $intitule) {
+          $competence = new Competence();
+          $competence->id_cv = $cv->id;
+          $competence->intitule = $intitule;
+          $competence->description = $request->description[$index];
+          $competence->save();
+        }
+        return ("Resume uploaded with succeess");
     }
 
     /**
