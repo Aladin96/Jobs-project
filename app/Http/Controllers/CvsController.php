@@ -129,6 +129,15 @@ class CvsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $cv = Cv::findOrFail($id);
+      $haveRight = (Auth::guard('candidat')->id() == $cv->id_candidat ) ? true : false;
+      if ($haveRight) {
+        $candidat = $cv->id_candidat;
+        $cv->delete();
+        return redirect('/candidat/'.$candidat);
+      }
+      else {
+      return "404";
+      }
     }
 }

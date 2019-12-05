@@ -22,6 +22,7 @@ Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::get('/cv' , 'CvsController@index');
 Route::post('/cv' , 'CvsController@store');
+Route::delete('/supp_cv/{id}', 'CvsController@destroy');
 
 
 // RECRUTEUR Routes

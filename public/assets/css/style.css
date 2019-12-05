@@ -2628,7 +2628,7 @@ hr {
 }
 .cv-panel i {
   position: relative;
-  margin-left: 10px;  
+  margin-left: 10px;
   cursor: pointer;
 }
 .cv-panel i::after {
@@ -2648,6 +2648,38 @@ hr {
 
 .cv-panel i:hover::after {
   opacity: 1;
+}
+section.delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #333c;
+  height: 100vh;
+  width: 100%;
+  z-index: 100;
+  opacity: 0;
+  transition: .3s ease-out;
+  pointer-events: none;
+}
+section.delete h4{
+  margin-bottom: 20px;
+}
+section.delete span {
+  position: absolute;
+  cursor: pointer;
+  right: 70px;
+  top: 20px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #fff;
+}
+section.delete > div{
+  position: absolute;
+  padding: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
 }
 @keyframes scaleIn {
   from{

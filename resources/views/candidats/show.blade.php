@@ -147,7 +147,26 @@
                 </div>
             </div>
         </div>
-
+        @if($haveRight)
+        <section class="delete">
+          <span>X</span>
+          <div class="border rounded">
+            <h4>Etes vous sure de vouloir supprimez ce cv</h4>
+            <div class="row">
+              <div class="col-6 text-center">
+                <form action="{{ url('supp_cv/'.$cv[0]->id)}}" method="post">
+                  @csrf
+                  {{ method_field('DELETE') }}
+                  <input class="btn btn-danger" type="submit" value="Confirmer">
+                </form>
+              </div>
+              <div class="col-6 text-center">
+                <button type="button" class="btn btn-primary">Annuler</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        @endif
         <div class="row">
             <div class="col-lg-12 mt-4 pt-2">
                 <h4 class="text-dark">Mon CV:</h4>

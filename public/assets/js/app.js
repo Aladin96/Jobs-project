@@ -56,8 +56,19 @@
       let element = $(this).parent().parent().parent().children('.section-wrapper');
       element.append("<div class='col-12'><hr class='sep'></div> <div class ='row'>"
                       + element.children().first().html() + "</div>" );
+    })
 
-    //  element.append("<div class='col-12'><hr class='sep'></div>"+ element.first().html()  );
+    $("i.fa-trash-alt").click(function () {
+      $('section.delete').css({
+        opacity : "1",
+        pointerEvents : "auto"
+      })
+      $('section.delete span , .btn-primary').click(function () {
+        $('section.delete').css({
+          opacity : "0",
+          pointerEvents : "none"
+        })
+      })
     })
 
 })(jQuery)
