@@ -60,21 +60,16 @@
         <div class="row">
             <div class="col-lg-12 mt-3">
                 <div class="border rounded p-4">
+                  @php
+                  $all = App\Cv::with('competence')->find($cv[0]->id);
+                  $competences = $all->competence;
+                  @endphp
+                  @foreach($competences as $competence)
                   <div class="competence border-bottom mb-4">
-                    <h4 class="text-dark">Laravel 6</h4>
-                    <p class="text-muted">Libero venenatis faucibus ullam quis ante tiam sit amet orci eget eros faucibus tincidunt ed fringilla mauris sit amet nibh Donec sodales sagittis magna ed consequat leo eget bibendum sodales augue velit cursus nunc quis gravida magna mi libero usce vulputate eleifend sapien estibulum purus qua scelerisque ut mollis sed nonummy id metus ullam accumsan lorem Vivamus elementum semper enean vulputate eleifend tellus enean leo ligula porttitor.</p>
-
+                    <h4 class="text-dark">{{ $competence->intitule }}</h4>
+                    <p class="text-muted">{{ $competence->description }}</p>
                   </div>
-                  <div class="competence border-bottom mb-4">
-                    <h4 class="text-dark">Laravel 6</h4>
-                    <p class="text-muted">Libero venenatis faucibus ullam quis ante tiam sit amet orci eget eros faucibus tincidunt ed fringilla mauris sit amet nibh Donec sodales sagittis magna ed consequat leo eget bibendum sodales augue velit cursus nunc quis gravida magna mi libero usce vulputate eleifend sapien estibulum purus qua scelerisque ut mollis sed nonummy id metus ullam accumsan lorem Vivamus elementum semper enean vulputate eleifend tellus enean leo ligula porttitor.</p>
-
-                  </div>
-                  <div class="competence border-bottom mb-4">
-                    <h4 class="text-dark">Laravel 6</h4>
-                    <p class="text-muted">Libero venenatis faucibus ullam quis ante tiam sit amet orci eget eros faucibus tincidunt ed fringilla mauris sit amet nibh Donec sodales sagittis magna ed consequat leo eget bibendum sodales augue velit cursus nunc quis gravida magna mi libero usce vulputate eleifend sapien estibulum purus qua scelerisque ut mollis sed nonummy id metus ullam accumsan lorem Vivamus elementum semper enean vulputate eleifend tellus enean leo ligula porttitor.</p>
-
-                  </div>
+                  @endforeach
                 </div>
             </div>
         </div>
@@ -115,37 +110,28 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 mt-3 mt-md-0 pt-3">
-                <div class="border rounded job-list-box p-4">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="job-list-desc candidates-profile-exp-desc">
-                                <h5 class="f-19 mb-2 text-dark">intitulé</h5>
-                                <p class="text-muted mb-0 f-16">Lieux</p>
-                                <p class="text-muted mb-0 f-16">Date debut: - Date fin</p>
-                                <p class="text-muted mb-0 mt-2 f-16 border-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          @php
+          $all = App\Cv::with('experience')->find($cv[0]->id);
+          $experiences = $all->experience;
+          @endphp
+          @foreach($experiences as $experience)
+          <div class="col-md-6 mt-3 mt-md-0 pt-3">
+              <div class="border rounded job-list-box p-4">
+                  <div class="row">
+                      <div class="col-lg-12 text-center">
+                          <div class="job-list-desc candidates-profile-exp-desc">
+                              <h5 class="f-19 mb-2 text-dark">{{ $experience->intitule }}</h5>
+                              <p class="text-muted mb-2 f-16">{{ $experience->lieu }}</p>
+                              <p class="text-muted mb-0 f-16 pt-2 border-top">{{ $experience->date_debut }} - {{ $experience->date_fin }}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          @endforeach
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-6 mt-3 mt-md-0 pt-3">
-                <div class="border rounded job-list-box p-4">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="job-list-desc candidates-profile-exp-desc">
-                                <h5 class="f-19 mb-2 text-dark">intitulé</h5>
-                                <p class="text-muted mb-0 f-16">Lieux</p>
-                                <p class="text-muted mb-0 f-16">Date debut: - Date fin</p>
-                                <p class="text-muted mb-0 mt-2 f-16 border-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         @if($haveRight)
         <section class="delete">
