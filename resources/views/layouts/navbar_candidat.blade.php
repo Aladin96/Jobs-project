@@ -59,10 +59,10 @@
             <ul class="navigation-menu">
                 <li><a href="{{ url('/') }}">Acceuil</a></li>
                 <li class="has-submenu">
-                    <a href="javascript:void(0)">Mon profile</a><span class="menu-arrow"></span>
+                    <a href="{{ url('/candidat/' . $id) }}">Mon profile</a><span class="menu-arrow"></span>
                     <ul class="submenu">
+                    <li><a href="{{ url('/candidat/' . $id) }}">Voir mon profile</a></li>
                         <li><a href="{{ url('/candidat/' . $id . '/edit') }}">Modifier Mon profile</a></li>
-                        <li><a href="{{ url('/candidat/' . $id) }}">Voir mon profile</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">

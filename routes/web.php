@@ -17,6 +17,7 @@ Route::get('/','HomeController@index');
 // Candidats Routes
 Route::get('/candidats', 'CandidatsController@index');
 Route::get('/candidat/{show}', 'CandidatsController@show')->name('candidat');
+Route::get('/candidat/{show}/{id}', 'CvsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::get('/cv' , 'CvsController@index');

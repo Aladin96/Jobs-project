@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use App\Candidat;
+use App\Cv;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -100,8 +101,11 @@ class CandidatsController extends Controller
     public function show($id){
 
       $candidat = Candidat::findOrFail($id);
-      return view('candidats.show', compact('candidat'));
+      $cv = Cv::All()->where('id_candidat' , $id);
+      $haveRight = (Auth::guard('candidat')->id() == $candidat->id ) ? true : false;
+      return view('candidats.show', compact('candidat' , 'cv' , 'haveRight'));
 
     }
+    
 
 }

@@ -19,7 +19,7 @@
             <div class="col-md-6">
                 <div class="candidates-profile-details text-center">
                     <img src="{{ asset($candidat->photo) }}" height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
-                    <h5 class="text-white mb-2"><span class="badge badge-primary">{{ $candidat->civilite}}</span>  {{ $candidat->nom . ' ' .  $candidat->prenom }}</h5>
+                    <h5 class="text-white mb-2"><span class="badge badge-primary">{{ $candidat->civilite }}</span>  {{ $candidat->nom . ' ' .  $candidat->prenom }}</h5>
                 </div>
             </div>
         </div>
@@ -29,7 +29,28 @@
 
 <!-- CANDIDATES PROFILE START -->
 <section class="section">
+
     <div class="container">
+      @if( count($cv) == 0 )
+      <div class="row">
+          <div class="col-lg-12">
+              <h2 class="text-center text-muted p-5">Pas de cv actuellement</h2>
+          </div>
+      </div>
+      @elseif(count($cv) == 1)
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="text-center text-muted p-4">{{ $cv[0]->titre }}
+                  @if( $haveRight )
+                  <div class="cv-panel float-right">
+                    <i class="far fa-edit fa-xs text-primary" name="Modifier"></i>
+                    <i class="far fa-trash-alt fa-xs text-danger" name="Supprimer"></i>
+                  </div>
+                  @endif
+                </h2>
+
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <h4 class="text-dark">Mes compétences: </h4>
@@ -60,39 +81,30 @@
 
         <div class="row">
             <div class="col-lg-12 mt-4 pt-2">
-                <h4 class="text-dark">Mes formation :</h4>
+                <h4 class="text-dark">Mes formations :</h4>
             </div>
         </div>
 
         <div class="row">
-
+          @php
+          $all = App\Cv::with('formation')->find($cv[0]->id);
+          $formations = $all->formation;
+          @endphp
+          @foreach ($formations as $formation)
             <div class="col-lg-4 col-md-6 mt-4 pt-5">
                 <div class="border rounded candidates-profile-education text-center text-muted">
                     <div class="profile-education-icon border rounded-pill bg-white text-primary">
                         <i class="mdi mdi-36px mdi-school"></i>
                     </div>
-                    <h6 class="text-uppercase f-17">Diplome</h6>
-                    <p class="mb-0">Domaine</p>
-                    <p class="pb-3 mb-0">Lieux</p>
+                    <h6 class="text-uppercase f-17">{{$formation->diplome}}</h6>
+                    <p class="mb-0">{{$formation->domaine}}</p>
+                    <p class="pb-3 mb-0 text-primary">{{$formation->lieu}}</p>
 
-                    <p class="pt-3 border-top mb-0">Date Debut: </p>
-                    <p class="pb-3 mb-0">Date fin:</p>
+                    <p class="pt-3 border-top mb-0">date debut : {{$formation->date_debut}} </p>
+                    <p class="pb-3 mb-0">date fin : {{$formation->date_fin}}</p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-5">
-                <div class="border rounded candidates-profile-education text-center text-muted">
-                    <div class="profile-education-icon border rounded-pill bg-white text-primary">
-                        <i class="mdi mdi-36px mdi-school"></i>
-                    </div>
-                    <h6 class="text-uppercase f-17">Diplome</h6>
-                    <p class="mb-0">Domaine</p>
-                    <p class="pb-3 mb-0">Lieux</p>
-
-                    <p class="pt-3 border-top mb-0">Date Debut: </p>
-                    <p class="pb-3 mb-0">Date fin:</p>
-                </div>
-            </div>
+          @endforeach
 
         </div>
 
@@ -147,7 +159,26 @@
             <a href="#" class="btn btn-success btn-cv">Télecharge Mon CV </a>
           </div>
         </div>
+        @else
+
+        <div class="row">
+              <div class="col-lg-12">
+                  <h2 class="text-center text-muted p-4">Mes cvs : </h2>
+              </div>
+          @foreach($cv as $cv_actuel)<div class="col-lg-4 col-md-6 mt-4 pt-5">
+              <div class="border rounded candidates-profile-education text-center text-muted">
+                  <div class="profile-education-icon border rounded-pill bg-white text-primary">
+                      <i class="fas fa-briefcase fa-lg"></i>
+                  </div>
+                  <h6 class="text-uppercase f-17"> <a href="{{ url('/candidat/'.$candidat->id.'/'.$cv_actuel->id) }}">{{ $cv_actuel->titre}}</a> </h6>
+                  <p class="pt-3 border-top mb-0"> {{ $cv_actuel->created_at}} </p>
+              </div>
+          </div>
+          @endforeach
+        </div>
+        @endif
     </div>
+
 </section>
 <!-- CANDIDATES PROFILE END -->
 

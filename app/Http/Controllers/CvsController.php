@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Cv;
+use App\Candidat;
 use Auth;
+use App\Cv;
 use App\Formation;
 use App\Experience;
 use App\Competence;
@@ -45,7 +46,7 @@ class CvsController extends Controller
     public function store(Request $request)
     {
         $cv = new Cv();
-        $cv->id_candidat = 1 ;
+        $cv->id_candidat = Auth::guard('candidat')->id() ;
         $cv->titre = $request->intitule_cv ;
         $cv->divers = "" ;
         $cv->document = "" ;
@@ -88,9 +89,13 @@ class CvsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id , $cv)
     {
-        //
+      $candidat = Candidat::findOrFail($id);
+      $cv = Cv::find($cv);
+      $cv = array($cv);
+      $haveRight = (Auth::guard('candidat')->id() == $candidat->id ) ? true : false;
+      return view('candidats.show', compact('candidat' , 'cv' , 'haveRight'));
     }
 
     /**

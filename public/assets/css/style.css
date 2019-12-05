@@ -2626,6 +2626,29 @@ hr {
   height: 100px;
   width: auto;
 }
+.cv-panel i {
+  position: relative;
+  margin-left: 10px;  
+  cursor: pointer;
+}
+.cv-panel i::after {
+  content: attr(name);
+  background: #111c;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%,-110%);
+  opacity: 0;
+  transition: .3s ease;
+}
+
+.cv-panel i:hover::after {
+  opacity: 1;
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);
