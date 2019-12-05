@@ -22,4 +22,8 @@ class Recruteur extends Authenticatable
       public function offres(){
         return $this->hasMany('App\Offre', 'id_recruteur', 'id');
       }
+
+      public function favoris(){
+        return $this->belongsToMany('App\Candidat', 'favoris', 'recruteur_id');
+      }
 }

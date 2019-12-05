@@ -72,9 +72,9 @@
                         <li><a href="#">Recherche avancée</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url('/') }}">Les candidats</a></li>
+                <li><a href="{{ url('/candidats') }}">Les candidats</a></li>
                 <li>
-                    <a href="contact.html">contact</a>
+                    <a href="{{ url('/favoris') }}">Mes favoris</a>
                 </li>
                 <li>
                     <a href="{{url('/logout')}}">Déconnexion</a>

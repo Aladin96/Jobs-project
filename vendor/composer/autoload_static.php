@@ -420,8 +420,12 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Cv' => __DIR__ . '/../..' . '/app/Cv.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+<<<<<<< Updated upstream
         'App\\Experience' => __DIR__ . '/../..' . '/app/Experience.php',
         'App\\Formation' => __DIR__ . '/../..' . '/app/Formation.php',
+=======
+        'App\\Favori' => __DIR__ . '/../..' . '/app/Favori.php',
+>>>>>>> Stashed changes
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

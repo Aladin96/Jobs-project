@@ -11,6 +11,7 @@
   @include('layouts.navbar_guest')
 @endif
 
+
 <!-- Start home -->
 <section class="bg-half page-next-level">
     <div class="bg-overlay"></div>
@@ -362,11 +363,23 @@
             </div>
 
             <div class="row">
-
+              @if(session()->has('add-candidat'))
+                <div class="alert alert-success">{{session()->get('add-candidat')}}</div>
+              @endif
+              @if(session()->has('delete-candidat'))
+                <div class="alert alert-danger">{{session()->get('delete-candidat')}}</div>
+              @endif
                 <div class="col-lg-12 col-md-12">
                     <div class="candidates-listing-item">
 
                       @foreach( $candidats as $candidat )
+                        @php
+                         if(App\Http\Controllers\FavoriController::checkIfIsFavorite(Auth::guard('recruteur')->id(), $candidat->id))
+                           $class="style=-webkit-text-fill-color:#e43f52";
+                         else
+                           $class="";
+
+                        @endphp
                         <div class="border mt-4 rounded p-3">
                             <div class="row">
                                 <div class="col-md-9">
@@ -383,12 +396,17 @@
                                         <p class="text-muted mt-1 mb-0">Skills : HTML, CSS, JavaScript, Wordpress, PHP, jQueary.</p>
                                     </div>
                                 </div>
-
                                 <div class="col-md-3">
                                     <div class="candidates-list-fav-btn text-right">
+                                      <form method="POST" action="{{url('/favoris')}}">
+                                        @csrf
+                                        <input type="hidden" name="candidat" value="{{$candidat->id}}">
+                                      <button type="submit" class="btn">
                                         <div class="fav-icon">
-                                            <i class="mdi mdi-heart"></i>
+                                            <i class="mdi mdi-heart" {{$class}}></i>
                                         </div>
+                                      </button>
+                                      </form>
                                         <div class="candidates-listing-btn mt-4">
                                             <a href="{{ route('candidat', [ 'show' => $candidat->id ] ) }}" class="btn btn-primary-outline btn-sm">View Profile</a>
                                         </div>

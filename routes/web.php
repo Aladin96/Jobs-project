@@ -30,6 +30,11 @@ Route::put('/recruteur/{id}', 'RecruteursController@update');
 Route::get('/offre/create', 'OffresController@create');
 Route::post('/offre/create', 'OffresController@store');
 
+
+//  Favoris
+Route::get('/favoris', 'FavoriController@index');
+Route::post('/favoris', 'FavoriController@store');
+
 // Authentification
 Auth::routes();
 
