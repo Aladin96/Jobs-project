@@ -11,8 +11,12 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Cv' => $baseDir . '/app/Cv.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+<<<<<<< Updated upstream
     'App\\Experience' => $baseDir . '/app/Experience.php',
     'App\\Formation' => $baseDir . '/app/Formation.php',
+=======
+    'App\\Favori' => $baseDir . '/app/Favori.php',
+>>>>>>> Stashed changes
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
