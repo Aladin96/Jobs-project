@@ -43,7 +43,7 @@
                 <h2 class="text-center text-muted p-4">{{ $cv[0]->titre }}
                   @if( $haveRight )
                   <div class="cv-panel float-right">
-                    <i class="far fa-edit fa-xs text-primary" name="Modifier"></i>
+                    <a href="{{ url('modifier/cv/'.$cv[0]->id)}}"><i class="far fa-edit fa-xs text-primary" name="Modifier"></i></a> 
                     <i class="far fa-trash-alt fa-xs text-danger" name="Supprimer"></i>
                   </div>
                   @endif

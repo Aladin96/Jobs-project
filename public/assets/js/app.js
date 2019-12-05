@@ -54,8 +54,11 @@
     $(".add-more").click(function (event) {
       event.preventDefault();
       let element = $(this).parent().parent().parent().children('.section-wrapper');
+      element.children('input , textarea').value = "";
       element.append("<div class='col-12'><hr class='sep'></div> <div class ='row'>"
                       + element.children().first().html() + "</div>" );
+      element.children('.row').last().children().children().children('input , textarea').val('');
+      element.children('.row').last().children().children().children().children().children('input').val('');
     })
 
     $("i.fa-trash-alt").click(function () {

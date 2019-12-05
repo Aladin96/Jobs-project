@@ -106,7 +106,14 @@ class CvsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cv = Cv::find($id);
+        $haveRight = (Auth::guard('candidat')->id() == $cv->id_candidat ) ? true : false;
+        if ($haveRight) {
+          return view('candidats.edit_resume' , compact('cv'));
+        }
+        else {
+          return ('404');
+        }
     }
 
     /**
