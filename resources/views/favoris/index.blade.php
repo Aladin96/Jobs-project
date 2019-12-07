@@ -22,22 +22,12 @@
 
 
   <!-- CANDIDATES LISTING START -->
-  <section class="section pt-5" id="reload">
+  <section class="section pt-5">
           <div class="container">
               <div class="row">
 
-                @if(session()->has('add-candidat'))
-                  <div class="alert alert-success">{{session()->get('add-candidat')}}</div>
-                @elseif(session()->has('delete-candidat'))
-                  <div class="alert alert-danger">{{session()->get('delete-candidat')}}</div>
-                @elseif(session()->has('cant-add'))
-                  <div class="alert alert-danger">{{session()->get('cant-add')}}</div>
-                @elseif(session()->has('payment-success'))
-                  <div class="alert alert-success">{{session()->get('payment-success')}}</div>
-                @endif
-
                   <div class="col-lg-12 col-md-12">
-                      <div class="candidates-listing-item">
+                      <div class="candidates-listing-item"  id="reload">
 
                         @forelse($recruteur->favoris()->paginate(5) as $fav)
 
@@ -80,14 +70,15 @@
                             <h2 class="text-muted text-center p-5 mt-5">Aucun candidat</h2>
                           </div>
                           @endforelse
-                          @if(App\Recruteur::find($recruteur->id)->payFavorite == 0)
-                          <form action="{{route('pay')}}" method="post">
-                            @csrf
-                            <button class="btn btn-danger my-4" type="submit">Acheter l'option illimiter pour juste 20$</button>
-                          </form>
-                          @endif
                       </div>
-
+                      @if(App\Recruteur::find($recruteur->id)->payFavorite == 0)
+                      <p class="text-muted" style="display:inline-block">
+                      vous pouvez avoir un nombre illimité de favoris seullement a 20$ : &nbsp;</p>
+                      <form action="{{route('pay')}}" method="post" style="display:inline-block">
+                        @csrf
+                        <button class="btn btn-primary my-4 p-2" type="submit">Acheter</button>
+                      </form>
+                      @endif
                       <nav aria-label="Page navigation example">
                         {{$recruteur->favoris()->paginate(5)->links()}}
                       </nav>

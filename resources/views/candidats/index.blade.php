@@ -14,6 +14,18 @@
 
 <!-- Start home -->
 <section class="bg-half page-next-level">
+  <div class="unlimited-alert">
+    <div class="unlimited-box rounded">
+      <span class="close-alert">X</span>
+      <h4 class="text-center text-danger">alert !</h4>
+      <p class="text-muted text-center">vous avez atteint le nombre maximale de favoris,
+                              vous pouvez achetez l'offre illimité seulement a 20$.</p>
+      <form action="{{route('pay')}}" method="post" class="text-center">
+        @csrf
+        <button class="btn btn-danger my-4" type="submit">Acheter</button>
+      </form>
+    </div>
+  </div>
     <div class="bg-overlay"></div>
     <div class="container">
         <div class="row justify-content-center">

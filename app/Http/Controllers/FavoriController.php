@@ -42,7 +42,7 @@ class FavoriController extends Controller
 
           }else{
 
-            $request->session()->flash('cant-add','You cant add more than 3 favorite candidats');
+            echo "failed";
 
           }
 
@@ -57,10 +57,11 @@ class FavoriController extends Controller
       else{
 
         $this->deleteFromFavorite($id, $candidat_id, $request);
+        return redirect('/favoris' );
 
       }
 
-      return redirect('/favoris' );
+
     }
 
     /*
@@ -93,8 +94,6 @@ class FavoriController extends Controller
 
         $favori->save();
 
-        $request->session()->flash('add-candidat','Le candidat a ete ajoute au favoris avec succes');
-
       }
 
     /*
@@ -106,8 +105,6 @@ class FavoriController extends Controller
     public function deleteFromFavorite($id_auth, $id_candidat, $request){
 
       Favori::where('candidat_id', $id_candidat)->where('recruteur_id', $id_auth)->delete();
-
-      $request->session()->flash('delete-candidat','Le candidat a ete Supprimer');
 
     }
 

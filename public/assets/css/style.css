@@ -2685,6 +2685,62 @@ section.delete > div{
   -webkit-text-stroke: 2px #e43f52;
   -webkit-text-fill-color: #e43f52;
 }
+.unlimited-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #333c;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: .3s ease;
+}
+.unlimited-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 40px;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  opacity: 0;
+}
+.unlimited-box span{
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  color: #333;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #333;
+  font-size: 22px;
+  font-weight: bolder;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24.5px;
+  cursor: pointer;
+}
+@keyframes alert {
+  0% {
+    left: 60%;
+    opacity: 0;
+  }
+  25% {
+    left: 45%;
+    opacity: 1;
+  }
+  50% {
+    left: 52%;
+  }
+  75% {
+    left: 48%;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);

@@ -74,7 +74,7 @@
       })
     })
 
-    /*$('.candidates-list-fav-btn form , .candidates-profile-details form').submit(function (event) {
+    $('.candidates-listing-item').on('submit','form',function (event) {
       event.preventDefault();
       let form = $(this);
       let heart = form.children('button').children().children()
@@ -83,10 +83,32 @@
         url : 'favoris',
         method : 'POST',
         data :   form.serialize(),
-        success : function () {
-          $('#reload').load(' #reload');
+        success : function (data) {
+          if (data == "failed") {
+            heart.toggleClass('active');
+
+            $('.unlimited-alert').css({
+              opacity : '1',
+              pointerEvents : 'auto'
+            })
+            $('.unlimited-box').css({
+              animation: "alert .5s ease-in forwards"
+            })
+          }
+          else {
+            $('#reload').load(' #reload');
+          }
+          $('.close-alert').click(function () {
+            $('.unlimited-alert').css({
+              opacity : '0',
+              pointerEvents : 'none'
+            })
+            $('.unlimited-box').css({
+              animation: "none"
+            })
+          })
         }
       })
-    })*/
+    })
 
 })(jQuery)
