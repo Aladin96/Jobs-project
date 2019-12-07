@@ -34,15 +34,36 @@ class FavoriController extends Controller
 
       if( ! $response ){
 
+<<<<<<< Updated upstream
         $this->addToFavorite($id, $candidat_id, $request);
       }
+=======
+        if( $this->countFavorite($id) ){
 
-      else{
+          if( $this->hasOption($id) ){
+
+            $this->addToFavorite($id, $candidat_id, $request);
+
+          }else{
+
+            $request->session()->flash('cant-add','You cant add more than 3 favorite candidats');
+
+          }
+
+        }else{
+
+          $this->addToFavorite($id, $candidat_id, $request);
+
+        }
+
+      }else{
+>>>>>>> Stashed changes
+
         $this->deleteFromFavorite($id, $candidat_id, $request);
-        return redirect('/favoris' );
+
       }
 
-
+      return redirect('/favoris' );
     }
 
     /*
@@ -87,5 +108,38 @@ class FavoriController extends Controller
 
       Favori::where('candidat_id', $id_candidat)->where('recruteur_id', $id_auth)->delete();
 
+    }
+
+    /*
+    *
+    *  Count All the 'Candidats' Favorite To The Current 'Recruteur'
+    *
+    */
+
+    public static function countFavorite($auth_id){
+
+      $recruteur = Recruteur::find($auth_id);
+
+      $count = $recruteur->favoris->count();
+
+      if ($count >= 3 )
+        return 1;
+      else
+        return 0;
+    }
+
+    /*
+    *
+    *  Check If 'Recruteur' Has the option 'Illimited favorite'
+    *
+    */
+
+    public function hasOption($auth_id){
+      $recruteur = Recruteur::find($auth_id);
+
+      if( $recruteur->payFavorite == 1 )
+        return 1;
+      else
+        return 0;
     }
 }

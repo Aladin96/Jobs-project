@@ -26,25 +26,25 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
     );
 
     public static $prefixLengthsPsr4 = array (
-        'p' =>
+        'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'X' =>
+        'X' => 
         array (
             'XdgBaseDir\\' => 11,
         ),
-        'W' =>
+        'W' => 
         array (
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
-        'T' =>
+        'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
         ),
-        'S' =>
+        'S' => 
         array (
             'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Polyfill\\Php72\\' => 23,
@@ -68,11 +68,11 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
         ),
-        'R' =>
+        'R' => 
         array (
             'Ramsey\\Uuid\\' => 12,
         ),
-        'P' =>
+        'P' => 
         array (
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
@@ -81,33 +81,33 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
         ),
-        'O' =>
+        'O' => 
         array (
             'Opis\\Closure\\' => 13,
         ),
-        'N' =>
+        'N' => 
         array (
             'NunoMaduro\\Collision\\' => 21,
         ),
-        'M' =>
+        'M' => 
         array (
             'Monolog\\' => 8,
         ),
-        'L' =>
+        'L' => 
         array (
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
         ),
-        'J' =>
+        'J' => 
         array (
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
             'JakubOnderka\\PhpConsoleColor\\' => 29,
         ),
-        'I' =>
+        'I' => 
         array (
             'Illuminate\\' => 11,
         ),
-        'F' =>
+        'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
             'Faker\\' => 6,
@@ -115,11 +115,11 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
             'Facade\\IgnitionContracts\\' => 25,
             'Facade\\FlareClient\\' => 19,
         ),
-        'E' =>
+        'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
         ),
-        'D' =>
+        'D' => 
         array (
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
@@ -130,284 +130,288 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
             'Doctrine\\Common\\' => 16,
             'DeepCopy\\' => 9,
         ),
-        'C' =>
+        'C' => 
         array (
             'Cron\\' => 5,
             'Carbon\\' => 7,
         ),
-        'A' =>
+        'A' => 
         array (
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpDocumentor\\Reflection\\' =>
+        'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
-        'XdgBaseDir\\' =>
+        'XdgBaseDir\\' => 
         array (
             0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
         ),
-        'Whoops\\' =>
+        'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
         ),
-        'Webmozart\\Assert\\' =>
+        'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'TijsVerkoyen\\CssToInlineStyles\\' =>
+        'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
         ),
-        'Tests\\' =>
+        'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
-        'Symfony\\Polyfill\\Php73\\' =>
+        'Symfony\\Polyfill\\Php73\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
         ),
-        'Symfony\\Polyfill\\Php72\\' =>
+        'Symfony\\Polyfill\\Php72\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' =>
+        'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Intl\\Idn\\' =>
+        'Symfony\\Polyfill\\Intl\\Idn\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
         ),
-        'Symfony\\Polyfill\\Iconv\\' =>
+        'Symfony\\Polyfill\\Iconv\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
         ),
-        'Symfony\\Polyfill\\Ctype\\' =>
+        'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Contracts\\Translation\\' =>
+        'Symfony\\Contracts\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation-contracts',
         ),
-        'Symfony\\Contracts\\Service\\' =>
+        'Symfony\\Contracts\\Service\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
-        'Symfony\\Contracts\\EventDispatcher\\' =>
+        'Symfony\\Contracts\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts',
         ),
-        'Symfony\\Component\\VarDumper\\' =>
+        'Symfony\\Component\\VarDumper\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Symfony\\Component\\Translation\\' =>
+        'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'Symfony\\Component\\Routing\\' =>
+        'Symfony\\Component\\Routing\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
         ),
-        'Symfony\\Component\\Process\\' =>
+        'Symfony\\Component\\Process\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Symfony\\Component\\Mime\\' =>
+        'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
         ),
-        'Symfony\\Component\\HttpKernel\\' =>
+        'Symfony\\Component\\HttpKernel\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/http-kernel',
         ),
-        'Symfony\\Component\\HttpFoundation\\' =>
+        'Symfony\\Component\\HttpFoundation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/http-foundation',
         ),
-        'Symfony\\Component\\Finder\\' =>
+        'Symfony\\Component\\Finder\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
         ),
-        'Symfony\\Component\\EventDispatcher\\' =>
+        'Symfony\\Component\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
         ),
-        'Symfony\\Component\\Debug\\' =>
+        'Symfony\\Component\\Debug\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
         ),
-        'Symfony\\Component\\CssSelector\\' =>
+        'Symfony\\Component\\CssSelector\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/css-selector',
         ),
-        'Symfony\\Component\\Console\\' =>
+        'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Ramsey\\Uuid\\' =>
+        'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
         ),
-        'Psy\\' =>
+        'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
         ),
-        'Psr\\SimpleCache\\' =>
+        'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
-        'Psr\\Log\\' =>
+        'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Container\\' =>
+        'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Prophecy\\' =>
+        'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
-        'PhpParser\\' =>
+        'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Opis\\Closure\\' =>
+        'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
         ),
-        'NunoMaduro\\Collision\\' =>
+        'NunoMaduro\\Collision\\' => 
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
         ),
-        'Monolog\\' =>
+        'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'League\\Flysystem\\' =>
+        'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
-        'Laravel\\Tinker\\' =>
+        'Laravel\\Tinker\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
-        'JakubOnderka\\PhpConsoleHighlighter\\' =>
+        'JakubOnderka\\PhpConsoleHighlighter\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
         ),
-        'JakubOnderka\\PhpConsoleColor\\' =>
+        'JakubOnderka\\PhpConsoleColor\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
         ),
-        'Illuminate\\' =>
+        'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
-        'Fideloper\\Proxy\\' =>
+        'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
         ),
-        'Faker\\' =>
+        'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
-        'Facade\\Ignition\\' =>
+        'Facade\\Ignition\\' => 
         array (
             0 => __DIR__ . '/..' . '/facade/ignition/src',
         ),
-        'Facade\\IgnitionContracts\\' =>
+        'Facade\\IgnitionContracts\\' => 
         array (
             0 => __DIR__ . '/..' . '/facade/ignition-contracts/src',
         ),
-        'Facade\\FlareClient\\' =>
+        'Facade\\FlareClient\\' => 
         array (
             0 => __DIR__ . '/..' . '/facade/flare-client-php/src',
         ),
-        'Egulias\\EmailValidator\\' =>
+        'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
         ),
-        'Dotenv\\' =>
+        'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'Doctrine\\Instantiator\\' =>
+        'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
-        'Doctrine\\DBAL\\' =>
+        'Doctrine\\DBAL\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/dbal/lib/Doctrine/DBAL',
         ),
-        'Doctrine\\Common\\Lexer\\' =>
+        'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
         ),
-        'Doctrine\\Common\\Inflector\\' =>
+        'Doctrine\\Common\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
-        'Doctrine\\Common\\Cache\\' =>
+        'Doctrine\\Common\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
         ),
-        'Doctrine\\Common\\' =>
+        'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
         ),
-        'DeepCopy\\' =>
+        'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'Cron\\' =>
+        'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
-        'Carbon\\' =>
+        'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
-        'App\\' =>
+        'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'P' =>
+        'P' => 
         array (
-            'PhpOption\\' =>
+            'PhpOption\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
             ),
-            'Parsedown' =>
+            'PayPal' => 
+            array (
+                0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
+            ),
+            'Parsedown' => 
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown',
             ),
         ),
-        'M' =>
+        'M' => 
         array (
-            'Mockery' =>
+            'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
-        'H' =>
+        'H' => 
         array (
-            'Highlight\\' =>
+            'Highlight\\' => 
             array (
                 0 => __DIR__ . '/..' . '/scrivo/highlight.php',
             ),
-            'HighlightUtilities\\' =>
+            'HighlightUtilities\\' => 
             array (
                 0 => __DIR__ . '/..' . '/scrivo/highlight.php',
             ),
@@ -420,12 +424,9 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Cv' => __DIR__ . '/../..' . '/app/Cv.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-
         'App\\Experience' => __DIR__ . '/../..' . '/app/Experience.php',
-        'App\\Formation' => __DIR__ . '/../..' . '/app/Formation.php',
-
         'App\\Favori' => __DIR__ . '/../..' . '/app/Favori.php',
-
+        'App\\Formation' => __DIR__ . '/../..' . '/app/Formation.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -435,8 +436,10 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Http\\Controllers\\CandidatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidatsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CvsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CvsController.php',
+        'App\\Http\\Controllers\\FavoriController' => __DIR__ . '/../..' . '/app/Http/Controllers/FavoriController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\OffresController' => __DIR__ . '/../..' . '/app/Http/Controllers/OffresController.php',
+        'App\\Http\\Controllers\\PaypalController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaypalController.php',
         'App\\Http\\Controllers\\RecruteursController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecruteursController.php',
         'App\\Http\\Controllers\\TestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -3045,6 +3048,173 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
+        'PayPal\\Api\\Address' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Address.php',
+        'PayPal\\Api\\Agreement' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Agreement.php',
+        'PayPal\\Api\\AgreementDetails' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementDetails.php',
+        'PayPal\\Api\\AgreementStateDescriptor' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementStateDescriptor.php',
+        'PayPal\\Api\\AgreementTransaction' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementTransaction.php',
+        'PayPal\\Api\\AgreementTransactions' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/AgreementTransactions.php',
+        'PayPal\\Api\\AlternatePayment' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/AlternatePayment.php',
+        'PayPal\\Api\\Amount' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Amount.php',
+        'PayPal\\Api\\Authorization' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Authorization.php',
+        'PayPal\\Api\\BankAccount' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/BankAccount.php',
+        'PayPal\\Api\\BankAccountsList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/BankAccountsList.php',
+        'PayPal\\Api\\BankToken' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/BankToken.php',
+        'PayPal\\Api\\BaseAddress' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/BaseAddress.php',
+        'PayPal\\Api\\Billing' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Billing.php',
+        'PayPal\\Api\\BillingAgreementToken' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/BillingAgreementToken.php',
+        'PayPal\\Api\\BillingInfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/BillingInfo.php',
+        'PayPal\\Api\\CancelNotification' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CancelNotification.php',
+        'PayPal\\Api\\Capture' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Capture.php',
+        'PayPal\\Api\\CarrierAccount' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CarrierAccount.php',
+        'PayPal\\Api\\CarrierAccountToken' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CarrierAccountToken.php',
+        'PayPal\\Api\\CartBase' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CartBase.php',
+        'PayPal\\Api\\ChargeModel' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ChargeModel.php',
+        'PayPal\\Api\\Cost' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Cost.php',
+        'PayPal\\Api\\CountryCode' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CountryCode.php',
+        'PayPal\\Api\\CreateProfileResponse' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CreateProfileResponse.php',
+        'PayPal\\Api\\Credit' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Credit.php',
+        'PayPal\\Api\\CreditCard' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCard.php',
+        'PayPal\\Api\\CreditCardHistory' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCardHistory.php',
+        'PayPal\\Api\\CreditCardList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCardList.php',
+        'PayPal\\Api\\CreditCardToken' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditCardToken.php',
+        'PayPal\\Api\\CreditFinancingOffered' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CreditFinancingOffered.php',
+        'PayPal\\Api\\Currency' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Currency.php',
+        'PayPal\\Api\\CurrencyConversion' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CurrencyConversion.php',
+        'PayPal\\Api\\CustomAmount' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/CustomAmount.php',
+        'PayPal\\Api\\DetailedRefund' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/DetailedRefund.php',
+        'PayPal\\Api\\Details' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Details.php',
+        'PayPal\\Api\\Error' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Error.php',
+        'PayPal\\Api\\ErrorDetails' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ErrorDetails.php',
+        'PayPal\\Api\\ExtendedBankAccount' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ExtendedBankAccount.php',
+        'PayPal\\Api\\ExternalFunding' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ExternalFunding.php',
+        'PayPal\\Api\\FileAttachment' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FileAttachment.php',
+        'PayPal\\Api\\FlowConfig' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FlowConfig.php',
+        'PayPal\\Api\\FmfDetails' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FmfDetails.php',
+        'PayPal\\Api\\FundingDetail' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingDetail.php',
+        'PayPal\\Api\\FundingInstrument' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingInstrument.php',
+        'PayPal\\Api\\FundingOption' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingOption.php',
+        'PayPal\\Api\\FundingSource' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FundingSource.php',
+        'PayPal\\Api\\FuturePayment' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/FuturePayment.php',
+        'PayPal\\Api\\HyperSchema' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/HyperSchema.php',
+        'PayPal\\Api\\Image' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Image.php',
+        'PayPal\\Api\\Incentive' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Incentive.php',
+        'PayPal\\Api\\InputFields' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InputFields.php',
+        'PayPal\\Api\\InstallmentInfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InstallmentInfo.php',
+        'PayPal\\Api\\InstallmentOption' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InstallmentOption.php',
+        'PayPal\\Api\\Invoice' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Invoice.php',
+        'PayPal\\Api\\InvoiceAddress' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceAddress.php',
+        'PayPal\\Api\\InvoiceItem' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceItem.php',
+        'PayPal\\Api\\InvoiceNumber' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceNumber.php',
+        'PayPal\\Api\\InvoiceSearchResponse' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/InvoiceSearchResponse.php',
+        'PayPal\\Api\\Item' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Item.php',
+        'PayPal\\Api\\ItemList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ItemList.php',
+        'PayPal\\Api\\Links' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Links.php',
+        'PayPal\\Api\\Measurement' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Measurement.php',
+        'PayPal\\Api\\MerchantInfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/MerchantInfo.php',
+        'PayPal\\Api\\MerchantPreferences' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/MerchantPreferences.php',
+        'PayPal\\Api\\Metadata' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Metadata.php',
+        'PayPal\\Api\\NameValuePair' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/NameValuePair.php',
+        'PayPal\\Api\\Notification' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Notification.php',
+        'PayPal\\Api\\OpenIdAddress' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdAddress.php',
+        'PayPal\\Api\\OpenIdError' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdError.php',
+        'PayPal\\Api\\OpenIdSession' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdSession.php',
+        'PayPal\\Api\\OpenIdTokeninfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdTokeninfo.php',
+        'PayPal\\Api\\OpenIdUserinfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/OpenIdUserinfo.php',
+        'PayPal\\Api\\Order' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Order.php',
+        'PayPal\\Api\\OverrideChargeModel' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/OverrideChargeModel.php',
+        'PayPal\\Api\\Participant' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Participant.php',
+        'PayPal\\Api\\Patch' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Patch.php',
+        'PayPal\\Api\\PatchRequest' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PatchRequest.php',
+        'PayPal\\Api\\Payee' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Payee.php',
+        'PayPal\\Api\\Payer' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Payer.php',
+        'PayPal\\Api\\PayerInfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PayerInfo.php',
+        'PayPal\\Api\\Payment' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Payment.php',
+        'PayPal\\Api\\PaymentCard' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentCard.php',
+        'PayPal\\Api\\PaymentCardToken' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentCardToken.php',
+        'PayPal\\Api\\PaymentDefinition' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentDefinition.php',
+        'PayPal\\Api\\PaymentDetail' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentDetail.php',
+        'PayPal\\Api\\PaymentExecution' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentExecution.php',
+        'PayPal\\Api\\PaymentHistory' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentHistory.php',
+        'PayPal\\Api\\PaymentInstruction' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentInstruction.php',
+        'PayPal\\Api\\PaymentOptions' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentOptions.php',
+        'PayPal\\Api\\PaymentSummary' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentSummary.php',
+        'PayPal\\Api\\PaymentTerm' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PaymentTerm.php',
+        'PayPal\\Api\\Payout' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Payout.php',
+        'PayPal\\Api\\PayoutBatch' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutBatch.php',
+        'PayPal\\Api\\PayoutBatchHeader' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutBatchHeader.php',
+        'PayPal\\Api\\PayoutItem' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutItem.php',
+        'PayPal\\Api\\PayoutItemDetails' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutItemDetails.php',
+        'PayPal\\Api\\PayoutSenderBatchHeader' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PayoutSenderBatchHeader.php',
+        'PayPal\\Api\\Phone' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Phone.php',
+        'PayPal\\Api\\Plan' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Plan.php',
+        'PayPal\\Api\\PlanList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PlanList.php',
+        'PayPal\\Api\\PotentialPayerInfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PotentialPayerInfo.php',
+        'PayPal\\Api\\Presentation' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Presentation.php',
+        'PayPal\\Api\\PrivateLabelCard' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/PrivateLabelCard.php',
+        'PayPal\\Api\\ProcessorResponse' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ProcessorResponse.php',
+        'PayPal\\Api\\RecipientBankingInstruction' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/RecipientBankingInstruction.php',
+        'PayPal\\Api\\RedirectUrls' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/RedirectUrls.php',
+        'PayPal\\Api\\Refund' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Refund.php',
+        'PayPal\\Api\\RefundDetail' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/RefundDetail.php',
+        'PayPal\\Api\\RefundRequest' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/RefundRequest.php',
+        'PayPal\\Api\\RelatedResources' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/RelatedResources.php',
+        'PayPal\\Api\\Sale' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Sale.php',
+        'PayPal\\Api\\Search' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Search.php',
+        'PayPal\\Api\\ShippingAddress' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ShippingAddress.php',
+        'PayPal\\Api\\ShippingCost' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ShippingCost.php',
+        'PayPal\\Api\\ShippingInfo' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/ShippingInfo.php',
+        'PayPal\\Api\\Tax' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Tax.php',
+        'PayPal\\Api\\Template' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Template.php',
+        'PayPal\\Api\\TemplateData' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/TemplateData.php',
+        'PayPal\\Api\\TemplateSettings' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/TemplateSettings.php',
+        'PayPal\\Api\\TemplateSettingsMetadata' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/TemplateSettingsMetadata.php',
+        'PayPal\\Api\\Templates' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Templates.php',
+        'PayPal\\Api\\Terms' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Terms.php',
+        'PayPal\\Api\\Transaction' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Transaction.php',
+        'PayPal\\Api\\TransactionBase' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/TransactionBase.php',
+        'PayPal\\Api\\Transactions' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Transactions.php',
+        'PayPal\\Api\\VerifyWebhookSignature' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/VerifyWebhookSignature.php',
+        'PayPal\\Api\\VerifyWebhookSignatureResponse' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/VerifyWebhookSignatureResponse.php',
+        'PayPal\\Api\\WebProfile' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/WebProfile.php',
+        'PayPal\\Api\\Webhook' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/Webhook.php',
+        'PayPal\\Api\\WebhookEvent' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEvent.php',
+        'PayPal\\Api\\WebhookEventList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEventList.php',
+        'PayPal\\Api\\WebhookEventType' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEventType.php',
+        'PayPal\\Api\\WebhookEventTypeList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookEventTypeList.php',
+        'PayPal\\Api\\WebhookList' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Api/WebhookList.php',
+        'PayPal\\Auth\\OAuthTokenCredential' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Auth/OAuthTokenCredential.php',
+        'PayPal\\Cache\\AuthorizationCache' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Cache/AuthorizationCache.php',
+        'PayPal\\Common\\ArrayUtil' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Common/ArrayUtil.php',
+        'PayPal\\Common\\PayPalModel' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalModel.php',
+        'PayPal\\Common\\PayPalResourceModel' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalResourceModel.php',
+        'PayPal\\Common\\PayPalUserAgent' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Common/PayPalUserAgent.php',
+        'PayPal\\Common\\ReflectionUtil' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Common/ReflectionUtil.php',
+        'PayPal\\Converter\\FormatConverter' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Converter/FormatConverter.php',
+        'PayPal\\Core\\PayPalConfigManager' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalConfigManager.php',
+        'PayPal\\Core\\PayPalConstants' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalConstants.php',
+        'PayPal\\Core\\PayPalCredentialManager' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalCredentialManager.php',
+        'PayPal\\Core\\PayPalHttpConfig' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalHttpConfig.php',
+        'PayPal\\Core\\PayPalHttpConnection' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalHttpConnection.php',
+        'PayPal\\Core\\PayPalLoggingManager' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalLoggingManager.php',
+        'PayPal\\Exception\\PayPalConfigurationException' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalConfigurationException.php',
+        'PayPal\\Exception\\PayPalConnectionException' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalConnectionException.php',
+        'PayPal\\Exception\\PayPalInvalidCredentialException' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalInvalidCredentialException.php',
+        'PayPal\\Exception\\PayPalMissingCredentialException' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Exception/PayPalMissingCredentialException.php',
+        'PayPal\\Handler\\IPayPalHandler' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Handler/IPayPalHandler.php',
+        'PayPal\\Handler\\OauthHandler' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Handler/OauthHandler.php',
+        'PayPal\\Handler\\RestHandler' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Handler/RestHandler.php',
+        'PayPal\\Log\\PayPalDefaultLogFactory' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Log/PayPalDefaultLogFactory.php',
+        'PayPal\\Log\\PayPalLogFactory' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Log/PayPalLogFactory.php',
+        'PayPal\\Log\\PayPalLogger' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Log/PayPalLogger.php',
+        'PayPal\\Rest\\ApiContext' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Rest/ApiContext.php',
+        'PayPal\\Rest\\IResource' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Rest/IResource.php',
+        'PayPal\\Security\\Cipher' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Security/Cipher.php',
+        'PayPal\\Transport\\PayPalRestCall' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Transport/PayPalRestCall.php',
+        'PayPal\\Validation\\ArgumentValidator' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Validation/ArgumentValidator.php',
+        'PayPal\\Validation\\JsonValidator' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Validation/JsonValidator.php',
+        'PayPal\\Validation\\NumericValidator' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Validation/NumericValidator.php',
+        'PayPal\\Validation\\UrlValidator' => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib/PayPal/Validation/UrlValidator.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',

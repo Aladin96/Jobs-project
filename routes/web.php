@@ -13,17 +13,19 @@
 // route racine
 Route::get('/','HomeController@index');
 
+// Paypal Routes
+
+Route::post('/ExecutePayment', 'PaypalController@payWithPaypal')->name('pay');
+Route::get('/status', 'PaypalController@status');
+Route::get('/cancel', 'PaypalController@canceled');
 
 // Candidats Routes
 Route::get('/candidats', 'CandidatsController@index');
 Route::get('/candidat/{show}', 'CandidatsController@show')->name('candidat');
-Route::get('/candidat/{show}/{id}', 'CvsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::get('/cv' , 'CvsController@index');
 Route::post('/cv' , 'CvsController@store');
-Route::delete('/supp_cv/{id}', 'CvsController@destroy');
-Route::get('modifier/cv/{id}' , 'CvsController@edit');
 
 
 // RECRUTEUR Routes
@@ -34,7 +36,7 @@ Route::get('/offre/create', 'OffresController@create');
 Route::post('/offre/create', 'OffresController@store');
 
 
-//  Favoris
+// Favoris
 Route::get('/favoris', 'FavoriController@index');
 Route::post('/favoris', 'FavoriController@store');
 

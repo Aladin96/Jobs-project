@@ -25,6 +25,19 @@
   <section class="section pt-5" id="reload">
           <div class="container">
               <div class="row">
+<<<<<<< Updated upstream
+=======
+                @if(session()->has('add-candidat'))
+                  <div class="alert alert-success">{{session()->get('add-candidat')}}</div>
+                @elseif(session()->has('delete-candidat'))
+                  <div class="alert alert-danger">{{session()->get('delete-candidat')}}</div>
+                @elseif(session()->has('cant-add'))
+                  <div class="alert alert-danger">{{session()->get('cant-add')}}</div>
+                @elseif(session()->has('payment-success'))
+                  <div class="alert alert-success">{{session()->get('payment-success')}}</div>    
+                @endif
+
+>>>>>>> Stashed changes
                   <div class="col-lg-12 col-md-12">
                       <div class="candidates-listing-item">
 
@@ -69,7 +82,12 @@
                             <h2 class="text-muted text-center p-5 mt-5">Aucun candidat</h2>
                           </div>
                           @endforelse
-
+                          @if(App\Recruteur::find($recruteur->id)->payFavorite == 0)
+                          <form action="{{route('pay')}}" method="post">
+                            @csrf
+                            <button class="btn btn-danger my-4" type="submit">Acheter l'option illimiter pour juste 20$</button>
+                          </form>
+                          @endif
                       </div>
 
                       <nav aria-label="Page navigation example">
