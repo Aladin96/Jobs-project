@@ -96,6 +96,25 @@
             })
           }
           else {
+            if(heart.hasClass('active')){
+
+              $('body').append('<div class="added-f">Added to favoris</div>');
+
+              setTimeout(function(){
+                $('.added-f').fadeOut(300).remove()
+              },3000);
+
+
+            }else{
+
+              $('body').append('<div class="removed-f">Removed From favoris</div>');
+
+              setTimeout(function(){
+                $('.removed-f').fadeOut(300).remove()
+              },3000);
+
+            }
+
             $('#reload').load(' #reload');
           }
           $('.close-alert').click(function () {

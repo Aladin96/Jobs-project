@@ -2749,3 +2749,21 @@ section.delete > div{
     transform: scale(1.1);
   }
 }
+
+.added-f, .removed-f{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 20px;
+}
+.added-f{
+  background: #36d092f5;
+  border-radius: 0;
+  color: #fff;
+}
+
+.removed-f{
+  background: #e65d5d;
+  border-radius: 0;
+  color: #fff;
+}

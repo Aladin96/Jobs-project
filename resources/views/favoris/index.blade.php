@@ -28,7 +28,9 @@
 
                   <div class="col-lg-12 col-md-12">
                       <div class="candidates-listing-item"  id="reload">
-
+                        @if(session->has('payment-success'))
+                          <div class="alert alert-success">{{session()->get('payment-success')}}</div>
+                        @endif  
                         @forelse($recruteur->favoris()->paginate(5) as $fav)
 
                           <div class="border mt-4 rounded p-3">
