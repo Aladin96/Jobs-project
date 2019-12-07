@@ -74,7 +74,7 @@
       })
     })
 
-    $('.candidates-list-fav-btn form , .candidates-profile-details form').submit(function (event) {
+    /*$('.candidates-list-fav-btn form , .candidates-profile-details form').submit(function (event) {
       event.preventDefault();
       let form = $(this);
       let heart = form.children('button').children().children()
@@ -87,6 +87,6 @@
           $('#reload').load(' #reload');
         }
       })
-    })
+    })*/
 
 })(jQuery)

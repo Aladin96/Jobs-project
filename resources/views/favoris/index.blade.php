@@ -25,8 +25,7 @@
   <section class="section pt-5" id="reload">
           <div class="container">
               <div class="row">
-<<<<<<< Updated upstream
-=======
+
                 @if(session()->has('add-candidat'))
                   <div class="alert alert-success">{{session()->get('add-candidat')}}</div>
                 @elseif(session()->has('delete-candidat'))
@@ -34,10 +33,9 @@
                 @elseif(session()->has('cant-add'))
                   <div class="alert alert-danger">{{session()->get('cant-add')}}</div>
                 @elseif(session()->has('payment-success'))
-                  <div class="alert alert-success">{{session()->get('payment-success')}}</div>    
+                  <div class="alert alert-success">{{session()->get('payment-success')}}</div>
                 @endif
 
->>>>>>> Stashed changes
                   <div class="col-lg-12 col-md-12">
                       <div class="candidates-listing-item">
 
