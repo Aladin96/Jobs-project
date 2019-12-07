@@ -11,7 +11,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-
+    <base href="http://localhost:8000/" >
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
 
     <!-- Bootstrap core CSS -->

@@ -363,19 +363,13 @@
             </div>
 
             <div class="row">
-              @if(session()->has('add-candidat'))
-                <div class="alert alert-success">{{session()->get('add-candidat')}}</div>
-              @endif
-              @if(session()->has('delete-candidat'))
-                <div class="alert alert-danger">{{session()->get('delete-candidat')}}</div>
-              @endif
                 <div class="col-lg-12 col-md-12">
                     <div class="candidates-listing-item">
 
                       @foreach( $candidats as $candidat )
                         @php
                          if(App\Http\Controllers\FavoriController::checkIfIsFavorite(Auth::guard('recruteur')->id(), $candidat->id))
-                           $class="style=-webkit-text-fill-color:#e43f52";
+                           $class="active";
                          else
                            $class="";
 
@@ -403,7 +397,7 @@
                                         <input type="hidden" name="candidat" value="{{$candidat->id}}">
                                       <button type="submit" class="btn">
                                         <div class="fav-icon">
-                                            <i class="mdi mdi-heart" {{$class}}></i>
+                                            <i class="mdi mdi-heart {{$class}}" ></i>
                                         </div>
                                       </button>
                                       </form>

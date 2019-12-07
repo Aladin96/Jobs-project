@@ -103,9 +103,10 @@ class CandidatsController extends Controller
       $candidat = Candidat::findOrFail($id);
       $cv = Cv::All()->where('id_candidat' , $id);
       $haveRight = (Auth::guard('candidat')->id() == $candidat->id ) ? true : false;
-      return view('candidats.show', compact('candidat' , 'cv' , 'haveRight'));
+      $isRecruiter = Auth::guard('recruteur')->check() ;
+      return view('candidats.show', compact('candidat' , 'cv' , 'haveRight' , 'isRecruiter'));
 
     }
-    
+
 
 }

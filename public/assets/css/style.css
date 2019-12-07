@@ -2681,6 +2681,10 @@ section.delete > div{
   transform: translate(-50%,-50%);
   background: #fff;
 }
+.fav-icon i.active {
+  -webkit-text-stroke: 2px #e43f52;
+  -webkit-text-fill-color: #e43f52;
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);

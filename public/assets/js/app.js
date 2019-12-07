@@ -74,4 +74,19 @@
       })
     })
 
+    $('.candidates-list-fav-btn form , .candidates-profile-details form').submit(function (event) {
+      event.preventDefault();
+      let form = $(this);
+      let heart = form.children('button').children().children()
+      heart.toggleClass('active');
+      $.ajax({
+        url : 'favoris',
+        method : 'POST',
+        data :   form.serialize(),
+        success : function () {
+          $('#reload').load(' #reload');
+        }
+      })
+    })
+
 })(jQuery)

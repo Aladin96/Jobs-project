@@ -20,6 +20,23 @@
                 <div class="candidates-profile-details text-center">
                     <img src="{{ asset($candidat->photo) }}" height="150" alt="" class="d-block mx-auto shadow rounded-pill mb-4">
                     <h5 class="text-white mb-2"><span class="badge badge-primary">{{ $candidat->civilite }}</span>  {{ $candidat->nom . ' ' .  $candidat->prenom }}</h5>
+                    @if($isRecruiter)
+                    @php
+                     if(App\Http\Controllers\FavoriController::checkIfIsFavorite(Auth::guard('recruteur')->id(), $candidat->id))
+                       $class="active";
+                     else
+                       $class="";
+                    @endphp
+                    <form method="POST" action="{{url('/favoris')}}">
+                      @csrf
+                      <input type="hidden" name="candidat" value="{{$candidat->id}}">
+                    <button type="submit" class="btn">
+                      <div class="fav-icon">
+                          <i class="mdi mdi-heart {{ $class }}" ></i>
+                      </div>
+                    </button>
+                    </form>
+                    @endif
                 </div>
             </div>
         </div>
@@ -31,6 +48,7 @@
 <section class="section">
 
     <div class="container">
+
       @if( count($cv) == 0 )
       <div class="row">
           <div class="col-lg-12">
@@ -43,7 +61,7 @@
                 <h2 class="text-center text-muted p-4">{{ $cv[0]->titre }}
                   @if( $haveRight )
                   <div class="cv-panel float-right">
-                    <a href="{{ url('modifier/cv/'.$cv[0]->id)}}"><i class="far fa-edit fa-xs text-primary" name="Modifier"></i></a> 
+                    <a href="{{ url('modifier/cv/'.$cv[0]->id)}}"><i class="far fa-edit fa-xs text-primary" name="Modifier"></i></a>
                     <i class="far fa-trash-alt fa-xs text-danger" name="Supprimer"></i>
                   </div>
                   @endif

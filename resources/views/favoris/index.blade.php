@@ -22,15 +22,9 @@
 
 
   <!-- CANDIDATES LISTING START -->
-  <section class="section pt-0">
+  <section class="section pt-5" id="reload">
           <div class="container">
               <div class="row">
-                @if(session()->has('add-candidat'))
-                  <div class="alert alert-success">{{session()->get('add-candidat')}}</div>
-                @endif
-                @if(session()->has('delete-candidat'))
-                  <div class="alert alert-danger">{{session()->get('delete-candidat')}}</div>
-                @endif
                   <div class="col-lg-12 col-md-12">
                       <div class="candidates-listing-item">
 
@@ -57,11 +51,11 @@
                                         <form method="POST" action="{{url('/favoris')}}">
                                           @csrf
                                           <input type="hidden" name="candidat" value="{{$fav->id}}">
-                                        <button type="submit" class="btn">
-                                          <div class="fav-icon">
-                                              <i class="mdi mdi-heart" style="-webkit-text-fill-color:#e43f52"></i>
-                                          </div>
-                                        </button>
+                                          <button type="submit" class="btn">
+                                            <div class="fav-icon">
+                                              <i class="mdi mdi-heart active" ></i>
+                                            </div>
+                                          </button>
                                         </form>
                                           <div class="candidates-listing-btn mt-4">
                                               <a href="{{ route('candidat', [ 'show' => $fav->id ] ) }}" class="btn btn-primary-outline btn-sm">View Profile</a>
@@ -71,14 +65,16 @@
                               </div>
                           </div>
                           @empty
-                          <h2>No data</h2>
+                          <div class="col-12">
+                            <h2 class="text-muted text-center p-5 mt-5">Aucun candidat</h2>
+                          </div>
                           @endforelse
 
                       </div>
 
                       <nav aria-label="Page navigation example">
                         {{$recruteur->favoris()->paginate(5)->links()}}
-                      </nav>-
+                      </nav>
                   </div>
               </div>
           </div>

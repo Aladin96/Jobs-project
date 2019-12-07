@@ -35,7 +35,6 @@ class FavoriController extends Controller
       if( ! $response ){
 
         $this->addToFavorite($id, $candidat_id, $request);
-        return redirect('/favoris' );
       }
 
       else{
@@ -76,8 +75,6 @@ class FavoriController extends Controller
 
         $favori->save();
 
-        $request->session()->flash('add-candidat','Le candidat a ete ajoute au favoris avec succes');
-
       }
 
     /*
@@ -89,8 +86,6 @@ class FavoriController extends Controller
     public function deleteFromFavorite($id_auth, $id_candidat, $request){
 
       Favori::where('candidat_id', $id_candidat)->where('recruteur_id', $id_auth)->delete();
-
-      $request->session()->flash('delete-candidat','Le candidat a ete Supprimer');
 
     }
 }
