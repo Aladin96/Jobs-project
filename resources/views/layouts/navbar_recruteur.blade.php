@@ -19,7 +19,7 @@
             </div>
             <div class="float-right">
                 <ul class="topbar-list list-unstyled d-flex" style="margin: 11px 0px;">
-                    <li class="list-inline-item"><a href="javascript:void(0);"><i class="mdi mdi-account mr-2"></i>{{ $user }}</a></li>
+                    <li class="list-inline-item"><a href="{{url('recruteur/'.$id)}}"><i class="mdi mdi-account mr-2"></i>{{ $user }}</a></li>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -59,10 +59,10 @@
             <ul class="navigation-menu">
                 <li><a href="{{ url('/') }}">Acceuil</a></li>
                 <li class="has-submenu">
-                    <a href="javascript:void(0)">Mon profile</a><span class="menu-arrow"></span>
+                    <a href="{{ url('/recruteur/' . $id) }}">Mon profile</a><span class="menu-arrow"></span>
                     <ul class="submenu">
-                        <li><a href="{{ url('/recruteur/' . $id . '/edit' ) }}">Modifier Mon profile</a></li>
                         <li><a href="{{ url('/recruteur/' . $id) }}">Voir mon profile</a></li>
+                        <li><a href="{{ url('/recruteur/' . $id . '/edit' ) }}">Modifier Mon profile</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">
@@ -72,7 +72,7 @@
                         <li><a href="#">Recherche avancée</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url('/candidats') }}">Les candidats</a></li>
+                <li><a href="{{ url('/candidats') }}">Candidats</a></li>
                 <li>
                     <a href="{{ url('/favoris') }}">Mes favoris</a>
                 </li>

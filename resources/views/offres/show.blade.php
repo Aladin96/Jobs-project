@@ -42,7 +42,9 @@
             <div class="row">
               @if($haveRight)
                 <div class="col-12 mb-5">
-                  <button class="btn btn-light">Modififer <i class="far fa-edit"></i></button>
+                  <a href="{{url('offre/'.$offer->id.'/modifier')}}">
+                    <button class="btn btn-light">Modififer <i class="far fa-edit"></i></button>
+                  </a>
                   @if($offer->status == "Publiée")
                   <button class="btn btn-danger float-right">Desactiver <i class="far fa-eye-slash"></i></button>
                   @else
@@ -184,7 +186,7 @@
                     </div>
                     @endif
                     <div class="job-detail border rounded mt-4">
-                        <a href="#" class="btn btn-primary btn-block">Apply For Job</a>
+                        <a href="#" class="btn btn-primary btn-block">Candidater</a>
                     </div>
                 </div>
             </div>

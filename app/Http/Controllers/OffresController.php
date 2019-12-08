@@ -114,7 +114,14 @@ class OffresController extends Controller
      */
     public function edit($id)
     {
-        //
+      $recId = Auth::guard('recruteur')->id();
+      $offer = Offre::FindOrFail($id);
+      if ($id == $recId) {
+        return view('offres.edit' , compact('offer'));
+      }
+      else {
+        return ('404');
+      }
     }
 
     /**
@@ -126,7 +133,47 @@ class OffresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $offre = Offre::FindOrFail($id);
+      $type = intval( $request->input('type') );
+
+      if( $type == 1 ) $type = "Stage";
+      elseif( $type == 2 ) $type = "Cdi";
+      else $type = "Cdd";
+
+      // duree
+
+      $duree = intval( $request->input('duree') );
+
+      if( $duree == 1 ) $duree = "CDD";
+      else $duree = "Stage";
+
+      $offre->intitule = $request->intitule;
+
+      $offre->type = $type;
+
+      $offre->domaine = $request->domaine;
+
+      $offre->lieu_de_travail = $request->lieu;
+
+      $offre->diplome = $request->diplome;
+
+      $offre->competences = $request->competences;
+
+      $offre->remuneration = $request->remuneration;
+
+      $offre->date_debut = $request->date_debut;
+
+      $offre->annee_experience = $request->annee_experience;
+
+      $offre->duree = $duree;
+
+      $offre->description = $request->description;
+
+      $offre->save();
+
+      $request->session()->flash('updated' , 'Offre Modiffier avec succès');
+
+      return redirect('/offre/'.$id.'/modifier');
     }
 
     /**

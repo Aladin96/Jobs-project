@@ -41,6 +41,8 @@ Route::post('/offre/create', 'OffresController@store');
 // Jobs
 Route::get('/offres' , 'OffresController@index');
 Route::get('/offre/{show}' , 'OffresController@show');
+Route::get('/offre/{edit}/modifier' , 'OffresController@edit');
+Route::put('/offre/{update}/modifier' , 'OffresController@update');
 
 // Favoris
 Route::get('/favoris', 'FavoriController@index');
