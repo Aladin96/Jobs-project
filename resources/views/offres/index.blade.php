@@ -18,12 +18,12 @@
           <div class="row justify-content-center">
               <div class="col-md-6">
                   <div class="text-center text-white">
-                      <h4 class="text-uppercase title mb-4">Job List view</h4>
+                      <h4 class="text-uppercase title mb-4">offres</h4>
                       <ul class="page-next d-inline-block mb-0">
-                          <li><a href="index-2.html" class="text-uppercase font-weight-bold">Home</a></li>
-                          <li><a href="#" class="text-uppercase font-weight-bold">Jobs</a></li>
+                          <li><a href="index-2.html" class="text-uppercase font-weight-bold">accueil</a></li>
+                          <li><a href="#" class="text-uppercase font-weight-bold">offres</a></li>
                           <li>
-                              <span class="text-uppercase text-white font-weight-bold">Job Listing</span>
+                              <span class="text-uppercase text-white font-weight-bold">list des offres</span>
                           </li>
                       </ul>
                   </div>
@@ -236,25 +236,7 @@
                       </div>
                   </div>
               </div>
-
-              <div class="col-lg-9 mt-4 pt-2">
-                  <!-- <div class="row align-items-center">
-                      <div class="col-lg-12">
-                          <div class="show-results">
-                              <div class="float-left">
-                                  <h5 class="text-dark mb-0 pt-2 f-18">Showing results 0-20</h5>
-                              </div>
-                              <div class="form_group sort-button float-right">
-                                  <select class="nice-select rounded">
-                                      <option data-display="Select">Nothing</option>
-                                      <option value="1">Web Developer</option>
-                                      <option value="2">PHP Developer</option>
-                                      <option value="3">Web Designer</option>
-                                  </select>
-                              </div>
-                          </div>
-                      </div>
-                  </div> -->
+                <div class="col-lg-9 mt-4 pt-2">
 
                   <div class="row">
                     @foreach($offers as $offer)
@@ -301,43 +283,6 @@
                           </div>
                       </div>
                     @endforeach
-                      <div class="col-lg-12 mt-4 pt-2">
-                          <div class="job-list-box border rounded">
-                              <div class="p-3">
-                                  <div class="row align-items-center">
-                                      <div class="col-lg-2">
-                                          <div class="company-logo-img">
-                                              <img src="images/featured-job/img-7.png" alt="" class="img-fluid mx-auto d-block">
-                                          </div>
-                                      </div>
-                                      <div class="col-lg-7 col-md-9">
-                                          <div class="job-list-desc">
-                                              <h6 class="mb-2"><a href="#" class="text-dark">Frontend/Backend Developer</a></h6>
-                                              <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>Design Code.pvt.Ltd</p>
-                                              <ul class="list-inline mb-0">
-                                                  <li class="list-inline-item mr-3">
-                                                      <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>Rosemont Avenue Orlando, FL 32811</p>
-                                                  </li>
-
-                                                  <li class="list-inline-item">
-                                                      <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>11 Minute ago</p>
-                                                  </li>
-                                              </ul>
-                                          </div>
-                                      </div>
-                                      <div class="col-lg-3 col-md-3">
-                                          <div class="job-list-button-sm text-right">
-                                              <span class="badge badge-success">Full-Time</span>
-
-                                              <div class="mt-3">
-                                                  <a href="#" class="btn btn-sm btn-primary">Apply</a>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
 
                       <div class="col-lg-12 mt-4 pt-2">
                           <nav aria-label="Page navigation example">
