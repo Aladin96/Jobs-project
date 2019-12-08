@@ -17,7 +17,8 @@ class OffresController extends Controller
 
     public function index()
     {
-        //
+        $offers = Offre::Cursor();
+        return view ('offres.index' , compact('offers'));
     }
 
     /**
@@ -100,7 +101,9 @@ class OffresController extends Controller
      */
     public function show($id)
     {
-        //
+        $offer = Offre::FindOrFail($id);
+        $haveRight = ( $offer->recruteur->id == Auth::guard('recruteur')->id() ) ? true : false ;
+        return view ('offres.show' , compact('offer' , 'haveRight'));
     }
 
     /**

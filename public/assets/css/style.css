@@ -2721,6 +2721,16 @@ section.delete > div{
   line-height: 24.5px;
   cursor: pointer;
 }
+.job-detail-content  {
+  margin-bottom: 40px;
+}
+.job-detail-content img {
+  height: 120px;
+  width: auto;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  padding: 2px;
+}
 @keyframes alert {
   0% {
     left: 60%;
