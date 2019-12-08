@@ -11,7 +11,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-  
+
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
 
     <!-- Bootstrap core CSS -->

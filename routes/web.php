@@ -13,6 +13,9 @@
 // route racine
 Route::get('/','HomeController@index');
 
+// route Search
+Route::get('/search', 'SearchController@index');
+
 // Paypal Routes
 
 Route::post('/ExecutePayment', 'PaypalController@payWithPaypal')->name('pay');

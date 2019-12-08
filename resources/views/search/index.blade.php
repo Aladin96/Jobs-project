@@ -18,84 +18,22 @@
           <div class="row justify-content-center">
               <div class="col-md-6">
                   <div class="text-center text-white">
-                      <h4 class="text-uppercase title mb-4">Job List view</h4>
-                      <ul class="page-next d-inline-block mb-0">
-                          <li><a href="index-2.html" class="text-uppercase font-weight-bold">Home</a></li>
-                          <li><a href="#" class="text-uppercase font-weight-bold">Jobs</a></li>
-                          <li>
-                              <span class="text-uppercase text-white font-weight-bold">Job Listing</span>
-                          </li>
-                      </ul>
+                      <h4 class="text-uppercase title mb-4">Search</h4>
+
                   </div>
               </div>
           </div>
+
       </div>
   </section>
   <!-- end home -->
 
   @include('search.component')
-
-  <div class="container">
-      <div class="home-form-position">
-          <div class="row justify-content-center">
-              <div class="col-lg-10">
-                  <div class="home-registration-form job-list-reg-form bg-light shadow p-4 mb-3">
-                      <form class="registration-form">
-                          <div class="row">
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <i class="fa fa-briefcase"></i>
-                                      <input type="text" id="exampleInputName1" class="form-control rounded registration-input-box" placeholder="Job keybords...">
-                                  </div>
-                              </div>
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <i class="fa fa-location-arrow"></i>
-                                      <select id="select-country" class="demo-default">
-                                          <option value="">Location</option>
-                                          <option value="AF">Afghanistan</option>
-                                          <option value="AX">&Aring;land Islands</option>
-                                          <option value="AL">Albania</option>
-                                          <option value="DZ">Algeria</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <i class="fa fa-list-alt"></i>
-                                      <select id="select-category" class="demo-default">
-                                          <option value="">Categories...</option>
-                                          <option value="4">Accounting</option>
-                                          <option value="1">IT & Software</option>
-                                          <option value="3">Marketing</option>
-                                          <option value="5">Banking</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary btn-block" value="Submit">
-                                  </div>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
+  
   <!-- JOB LIST START -->
-  <section class="section pt-0">
+  <section class="section pt-3">
       <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-12">
-                  <div class="section-title text-center mb-4 pb-2">
-                      <h4 class="title title-line pb-5">Available job for you</h4>
-                      <p class="text-muted para-desc mx-auto mb-1">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
-                  </div>
-              </div>
-          </div>
+
 
           <div class="row">
               <div class="col-lg-3">
@@ -259,7 +197,7 @@
                   </div> -->
 
                   <div class="row">
-                    @foreach($offers as $offer)
+                    @forelse( $search as $offer )
                       <div class="col-lg-12 mt-4 pt-2">
                           <div class="job-list-box border rounded">
                               <div class="p-3">
@@ -302,71 +240,19 @@
                               </div>
                           </div>
                       </div>
-                    @endforeach
-                      <div class="col-lg-12 mt-4 pt-2">
-                          <div class="job-list-box border rounded">
-                              <div class="p-3">
-                                  <div class="row align-items-center">
-                                      <div class="col-lg-2">
-                                          <div class="company-logo-img">
-                                              <img src="images/featured-job/img-7.png" alt="" class="img-fluid mx-auto d-block">
-                                          </div>
-                                      </div>
-                                      <div class="col-lg-7 col-md-9">
-                                          <div class="job-list-desc">
-                                              <h6 class="mb-2"><a href="#" class="text-dark">Frontend/Backend Developer</a></h6>
-                                              <p class="text-muted mb-0"><i class="mdi mdi-bank mr-2"></i>Design Code.pvt.Ltd</p>
-                                              <ul class="list-inline mb-0">
-                                                  <li class="list-inline-item mr-3">
-                                                      <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>Rosemont Avenue Orlando, FL 32811</p>
-                                                  </li>
+                    @empty
 
-                                                  <li class="list-inline-item">
-                                                      <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>11 Minute ago</p>
-                                                  </li>
-                                              </ul>
-                                          </div>
-                                      </div>
-                                      <div class="col-lg-3 col-md-3">
-                                          <div class="job-list-button-sm text-right">
-                                              <span class="badge badge-success">Full-Time</span>
+                      No data
 
-                                              <div class="mt-3">
-                                                  <a href="#" class="btn btn-sm btn-primary">Apply</a>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                    @endforelse
 
-                      <div class="col-lg-12 mt-4 pt-2">
-                          <nav aria-label="Page navigation example">
-                              <ul class="pagination job-pagination mb-0 justify-content-center">
-                                  <li class="page-item disabled">
-                                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                          <i class="mdi mdi-chevron-double-left"></i>
-                                      </a>
-                                  </li>
-                                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                  <li class="page-item">
-                                      <a class="page-link" href="#">
-                                          <i class="mdi mdi-chevron-double-right"></i>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </nav>
-                      </div>
                   </div>
               </div>
           </div>
       </div>
   </section>
   <!-- JOB LIST START -->
+
 
 @include('layouts.footer')
 

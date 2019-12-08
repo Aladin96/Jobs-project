@@ -32,6 +32,8 @@
    </section>
    <!-- end home -->
 
+  @include('search.component') 
+
    <!-- CREATE RESUME START -->
    <section class="section">
        <div class="container">

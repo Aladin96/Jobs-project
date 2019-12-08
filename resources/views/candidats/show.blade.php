@@ -56,6 +56,8 @@
 </section>
 <!-- end home -->
 
+@include('search.component')
+
 <!-- CANDIDATES PROFILE START -->
 <section class="section">
 

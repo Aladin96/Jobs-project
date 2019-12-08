@@ -11,7 +11,6 @@
   @include('layouts.navbar_guest')
 @endif
 
-
 <!-- Start home -->
     <section class="bg-half page-next-level">
         <div class="bg-overlay"></div>
@@ -33,6 +32,8 @@
         </div>
     </section>
     <!-- end home -->
+
+@include('search.component')  
 
     <!-- JOB DETAILS START -->
     <section class="section">

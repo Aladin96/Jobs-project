@@ -26,6 +26,8 @@
 </section>
 <!-- end home -->
 
+  @include('search.component')
+
 <section class="section">
   <div class="container">
     <div class="row">

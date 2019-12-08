@@ -21,10 +21,6 @@
     // Selectize
     $('#select-category, #select-lang,#select-country').selectize({
         create: true,
-        sortField: {
-            field: 'text',
-            direction: 'asc'
-        },
         dropdownParent: 'body'
     });
 
@@ -129,5 +125,6 @@
         }
       })
     })
+
 
 })(jQuery)
