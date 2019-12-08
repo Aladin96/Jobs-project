@@ -2755,15 +2755,14 @@ section.delete > div{
   bottom: 20px;
   right: 20px;
   padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 16px rgba(0,0,0,0.2) !important;
+    color: #fff;
 }
 .added-f{
-  background: #36d092f5;
-  border-radius: 0;
-  color: #fff;
+  background: #40CB94;
 }
 
 .removed-f{
-  background: #e65d5d;
-  border-radius: 0;
-  color: #fff;
+  background: #E43F52;
 }
