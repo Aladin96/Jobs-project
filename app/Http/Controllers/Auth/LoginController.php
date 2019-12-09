@@ -94,10 +94,7 @@ class LoginController extends Controller
 
     }
 
-    public function logout(){
-      Auth::guard('recruteur')->logout();
-      return redirect('/');
-    }
+    
 
 
 }

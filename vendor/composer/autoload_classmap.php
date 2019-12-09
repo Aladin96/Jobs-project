@@ -28,6 +28,7 @@ return array(
     'App\\Http\\Controllers\\OffresController' => $baseDir . '/app/Http/Controllers/OffresController.php',
     'App\\Http\\Controllers\\PaypalController' => $baseDir . '/app/Http/Controllers/PaypalController.php',
     'App\\Http\\Controllers\\RecruteursController' => $baseDir . '/app/Http/Controllers/RecruteursController.php',
+    'App\\Http\\Controllers\\SearchController' => $baseDir . '/app/Http/Controllers/SearchController.php',
     'App\\Http\\Controllers\\TestsController' => $baseDir . '/app/Http/Controllers/TestsController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

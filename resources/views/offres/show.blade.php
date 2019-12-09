@@ -33,7 +33,7 @@
     </section>
     <!-- end home -->
 
-@include('search.component')  
+@include('search.component')
 
     <!-- JOB DETAILS START -->
     <section class="section">
@@ -174,7 +174,7 @@
                             <div class="float-left mr-2">
                                 <i class="fa fa-eye text-muted"></i>
                             </div>
-                            <p class="text-muted mb-2"> Nombre de vues : 125</p>
+                            <p class="text-muted mb-2"> Nombre de vues : {{ $offer->vues}}</p>
                         </div>
 
                         <div class="job-details-desc-item">

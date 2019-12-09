@@ -212,7 +212,7 @@
                                              </div>
                                              <div class="col-md-3">
                                                  <div>
-                                                     <h5 class="f-18"><a href="#" class="text-dark">{{$offer->intitule}}</a></h5>
+                                                     <h5 class="f-18"><a href="{{url('offre/'.$offer->id)}}" class="text-dark">{{$offer->intitule}}</a></h5>
                                                      <p class="text-muted mb-0">{{$offer->recruteur->nom}}</p>
                                                  </div>
                                              </div>
