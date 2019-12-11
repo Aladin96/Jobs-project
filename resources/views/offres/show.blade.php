@@ -185,9 +185,33 @@
                         </div>
                     </div>
                     @endif
-                    <div class="job-detail border rounded mt-4">
-                        <a href="#" class="btn btn-primary btn-block">Candidater</a>
-                    </div>
+                    @if( !Auth::guard('recruteur')->check())
+                      @php
+                      $isCandidat = Auth::guard('candidat')->id();
+                      if($isCandidat)
+                        $cvs = App\Cv::All()->where('id_candidat' , $isCandidat) ;
+                      @endphp
+                      <div class="job-detail border rounded mt-4">
+                        <a href="{{ $isCandidat ? 'apply' : '../login/candidat'}}" class="btn btn-primary btn-block {{count($cvs) == 1 ? 'direct' : 'choices'}}">Candidater</a>
+                      </div>
+                      @if(count($cvs) > 1)
+                        <div class="apply-wrapper">
+                          <form class="apply" action="{{url('/candidater')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="offer" value="{{$offer->id}}">
+                            <span class="text-muted">Candidater avec : </span>
+                            <select class="form-control mb-4 mt-2" style="display:inline" name="choice">
+                              <option value="0" selected>Profile</option>
+                              @foreach($cvs as $cv)
+                                <option value="{{$cv->id}}">{{$cv->titre}}</option>
+                              @endforeach
+                            </select>
+                            <button type="submit" name="button" class="btn btn-primary">Candidater</button>
+                            <button class="btn btn-danger float-right">Annuler</button>
+                          </form>
+                        </div>
+                      @endif
+                    @endif
                 </div>
             </div>
         </div>

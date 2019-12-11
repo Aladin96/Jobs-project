@@ -126,5 +126,61 @@
       })
     })
 
+    $('a[href=apply].choices').click(function (event) {
+      event.preventDefault();
+      $('.apply-wrapper').css({
+        opacity : "1",
+        pointerEvents : "auto"
+      })
+
+      // submit apply ith choices
+      $('.btn-danger').click(function (event) {
+        event.preventDefault();
+        $('.apply-wrapper').css({
+          opacity : "0",
+          pointerEvents : "none"
+        })
+      })
+
+      $('.apply .btn-primary').click(function (event) {
+        event.preventDefault();
+        $.ajax({
+          method : "POST",
+          url : "../candidater",
+          data : $('.apply').serialize(),
+          success : function (data) {
+            if (data == 'error') {
+              alert('minable hacker')
+            }
+            else {
+              $('.apply-wrapper').css({
+                opacity : "0",
+                pointerEvents : "none"
+              })
+              switch_btn();
+            }
+          }
+        })
+
+      })
+    })
+
+    // submit direct apply
+    $('a[href=apply].direct').click(function (event) {
+      event.preventDefault();
+      swwitch_btn();
+    })
+
+    function switch_btn () {
+      $('a[href=apply]').removeClass('btn-primary');
+      $('a[href=apply]').addClass('btn-danger');
+      $('a[href=apply]').html('Annuler candidature');
+      $('body').append('<div class="added-f">Success</div>');
+
+      setTimeout(function(){
+        $('.added-f').fadeOut(300).remove()
+      },3000);
+    }
+
 
 })(jQuery)

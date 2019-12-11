@@ -2649,7 +2649,7 @@ hr {
 .cv-panel i:hover::after {
   opacity: 1;
 }
-section.delete {
+section.delete , .unlimited-alert , .apply-wrapper{
   position: fixed;
   top: 0;
   left: 0;
@@ -2685,18 +2685,6 @@ section.delete > div{
   -webkit-text-stroke: 2px #e43f52;
   -webkit-text-fill-color: #e43f52;
 }
-.unlimited-alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background: #333c;
-  z-index: 100;
-  pointer-events: none;
-  opacity: 0;
-  transition: .3s ease;
-}
 .unlimited-box {
   position: absolute;
   top: 50%;
@@ -2730,6 +2718,15 @@ section.delete > div{
   border-radius: 50%;
   border: 2px solid #ddd;
   padding: 2px;
+}
+.apply {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  transform: translate(-50%,-50%);
+  padding: 40px;
+  width: 40%;
 }
 @keyframes alert {
   0% {

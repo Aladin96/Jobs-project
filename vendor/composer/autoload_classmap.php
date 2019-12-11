@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Candidat' => $baseDir . '/app/Candidat.php',
+    'App\\Candidature' => $baseDir . '/app/Candidature.php',
     'App\\Competence' => $baseDir . '/app/Competence.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Cv' => $baseDir . '/app/Cv.php',
@@ -21,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\CandidatsController' => $baseDir . '/app/Http/Controllers/CandidatsController.php',
+    'App\\Http\\Controllers\\CandidaturesController' => $baseDir . '/app/Http/Controllers/CandidaturesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CvsController' => $baseDir . '/app/Http/Controllers/CvsController.php',
     'App\\Http\\Controllers\\FavoriController' => $baseDir . '/app/Http/Controllers/FavoriController.php',

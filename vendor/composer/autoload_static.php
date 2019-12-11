@@ -420,6 +420,7 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
 
     public static $classMap = array (
         'App\\Candidat' => __DIR__ . '/../..' . '/app/Candidat.php',
+        'App\\Candidature' => __DIR__ . '/../..' . '/app/Candidature.php',
         'App\\Competence' => __DIR__ . '/../..' . '/app/Competence.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Cv' => __DIR__ . '/../..' . '/app/Cv.php',
@@ -434,6 +435,7 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CandidatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidatsController.php',
+        'App\\Http\\Controllers\\CandidaturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidaturesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CvsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CvsController.php',
         'App\\Http\\Controllers\\FavoriController' => __DIR__ . '/../..' . '/app/Http/Controllers/FavoriController.php',
