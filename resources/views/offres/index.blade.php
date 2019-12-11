@@ -35,56 +35,6 @@
 
   @include('search.component')
 
-  <div class="container">
-      <div class="home-form-position">
-          <div class="row justify-content-center">
-              <div class="col-lg-10">
-                  <div class="home-registration-form job-list-reg-form bg-light shadow p-4 mb-3">
-                      <form class="registration-form">
-                          <div class="row">
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <i class="fa fa-briefcase"></i>
-                                      <input type="text" id="exampleInputName1" class="form-control rounded registration-input-box" placeholder="Job keybords...">
-                                  </div>
-                              </div>
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <i class="fa fa-location-arrow"></i>
-                                      <select id="select-country" class="demo-default">
-                                          <option value="">Location</option>
-                                          <option value="AF">Afghanistan</option>
-                                          <option value="AX">&Aring;land Islands</option>
-                                          <option value="AL">Albania</option>
-                                          <option value="DZ">Algeria</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <i class="fa fa-list-alt"></i>
-                                      <select id="select-category" class="demo-default">
-                                          <option value="">Categories...</option>
-                                          <option value="4">Accounting</option>
-                                          <option value="1">IT & Software</option>
-                                          <option value="3">Marketing</option>
-                                          <option value="5">Banking</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3 col-md-6">
-                                  <div class="registration-form-box">
-                                      <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary btn-block" value="Submit">
-                                  </div>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
   <!-- JOB LIST START -->
   <section class="section pt-0">
       <div class="container">
@@ -239,9 +189,38 @@
                   </div>
               </div>
                 <div class="col-lg-9 mt-4 pt-2">
+                  <div class="row align-items-center">
+                      <div class="col-lg-12">
+                          <div class="show-results">
+                              <div class="float-left">
+                                  <h5 class="text-dark mb-0 pt-2 f-18">Showing results {{ $offers->perPage() }}-{{ $offers->total() }}</h5>
+                              </div>
 
+                              <div class="sort-button float-right d-flex">
+                                <span class="text-muted mt-2 mr-3">Trier: </span>
+                                  <form style="display:inline" method="get" action="/offres" class="filtrer">
+
+                                    <select class="form-control" name="societe">
+                                        <option data-display="Select" value="">Par societée</option>
+                                        @foreach(App\Recruteur::has('offres')->get() as $company)
+                                          <option value="{{ $company->id }}"> {{ $company->nom }} </option>
+                                        @endforeach
+                                    </select>
+
+                                    <select class="form-control" name="domaine">
+                                        <option data-display="Select" value="">Par domaine</option>
+                                        @foreach(App\Offre::select('domaine')->distinct('domaine')->get() as $offre)
+                                          <option value="{{ $offre->domaine }}"> {{ $offre->domaine }} </option>
+                                        @endforeach
+                                    </select>
+                                    <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i></button>
+                                </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
                   <div class="row">
-                    @foreach($offers as $offer)
+                    @forelse($offers as $offer)
                       <div class="col-lg-12 mt-4 pt-2">
                           <div class="job-list-box border rounded">
                               <div class="p-3">
@@ -284,27 +263,16 @@
                               </div>
                           </div>
                       </div>
-                    @endforeach
+                      @empty
+                      <div class="col-lg-12 mt-4 pt-2">
+                        No data
+                      </div>
+                    @endforelse
 
                       <div class="col-lg-12 mt-4 pt-2">
-                          <nav aria-label="Page navigation example">
-                              <ul class="pagination job-pagination mb-0 justify-content-center">
-                                  <li class="page-item disabled">
-                                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                          <i class="mdi mdi-chevron-double-left"></i>
-                                      </a>
-                                  </li>
-                                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                  <li class="page-item">
-                                      <a class="page-link" href="#">
-                                          <i class="mdi mdi-chevron-double-right"></i>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </nav>
+                        <nav aria-label="Page navigation example">
+                          {!! $links !!}
+                        </nav>
                       </div>
                   </div>
               </div>
