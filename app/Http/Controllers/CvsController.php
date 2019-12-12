@@ -95,7 +95,8 @@ class CvsController extends Controller
       $cv = Cv::find($cv);
       $cv = array($cv);
       $haveRight = (Auth::guard('candidat')->id() == $candidat->id ) ? true : false;
-      return view('candidats.show', compact('candidat' , 'cv' , 'haveRight'));
+      $isRecruiter = Auth::guard('recruteur')->check() ;
+      return view('candidats.show', compact('candidat' , 'cv' , 'haveRight' , 'isRecruiter'));
     }
 
     /**

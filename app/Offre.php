@@ -12,4 +12,9 @@ class Offre extends Model
 
       return $this->belongsTo('App\Recruteur', 'id_recruteur');
     }
+
+    public function candidatures()
+    {
+      return $this->hasMany('App\Candidature' , 'id_offre' , 'id');
+    }
 }

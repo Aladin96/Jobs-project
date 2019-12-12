@@ -151,7 +151,6 @@
           url : "../candidater",
           data : $('.apply').serialize(),
           success : function (data) {
-            alert(data)
             if (data == 'error') {
               alert('minable hacker')
             }

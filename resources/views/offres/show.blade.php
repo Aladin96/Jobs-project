@@ -112,7 +112,32 @@
                 </div>
 
                 <div class="col-lg-4 col-md-5 mt-4 mt-sm-0">
-                    <div class="job-detail border rounded p-4">
+
+                  @if($haveRight)
+                  @php
+                    $nbr = App\Candidature::All()->where('id_offre' , $offer->id);
+                  @endphp
+                  <div class="job-detail border rounded p-4">
+                      <h5 class="text-muted text-center pb-2">Statistiques</h5>
+
+                      <div class="job-details-desc-item">
+                          <div class="float-left mr-2">
+                              <i class="fa fa-eye text-muted"></i>
+                          </div>
+                          <p class="text-muted mb-2"> Nombre de vues : {{ $offer->vues}}</p>
+                      </div>
+
+                      <div class="job-details-desc-item">
+                          <div class="float-left mr-2">
+                              <i class="fas fa-layer-group text-muted"></i>
+                          </div>
+                          <p class="text-muted mb-2"> Nombre de candidatures : {{count($nbr)}}</p>
+                      </div>
+                      <a href="../candidatures/{{$offer->id}}" style="display:block" class="text-center border-top mt-4 pt-3">voir les candidature</a>
+                  </div>
+                  @endif
+
+                    <div class="job-detail border rounded p-4 {{ $haveRight ? 'mt-4' : ''}}">
                         <h5 class="text-muted text-center pb-2"></i>Details</h5>
 
                         <div class="job-detail-location pt-4 border-top">
@@ -166,25 +191,6 @@
                             </div>
                         </div>
                     </div>
-                    @if($haveRight)
-                    <div class="job-detail border rounded mt-4 p-4">
-                        <h5 class="text-muted text-center pb-2">Statistiques</h5>
-
-                        <div class="job-details-desc-item">
-                            <div class="float-left mr-2">
-                                <i class="fa fa-eye text-muted"></i>
-                            </div>
-                            <p class="text-muted mb-2"> Nombre de vues : {{ $offer->vues}}</p>
-                        </div>
-
-                        <div class="job-details-desc-item">
-                            <div class="float-left mr-2">
-                                <i class="fas fa-layer-group text-muted"></i>
-                            </div>
-                            <p class="text-muted mb-2"> Nombre de candidatures : 12</p>
-                        </div>
-                    </div>
-                    @endif
                     @php
                       $candidat = $guest = false ;
                       if( Auth::guard('candidat')->check()) {
@@ -196,6 +202,7 @@
                       elseif ( !Auth::guard('recruteur')->check())
                         $guest = true;
                     @endphp
+                    @if ( !Auth::guard('recruteur')->check())
                     <div class="job-detail border rounded mt-4">
                         <form class="directApply" action="../login/candidat" method="get" id="form">
                           @csrf
@@ -211,6 +218,7 @@
                           @endif
                         </form>
                     </div>
+                    @endif
                     @if($candidat && count($cvs) > 1)
                           <div class="apply-wrapper">
                             <form class="apply" action="{{url('/candidater')}}" method="post">

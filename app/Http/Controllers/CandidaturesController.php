@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Candidature;
 use App\Cv;
+use App\Offre;
 use Auth;
 
 class CandidaturesController extends Controller
@@ -15,9 +16,18 @@ class CandidaturesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $row = Offre::All()->where('id_recruteur', Auth::guard('recruteur')->id());
+        if ( count($row) ) {
+          $all = Offre::with('candidatures')->find($id);
+          $applies = $all->candidatures;
+          return view('offres.applies' , compact('applies'));
+        }
+        else {
+          return ("404");
+        }
+
     }
 
     /**

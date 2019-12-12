@@ -25,11 +25,13 @@ Route::get('/cancel', 'PaypalController@canceled');
 // Candidats Routes
 Route::get('/candidats', 'CandidatsController@index');
 Route::get('/candidat/{show}', 'CandidatsController@show')->name('candidat');
+Route::get('/candidat/{show}/{cv}', 'CvsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::get('/cv' , 'CvsController@index');
 Route::post('/cv' , 'CvsController@store');
 Route::post('/candidater' , 'CandidaturesController@store');
+Route::get('/candidatures/{offre}' , 'CandidaturesController@index');
 Route::get('/annuler/{candidature}' , 'CandidaturesController@destroy');
 
 
