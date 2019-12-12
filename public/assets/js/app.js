@@ -126,14 +126,14 @@
       })
     })
 
-    $('a[href=apply].choices').click(function (event) {
+    $('form.directApply').on('click' , 'button[name=choiceApply]' , function (event) {
       event.preventDefault();
       $('.apply-wrapper').css({
         opacity : "1",
         pointerEvents : "auto"
       })
 
-      // submit apply ith choices
+
       $('.btn-danger').click(function (event) {
         event.preventDefault();
         $('.apply-wrapper').css({
@@ -141,14 +141,17 @@
           pointerEvents : "none"
         })
       })
-
+    })
+      // submit apply with choices
       $('.apply .btn-primary').click(function (event) {
         event.preventDefault();
+        let btn = $('button[name=choiceApply]');
         $.ajax({
           method : "POST",
           url : "../candidater",
           data : $('.apply').serialize(),
           success : function (data) {
+            alert(data)
             if (data == 'error') {
               alert('minable hacker')
             }
@@ -157,30 +160,66 @@
                 opacity : "0",
                 pointerEvents : "none"
               })
-              switch_btn();
+              $('#form').load(' #form')
+              $('body').append('<div class="added-f">Candidature envoyé avec succés</div>');
+
+              setTimeout(function(){
+                $('.added-f').fadeOut(300).remove()
+              },3000);
             }
           }
         })
 
       })
-    })
 
     // submit direct apply
-    $('a[href=apply].direct').click(function (event) {
+    $('form.directApply').on('click' , 'button[name=directApply]' , function (event) {
       event.preventDefault();
-      swwitch_btn();
+      let btn = $(this);
+      $.ajax({
+        method : 'POST',
+        url : '../candidater',
+        data : $('form.directApply').serialize(),
+        success : function (data) {
+          if(data == "error")
+            alert('nice attempt')
+          else {
+            $('#form').load(' #form');
+            $('body').append('<div class="added-f">Candidature envoyé avec succés</div>');
+
+            setTimeout(function(){
+              $('.added-f').fadeOut(300).remove()
+            },3000);
+          }
+        }
+      })
     })
 
-    function switch_btn () {
-      $('a[href=apply]').removeClass('btn-primary');
-      $('a[href=apply]').addClass('btn-danger');
-      $('a[href=apply]').html('Annuler candidature');
-      $('body').append('<div class="added-f">Success</div>');
 
-      setTimeout(function(){
-        $('.added-f').fadeOut(300).remove()
-      },3000);
-    }
+    // unapply
+    $('form.directApply').on('click' , 'button[name=unapply]' , function (event) {
+      event.preventDefault();
+      $.ajax({
+        method : 'get',
+        url : '../annuler/'+$('input[name=offer_id]').val(),
+        success : function (data) {
+          if (data == "error") {
+            alert('nice try')
+          }
+          else {
+            $('#form').load(' #form');
+            $('body').append('<div class="removed-f">Candidature supprimer avec succés</div>');
+
+            setTimeout(function(){
+              $('.removed-f').fadeOut(300).remove()
+            },3000);
+          }
+        }
+      })
+    })
+
+
+
 
 
 })(jQuery)

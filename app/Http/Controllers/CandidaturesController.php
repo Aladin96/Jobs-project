@@ -38,7 +38,21 @@ class CandidaturesController extends Controller
      */
     public function store(Request $request)
     {
-
+        if (isset($request->offer_id)) {
+          $candidat_id = Auth::guard('candidat')->id();
+          $ifExist = Candidature::All()->where('id_offre' , $request->offer_id)->where('id_candidat' , $candidat_id);
+          if (!count($ifExist)) {
+            $new = new Candidature();
+            $new->id_offre = $request->offer_id ;
+            $new->id_candidat = $candidat_id ;
+            $new->choix = 0 ;
+            $new->save();
+            return('ok');
+          }
+          else {
+            echo "error";
+          }
+        }
         $offer_id = $request->offer ;
         $candidat_id = Auth::guard('candidat')->id();
         $ifExist = Candidature::All()->where('id_offre' , $offer_id)->where('id_candidat' , $candidat_id);
@@ -59,6 +73,7 @@ class CandidaturesController extends Controller
           return ('error');
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -102,6 +117,13 @@ class CandidaturesController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $id_candidat = Auth::guard('candidat')->id();
+      $apply = Candidature::All()->where('id_candidat' , $id_candidat)->where('id_offre' , $id);
+      if ( count($apply) ) {
+        $apply[0]->delete();
+      }
+      else {
+        echo "error";
+      }
     }
 }

@@ -185,32 +185,48 @@
                         </div>
                     </div>
                     @endif
-                    @if( !Auth::guard('recruteur')->check())
-                      @php
-                      $isCandidat = Auth::guard('candidat')->id();
-                      if($isCandidat)
-                        $cvs = App\Cv::All()->where('id_candidat' , $isCandidat) ;
-                      @endphp
-                      <div class="job-detail border rounded mt-4">
-                        <a href="{{ $isCandidat ? 'apply' : '../login/candidat'}}" class="btn btn-primary btn-block {{count($cvs) == 1 ? 'direct' : 'choices'}}">Candidater</a>
-                      </div>
-                      @if(count($cvs) > 1)
-                        <div class="apply-wrapper">
-                          <form class="apply" action="{{url('/candidater')}}" method="post">
-                            @csrf
-                            <input type="hidden" name="offer" value="{{$offer->id}}">
-                            <span class="text-muted">Candidater avec : </span>
-                            <select class="form-control mb-4 mt-2" style="display:inline" name="choice">
-                              <option value="0" selected>Profile</option>
-                              @foreach($cvs as $cv)
-                                <option value="{{$cv->id}}">{{$cv->titre}}</option>
-                              @endforeach
-                            </select>
-                            <button type="submit" name="button" class="btn btn-primary">Candidater</button>
-                            <button class="btn btn-danger float-right">Annuler</button>
-                          </form>
-                        </div>
-                      @endif
+                    @php
+                      $candidat = $guest = false ;
+                      if( Auth::guard('candidat')->check()) {
+                        $candidat = true;
+                        $id_candidat = Auth::guard('candidat')->id();
+                        $cvs = App\Cv::All()->where('id_candidat' , $id_candidat) ;
+                        $ifExist = App\Candidature::All()->where('id_offre' , $offer->id)->where('id_candidat' , $id_candidat);
+                      }
+                      elseif ( !Auth::guard('recruteur')->check())
+                        $guest = true;
+                    @endphp
+                    <div class="job-detail border rounded mt-4">
+                        <form class="directApply" action="../login/candidat" method="get" id="form">
+                          @csrf
+                          @if($guest)
+                            <button type="submit" class="btn btn-primary btn-block">Candidater</button>
+                          @elseif($candidat)
+                            <input type="hidden" name="offer_id" value="{{$offer->id}}">
+                            @if( !count($ifExist))
+                            <button type="submit" class="btn btn-primary btn-block" name="{{count($cvs) > 1 ? 'choice' : 'direct'}}Apply">Candidater</button>
+                            @else
+                            <button name="unapply" class="btn btn-danger btn-block">Annuler la candidature</button>
+                            @endif
+                          @endif
+                        </form>
+                    </div>
+                    @if($candidat && count($cvs) > 1)
+                          <div class="apply-wrapper">
+                            <form class="apply" action="{{url('/candidater')}}" method="post">
+                              @csrf
+                              <input type="hidden" name="offer" value="{{$offer->id}}">
+                              <span class="text-muted">Candidater avec : </span>
+                              <select class="form-control mb-4 mt-2" style="display:inline" name="choice">
+                                <option value="0" selected>Profile</option>
+                                @foreach($cvs as $cv)
+                                  <option value="{{$cv->id}}">{{$cv->titre}}</option>
+                                @endforeach
+                              </select>
+                              <button type="submit" name="button" class="btn btn-primary">Candidater</button>
+                              <button class="btn btn-danger float-right">Annuler</button>
+                            </form>
+                          </div>
                     @endif
                 </div>
             </div>
