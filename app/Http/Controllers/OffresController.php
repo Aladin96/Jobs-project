@@ -17,8 +17,50 @@ class OffresController extends Controller
 
     public function index()
     {
-        $offers = Offre::Cursor();
-        return view ('offres.index' , compact('offers'));
+
+        if( request('societe') || request('domaine') ){
+
+          $domaine = request('domaine');
+          $societe = request('societe');
+
+          if( request('societe') != '' && request('domaine') != '' ){
+
+            $offers = Offre::where('id_recruteur', request('societe'))
+                             ->where('domaine', request('domaine'))
+                             ->paginate(1);
+
+           $links = $offers->appends( compact('domaine', 'societe') );
+
+           return view ('offres.index' , compact('offers', 'links'));
+
+          }elseif( empty(request('societe')) ){
+
+            $offers = Offre::where('domaine', request('domaine'))
+                             ->paginate(1);
+
+            $links = $offers->appends( compact('domaine') );
+
+            return view ('offres.index' , compact('offers', 'links'));
+
+          }elseif( empty(request('domaine')) ){
+            $offers = Offre::where('id_recruteur', request('societe'))
+                             ->paginate(1);
+
+           $links = $offers->appends( compact('societe') );
+
+           return view ('offres.index' , compact('offers', 'links'));
+          }
+        }else{
+
+          $offers = Offre::paginate(1);
+
+          $links = $offers->links();
+
+          return view ('offres.index' , compact('offers', 'links'));
+
+        }
+
+
     }
 
     /**

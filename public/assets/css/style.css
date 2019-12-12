@@ -2766,10 +2766,8 @@ section.delete > div{
   box-shadow: 0px 3px 16px rgba(0,0,0,0.2) !important;
     color: #fff;
 }
-.added-f{
-  background: #40CB94;
-}
+.added-f{ background: #40CB94; }
 
-.removed-f{
-  background: #E43F52;
-}
+.removed-f{ background: #E43F52;}
+
+.filtrer .form-control{ display: inline; width: auto}

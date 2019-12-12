@@ -28,7 +28,7 @@ class SearchController extends Controller
                           ->where('domaine', request('domaine'))
                           ->paginate(10);
 
-        }elseif( request('societe') != -1 || equest('domaine') == -1){
+        }elseif( request('societe') != -1 || request('domaine') == -1){
 
           $search = Offre::where('intitule', 'like', '%' . request('q') . '%')
                           ->where('id_recruteur', request('societe'))
@@ -36,14 +36,14 @@ class SearchController extends Controller
 
         }else{
 
-          $search = Offre::firstOrFail()->where('intitule', 'like', '%' . request('q') . '%')
+          $search = Offre::where('intitule', 'like', '%' . request('q') . '%')
                           ->where( 'id_recruteur', request('societe')  )
                           ->where('domaine', request('domaine'))
                           ->paginate(10);
         }
 
 
-        return view('search.index', compact('search'));  
+        return view('search.index', compact('search'));
 
     }else{
 
