@@ -57,6 +57,11 @@ return [
             'provider' => 'recruteurs',
         ],
 
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
     ],
 
     /*
@@ -90,6 +95,11 @@ return [
         'recruteurs' => [
             'driver' => 'eloquent',
             'model' => App\Recruteur::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
         ],
 
         // 'users' => [

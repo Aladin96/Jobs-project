@@ -42,6 +42,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:candidat')->except('logout');
         $this->middleware('guest:recruteur')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
     }
 
     /*
@@ -93,8 +94,34 @@ class LoginController extends Controller
      return back()->with('error', 'Email ou mot de passe incorrect !');
 
     }
+    /*
+    *
+    *
+    ///// admin
+    *
+    *
+    */
+
+    public function adminLoginView(){
+        return view('auth.admin', ['url' => 'dashboard']);
+    }
 
 
+    public function adminLogin(Request $request){
+
+      $this->validate($request, [
+          'user'   => 'required',
+          'pass' => 'required'
+      ]);
+
+      if (Auth::guard('admin')->attempt(['username' => $request->user, 'password' => $request->pass], $request->get('remember'))) {
+
+          return redirect()->intended('/dashboard');
+      }
+
+     return back()->with('error', 'Nom ou mot de passe incorrect !');
+
+    }
 
 
 }

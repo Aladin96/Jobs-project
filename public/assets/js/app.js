@@ -217,7 +217,11 @@
       })
     })
 
-
+    $('.adminLogin input[type=submit]').click(function () {
+    //event.preventDefault();
+    /*$('.wrapper').fadeOut(500);
+    $('.adminLogin').css('height' , '20%')*/
+  })
 
 
 

@@ -75,5 +75,10 @@ Route::Post('/login/candidat', 'Auth\LoginController@candidatLogin');
 Route::get('/login/recruteur', 'Auth\LoginController@recruteurLoginView');
 Route::Post('/login/recruteur', 'Auth\LoginController@recruteurLogin');
 
+// |--> ADMIN
+Route::get('/login/dashboard', 'Auth\LoginController@adminLoginView');
+Route::Post('/login/dashboard', 'Auth\LoginController@adminLogin');
+Route::view('dashboard', 'auth.admin');
+
 // logout
 Route::get('/logout', 'Auth\LoginController@logout');
