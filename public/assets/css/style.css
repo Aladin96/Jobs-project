@@ -2967,6 +2967,9 @@ section.delete > div{
 .fa-chevron-left.collapsed {
   transform: rotate(-45deg);
 }
+.nav-links .link a{
+  color: #fff;
+}
 .nav-links .link i{
   line-height: 60px;
   padding-right: 20px;
@@ -3039,7 +3042,7 @@ section.delete > div{
 }
 .box-percentage .box-fill {
   height: 100%;
-  width: 80%;
+  width: 100%;
   background: #fff;
 }
 .percentage {

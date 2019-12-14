@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Candidat;
+use App\Recruteur;
 use Auth;
 
 class AdminsController extends Controller
@@ -16,7 +18,22 @@ class AdminsController extends Controller
     public function index()
     {
         if (Auth::guard('admin')->check()) {
-          return view('dashboard.index');
+          $candidates = count(Candidat::Cursor());
+          $recruiters = count(Recruteur::Cursor());
+          $earnings = count(Recruteur::All()->where('payFavorite' , 1)) * 20;
+          $users = $candidates + $recruiters;
+          $candidates_rate = round(($candidates * 100)/$users);
+          $recruiters_rate = round(($recruiters * 100)/$users);
+
+          $data = array (
+            "users" => $users ,
+            "candidates" => $candidates ,
+            "recruiters" => $recruiters ,
+            "c_rate" => $candidates_rate ,
+            "r_rate" => $recruiters_rate ,
+            "earnings" => $earnings
+          );
+          return view('dashboard.index' , compact('data'));
         }
         return ('404');
     }
