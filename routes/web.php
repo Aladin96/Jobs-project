@@ -44,7 +44,7 @@ Route::post('/offre/create', 'OffresController@store');
 
 // DASHBOARD Routes
 Route::get('dashboard', 'AdminsController@index');
-Route::get('dashboard/offers', 'AdminsController@index');
+Route::get('dashboard/offers', 'AdminsController@manageOffers');
 Route::get('dashboard/recruiters', 'AdminsController@index');
 Route::get('dashboard/candidates', 'AdminsController@index');
 

@@ -12,17 +12,17 @@
         </div>
         <p class="nav-header">MAIN NAVIGATION :</p>
         <ul class="nav-links">
-          <li class="link">Dashboard</li>
-          <li class="link">offers</li>
+          <a href="../dashboard"><li class="link"> Dashboard</li></a>
+          <a href="../dashboard/offers"><li class="link">Offers</li> </a>
           <li class="link" data-toggle="collapse" data-target="#expand">Users <i class="fas fa-chevron-left fa-xs float-right"></i>
 
               <ul class="collapse nav-links" id="expand">
-                <li class="sub-link">Candidats</li>
-                <li class="sub-link">Recruiters</li>
+                <a href="../dashboard/candidates"><li class="sub-link">Candidates</li> </a>
+                <a href="../dashboard/recruiters"><li class="sub-link">Recruiters </li></a>
               </ul>
 
           </li>
-          <li class="link"> <a href="#">Logout</a> </li>
+          <a href="../logout"><li class="link"> Logout</li> </a> 
         </ul>
       </nav>
 

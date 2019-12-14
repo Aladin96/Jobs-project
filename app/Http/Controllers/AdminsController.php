@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Candidat;
 use App\Recruteur;
+use App\Offre;
 use Auth;
 
 class AdminsController extends Controller
@@ -38,6 +39,16 @@ class AdminsController extends Controller
         return ('404');
     }
 
+    public function manageOffers()
+    {
+      if (Auth::guard('admin')->check()) {
+        $offers = Offre::All()->where('status' , 'En_attente');
+        return view("dashboard.offers" , compact('offers'));
+      }
+      else {
+        return ('404');
+      }
+    }
     /**
      * Show the form for creating a new resource.
      *

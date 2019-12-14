@@ -265,7 +265,7 @@
                       </div>
                       @empty
                       <div class="col-lg-12 mt-4 pt-2">
-                        No data
+                        <h2 class="text-muted p-5 m-5 text-center">Pas d'offres actuellement</h2>
                       </div>
                     @endforelse
 

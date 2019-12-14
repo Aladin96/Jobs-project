@@ -144,10 +144,18 @@ class OffresController extends Controller
     public function show($id)
     {
         $offer = Offre::FindOrFail($id);
-        $offer->vues += 1;
-        $offer->save();
-        $haveRight = ( $offer->recruteur->id == Auth::guard('recruteur')->id() ) ? true : false ;
-        return view ('offres.show' , compact('offer' , 'haveRight'));
+        if ($offer->status = "Publiée" || Auth::guard('admin')->check()) {
+          if ($offer->status = "Publiée") {
+            $offer->vues += 1;
+          }
+          $offer->save();
+          $haveRight = ( $offer->recruteur->id == Auth::guard('recruteur')->id() ) ? true : false ;
+          return view ('offres.show' , compact('offer' , 'haveRight'));
+        }
+        else {
+          return ('404');
+        }
+
     }
 
     /**

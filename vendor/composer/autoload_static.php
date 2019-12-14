@@ -419,6 +419,7 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
     );
 
     public static $classMap = array (
+        'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Candidat' => __DIR__ . '/../..' . '/app/Candidat.php',
         'App\\Candidature' => __DIR__ . '/../..' . '/app/Candidature.php',
         'App\\Competence' => __DIR__ . '/../..' . '/app/Competence.php',
@@ -428,6 +429,7 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Experience' => __DIR__ . '/../..' . '/app/Experience.php',
         'App\\Favori' => __DIR__ . '/../..' . '/app/Favori.php',
         'App\\Formation' => __DIR__ . '/../..' . '/app/Formation.php',
+        'App\\Http\\Controllers\\AdminsController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminsController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

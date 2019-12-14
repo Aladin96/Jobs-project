@@ -2960,6 +2960,7 @@ section.delete > div{
   font-size: 18px;
   margin: 10px 0;
   color: #fff;
+  cursor: pointer;
 }
 .nav-links .link:hover {
   background: #fff2;
@@ -2967,9 +2968,7 @@ section.delete > div{
 .fa-chevron-left.collapsed {
   transform: rotate(-45deg);
 }
-.nav-links .link a{
-  color: #fff;
-}
+
 .nav-links .link i{
   line-height: 60px;
   padding-right: 20px;
@@ -2977,6 +2976,7 @@ section.delete > div{
 }
 .sub-link{
   padding-left: 40px;
+  color: #fff;
 }
 .sub-link:hover{
   background: #fff2
@@ -3051,7 +3051,14 @@ section.delete > div{
   color: #fff8;
   margin: 10px 0;
 }
-
+#dash-content .table {
+  width: 95%;
+  margin: auto;
+}
+#dash-content .table td {
+  padding: 0;
+  line-height: 67px;
+}
 
 
 
