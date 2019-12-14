@@ -217,12 +217,14 @@
       })
     })
 
-    $('.adminLogin input[type=submit]').click(function () {
-    //event.preventDefault();
-    /*$('.wrapper').fadeOut(500);
-    $('.adminLogin').css('height' , '20%')*/
+    /*================= DASHBOARD ================*/
+
+    $('#toggle-menu').click(function () {
+    $('nav , #dash-content').toggleClass('toggled');
   })
 
-
+    $('li[data-toggle="collapse"]').click(function () {
+      $(this).children('i').toggleClass('collapsed')
+    })
 
 })(jQuery)

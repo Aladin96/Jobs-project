@@ -2903,6 +2903,157 @@ section.delete > div{
     opacity: 1;
   }
 }
+
+
+/*================== dashboard ================*/
+#dashboard-wrapper {
+  background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+}
+.navigation {
+  background: #3338;
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  transition: .5s ease;
+}
+.navigation .user {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+.navigation .user:hover {
+  background: #fff2
+}
+.navigation .user img {
+  height: 40px;
+  width: 40px;
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+.navigation .user .name {
+  line-height: 50px;
+  padding-right: 40px;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bolder;
+}
+.nav-header {
+  color: #fff4;
+  margin:  20px;
+  font-weight: bolder;
+  border-top: 1px solid #fff4;
+  text-align: center;
+}
+.navigation.toggled {
+  transform: translateX(-100%);
+}
+.nav-links {
+  padding: 0;
+  list-style: none;
+}
+.nav-links .link {
+  min-height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  font-size: 18px;
+  margin: 10px 0;
+  color: #fff;
+}
+.nav-links .link:hover {
+  background: #fff2;
+}
+.fa-chevron-left.collapsed {
+  transform: rotate(-45deg);
+}
+.nav-links .link i{
+  line-height: 60px;
+  padding-right: 20px;
+  transition: .2s
+}
+.sub-link{
+  padding-left: 40px;
+}
+.sub-link:hover{
+  background: #fff2
+}
+#dash-content {
+  margin-left: 20%;
+  min-height: 100vh;
+  transition: .5s ease;
+}
+#dash-content.toggled {
+  margin-left: 0
+}
+.content-header {
+  position: relative;
+  background: #0003;
+  box-shadow: 2px 2px 4px #3333;
+  height: 40px;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+}
+.content-header i{
+  cursor: pointer;
+  color: #fff;
+}
+.content-header h4{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ddd;
+}
+#dash-content .dash-box {
+  background: #0003;
+  width: 90%;
+  height: 170px;
+  margin: auto;
+  margin-bottom : 40px;
+  padding: 20px;
+  box-shadow: 2px 2px 4px #3332;
+  transition: .3s ease-in-out;
+}
+#dash-content .dash-box:hover {
+  box-shadow: 2px 2px 12px #3338;
+}
+.dash-box .box-title {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: .2rem;
+  color: #fff;
+}
+.dash-box .box-statistic {
+  font-size: 24px;
+  font-weight: bolder;
+  color: #fff;
+}
+.dash-box i {
+  color: #fff
+}
+.dash-box .box-percentage {
+  height: 8px;
+  margin-top: 20px;
+  background: #3333
+}
+.box-percentage .box-fill {
+  height: 100%;
+  width: 80%;
+  background: #fff;
+}
+.percentage {
+  font-size: 14px;
+  font-weight: bolder;
+  color: #fff8;
+  margin: 10px 0;
+}
+
+
+
+
+
+
 @keyframes scaleIn {
   from{
     transform: scale(1);

@@ -42,6 +42,12 @@ Route::put('/recruteur/{id}', 'RecruteursController@update');
 Route::get('/offre/create', 'OffresController@create');
 Route::post('/offre/create', 'OffresController@store');
 
+// DASHBOARD Routes
+Route::get('dashboard', 'AdminsController@index');
+Route::get('dashboard/offers', 'AdminsController@index');
+Route::get('dashboard/recruiters', 'AdminsController@index');
+Route::get('dashboard/candidates', 'AdminsController@index');
+
 // Jobs
 Route::get('/offres' , 'OffresController@index');
 Route::get('/offre/{show}' , 'OffresController@show');
@@ -78,7 +84,7 @@ Route::Post('/login/recruteur', 'Auth\LoginController@recruteurLogin');
 // |--> ADMIN
 Route::get('/login/dashboard', 'Auth\LoginController@adminLoginView');
 Route::Post('/login/dashboard', 'Auth\LoginController@adminLogin');
-Route::view('dashboard', 'auth.admin');
+
 
 // logout
 Route::get('/logout', 'Auth\LoginController@logout');
