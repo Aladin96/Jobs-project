@@ -124,9 +124,96 @@ class CvsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        $cv = Cv::findOrFail($request->id_cv);
+        if ($cv->id_candidat == Auth::guard('candidat')->id()) {
+          $cv->titre = $request->intitule_cv;
+          $cv->save();
+
+          // trainings updates
+          foreach ($request->diplome as $index => $diplome) {
+            if ($request->formation_action[$index] == "update") {
+              $formation = Formation::findOrFail($request->formation_id[$index]);
+              $formation->diplome = $diplome;
+              $formation->domaine = $request->domaine[$index];
+              $formation->lieu = $request->lieu[$index];
+              $formation->date_debut = $request->dd_formation[$index];
+              $formation->date_fin = $request->df_formation[$index];
+              $formation->save();
+            }
+            elseif ($request->formation_action[$index] == "remove"){
+              $formation = Formation::findOrFail( $request->formation_id[$index] ) ;
+              $formation->delete();
+            }
+            else {
+              $formation = new Formation();
+              $formation->id_cv = $cv->id;
+              $formation->diplome = $request->diplome[$index];
+              $formation->domaine = $request->domaine[$index];
+              $formation->lieu = $request->lieu[$index];
+              $formation->date_debut = $request->dd_formation[$index];
+              $formation->date_fin = $request->df_formation[$index];
+              $formation->save();
+            }
+          }
+
+          // experiences updates
+          foreach ($request->intitule_experience as $index => $intitule) {
+            if ($request->experience_action[$index] == "update") {
+              $experience = Experience::findOrFail($request->experience_id[$index]);
+              $experience->intitule = $intitule;
+              $experience->lieu = $request->wilaya[$index];
+              $experience->date_debut = $request->dd_experience[$index];
+              $experience->date_fin = $request->df_experience[$index];
+              $experience->save();
+            }
+            elseif ($request->experience_action[$index] == "remove"){
+              $experience = Experience::findOrFail($request->experience_id[$index]) ;
+              $experience->delete();
+            }
+            else {
+              $experience = new Experience();
+              $experience->intitule = $intitule;
+              $experience->id_cv = $cv->id;
+              $experience->lieu = $request->wilaya[$index];
+              $experience->date_debut = $request->dd_experience[$index];
+              $experience->date_fin = $request->df_experience[$index];
+              $experience->save();
+            }
+
+          }
+
+
+          // skills updates
+         foreach ($request->intitule_competence as $index => $intitule) {
+            if ($request->competence_action[$index] == "update") {
+              $competence = Competence::findOrFail($request->competence_id[$index]);
+              $competence->intitule = $intitule;
+              $competence->description = $request->description[$index];
+              $competence->save();
+            }
+            elseif ($request->competence_action[$index] == "remove"){
+              $competence = Competence::findOrFail($request->competence_id[$index]);
+              $competence->delete();
+            }
+            else {
+              $competence = new Competence();
+              $competence->id_cv = $cv->id;
+              $competence->intitule = $intitule;
+              $competence->description = $request->description[$index];
+              $competence->save();
+            }
+          }
+
+
+          $request->session()->flash('modified' , 'Changement effectué avec succès');
+          return  redirect()->back();
+
+        }
+
+
     }
 
     /**

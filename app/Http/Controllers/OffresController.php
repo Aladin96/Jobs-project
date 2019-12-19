@@ -144,8 +144,8 @@ class OffresController extends Controller
     public function show($id)
     {
         $offer = Offre::FindOrFail($id);
-        if ($offer->status = "Publiée" || Auth::guard('admin')->check()) {
-          if ($offer->status = "Publiée") {
+        if ($offer->status == "Publiée" || Auth::guard('admin')->check() || Auth::guard('recruteur')->id() ) {
+          if ($offer->status == "Publiée") {
             $offer->vues += 1;
           }
           $offer->save();

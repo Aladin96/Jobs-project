@@ -49,6 +49,19 @@ class AdminsController extends Controller
         return ('404');
       }
     }
+
+    public function acceptOffers($id)
+    {
+      
+      if (Auth::guard('admin')->check()) {
+        $offer = Offre::FindOrFail($id);
+        $offer->status = "Publiée";
+        $offer->save();
+      }
+      else {
+        return ('404');
+      }
+    }
     /**
      * Show the form for creating a new resource.
      *
