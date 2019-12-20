@@ -42,6 +42,11 @@
                                 <li class="list-inline-item">
                                     <p class="text-white"><i class="mdi mdi-cellphone-iphone mr-2"></i>{{ $recruteur->tel }}</p>
                                 </li>
+                                @if(Auth::guard('candidat')->check())
+                                <li class="list-inline-item">
+                                    <button class="btn btn-primary pl-5 pr-5">Spontaner</button>
+                                </li>
+                                @endif
                             </ul>
                         </div>
 
@@ -53,10 +58,10 @@
     <!-- end home -->
 
     <!-- EMPLOYERS DETAILS START -->
-    <section class="section noTopPadding">
+    <section class="section ">
         <div class="container">
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-12">
                     <div class="border-top border-bottom pt-4 pb-4">
                         <div class="row justify-content-sm-center">
@@ -97,130 +102,70 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="row">
+            @if(Auth::guard('recruteur')->id() == $recruteur->id)
+              <div class="row border-bottom" id="{{$recruteur->id}}">
+                <div class="col-6 p-0">
+                  <p class="recruiter-switch text-center p-3 active">Mes offres</p>
+                </div>
+                <div class="col-6 p-0">
+                  <p class="recruiter-switch text-center p-3">Statistiques</p>
+                </div>
+              </div>
+            @endif
+
+
+            <div class="row" id="active-section">
                 <div class="col-lg-12 mt-4 pt-2">
-                    <h4>Présentation de l'entreprise:</h4>
-                    <div class="rounded border p-4 mt-3">
-                        <p class="text-muted">At vero eos accusamus iusto odio dignissimos ducimus blanditiis praesentium voluptatum deleniti that is atque corrupti dolores et quas molestias excepturi sint occaecati cupiditate non at provident similique sunt in culpa qui officia deserunt mollitia animi id est laboru at dolorum fuga Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus at enim ipsam voluptatem quia voluptas aut odit aut fugit Cum sociis natoque penatibus magnis dis parturient montes nascetur ridiculus mus donec quam felis ultricies nec pellentesque eu pretium quis sem that phasellus viverra nulla ut metus varius laoreet.</p>
-                        <p class="text-muted">Nobis est eligendi optio cumque nihil impedit quo minus quod maxime at placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus at enim ipsam eligendi optio cumque nihil impedit quo minus quod maxime placeat voluptatem quia that voluptas aut odit aut fugit Cum sociis natoque penatibus magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec this pellentesque eu pretium quis sem hasellus viverra nulla ut metus varius laoreet uisque rutrum enean imperdie tiam ultricies nisi vel augue.</p>
-                        <p class="text-muted mb-0">Optio cumque nihil impedit quo minus quod maxime at placeate facere possimuse omnis voluptas assumenda est omnis dolor repellendus at enim ipsam voluptatem quia voluptas aut odit aut fugit um sociis natoque penatibus magnis dis parturient montes nascetur at ridiculus mus onec quam felis ultricies nec nihil impedit quo minus quod maxime at placeat facere possimuse omnis voluptas assumenda est omnis dolor repellendus at enime pellentesque eu pretium quis sem Phasellus viverra nulla ut metus varius laoreet uisque rutrum enean imperdiet tiam ultricies nisi vel augue Donec elit libero sodales nec volutpat a suscipit non turpis ullam sagittis Suspendisse pulvinar at augue ac venenatis condimentum sem libero volutpat nibh nec pellentesque velit pede quis nunc estibulum ante ipsum primis in faucibus orci luctus et ultrices as cubilia Curae usce id purus varius tincidunt libero Phasellus dolor.</p>
-                    </div>
-                </div>
-            </div>
+                  @if( count($offers) )
+                    <h4 class="mb-4">Offres de l'entreprise:</h4>
+                    @foreach($offers as $offer)
+                        <div class="job-list-box border rounded">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-2">
+                                        <div class="company-logo-img">
+                                            <img src="{{asset($offer->recruteur->logo)}}" style="height : 120px" class="img-fluid mx-auto d-block">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-9">
+                                        <div class="job-list-desc">
+                                            <h4 class="mb-2"><a href="{{url('offre/'.$offer->id)}}" class="text-dark">{{ $offer->intitule }}</a></h4>
+                                            <p class="text-muted mb-2"><i class="mdi mdi-bank mr-2"></i>{{$offer->recruteur->nom}}</p>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-3">
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{ $offer->lieu_de_travail }}</p>
+                                                </li>
 
-            <div class="row">
-                <div class="col-lg-12 mt-4 pt-2">
-                    <h4>Services :</h4>
-                    <div class="rounded border p-4 mt-3">
-                        <p class="text-muted">Aenean tellus metus bibendum sed posuere ac mattis non nunc estibulum fringilla pede sit amet augue n turpis Pellentesque posuere raesent turpis enean posuere tortor sed cursus feugiat nunc augue blandit nunc sollicitudin at dolor sagittis lacus estibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Sed aliquam nisi quis porttitor congue elit erat euismod orci ac placerat dolor lectus quis orci repellendus at enime pellentesque eu pretium quis sem Phasellus viverra nulla hasellus consectetuer vestibulum elit.</p>
-                        <h6 class="text-dark">Details :</h6>
-                        <p class="text-muted"><i class="mdi mdi-check text-success"></i> Morbi mattis ullamcorper velit hasellus gravida semper nisi nullam vel sem.</p>
-                        <p class="text-muted"><i class="mdi mdi-check text-success"></i> Phasellus viverra nulla ut metus varius laoreet uisque rutrum enean imperdiet.</p>
-                        <p class="text-muted"><i class="mdi mdi-check text-success"></i> Etiam ultricies nisi vel augue Curabitur ullamcorper ultricies nisi am eget dui tiam rhoncus.</p>
-                        <p class="text-muted"><i class="mdi mdi-check text-success"></i> Donec mollis hendrerit risus hasellus nec sem in justo pellentesque facilisis.</p>
-                        <p class="text-muted"><i class="mdi mdi-check text-success"></i> Praesent congue erat at massa Sed cursus turpis vitae tortor onec posuere vulputate arcu.</p>
-                        <p class="text-muted"><i class="mdi mdi-check text-success"></i> Donec elit libero, sodales nec volutpat a suscipit non turpis ullam sagittis.</p>
-                        <p class="text-muted mb-0"><i class="mdi mdi-check text-success"></i> Aenean tellus metus bibendum sed posuere ac mattis non nunc estibulum fringilla.</p>
-                    </div>
-                </div>
-            </div>
+                                                <li class="list-inline-item">
+                                                    <p class="text-muted mb-0"><i class="fas fa-chalkboard-teacher"></i> Experience : {{ $offer->annee_experience }} Ans</p>
+                                                </li>
 
-            <div class="row">
-                <div class="col-lg-12 mt-4 pt-2">
-                    <h4>Avis :</h4>
-                </div>
+                                                <li class="list-inline-item">
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-clock-outline mr-2"></i>{{ $offer->updated_at->diffForHumans() }}</p>
+                                                </li>
 
-                <div class="col-lg-8 col-md-7">
-                    <div class="shadow rounded p-4 mt-4">
-                        <img src="images/employers/img-1.jpg" alt="" height="90" class="float-left shadow rounded-pill mr-3">
-                        <div class="d-block overflow-hidden">
-                            <h6 class="text-muted font-weight-light float-right mb-0"><i class="mdi mdi-clock-outline mr-1"></i>32 minutes ago</h6>
-                            <h5 class="mb-1"><a href="#" class="text-dark">Mario Thomas</a></h5>
-                            <small class="text-muted font-weight-bold">Web Developer</small>
-                            <ul class="employers-icons list-inline mb-1">
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                            <p class="text-muted mb-0">Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies nisi avel augue curabitur ullamcorper ultricies nisi nam eget dui.</p>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="job-list-button-sm text-right">
+                                            <span class="badge badge-success">Type : {{ $offer->type }}</span>
+
+                                            <div class="mt-3">
+                                                <a href="/offre/{{$offer->id}}" class="btn btn-sm btn-primary">Voir</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="shadow rounded p-4 mt-4">
-                        <img src="images/employers/img-2.jpg" alt="" height="90" class="float-left shadow rounded-pill mr-3">
-                        <div class="d-block overflow-hidden">
-                            <h6 class="text-muted font-weight-light float-right mb-0"><i class="mdi mdi-clock-outline mr-1"></i>49 minutes ago</h6>
-                            <h5 class="mb-1"><a href="#" class="text-dark">Mario Thomas</a></h5>
-                            <small class="text-muted font-weight-bold">Web Developer</small>
-                            <ul class="employers-icons list-inline mb-1">
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                            <p class="text-muted mb-0">Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies nisi avel augue curabitur ullamcorper ultricies nisi nam eget dui.</p>
-                        </div>
-                    </div>
-
-                    <div class="shadow rounded p-4 mt-4">
-                        <img src="images/employers/img-3.jpg" alt="" height="90" class="float-left shadow rounded-pill mr-3">
-                        <div class="d-block overflow-hidden">
-                            <h6 class="text-muted font-weight-light float-right mb-0"><i class="mdi mdi-clock-outline mr-1"></i>1 Days Ago</h6>
-                            <h5 class="mb-1"><a href="#" class="text-dark">Mario Thomas</a></h5>
-                            <small class="text-muted font-weight-bold">Web Developer</small>
-                            <ul class="employers-icons list-inline mb-1">
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                            <p class="text-muted mb-0">Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies nisi avel augue curabitur ullamcorper ultricies nisi nam eget dui.</p>
-                        </div>
-                    </div>
-
-                    <div class="shadow rounded p-4 mt-4">
-                        <img src="images/employers/img-4.jpg" alt="" height="90" class="float-left shadow rounded-pill mr-3">
-                        <div class="d-block overflow-hidden">
-                            <h6 class="text-muted font-weight-light float-right mb-0"><i class="mdi mdi-clock-outline mr-1"></i>3 Day Ago</h6>
-                            <h5 class="mb-1"><a href="#" class="text-dark">Mario Thomas</a></h5>
-                            <small class="text-muted font-weight-bold">Web Developer</small>
-                            <ul class="employers-icons list-inline mb-1">
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                                <li class="list-inline-item mr-0 text-success"><i class="mdi mdi-star"></i></li>
-                            </ul>
-                            <p class="text-muted mb-0">Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies nisi avel augue curabitur ullamcorper ultricies nisi nam eget dui.</p>
-                        </div>
-                    </div>
+                    @endforeach
+                  @else
+                  <h2 class="text-center text-muted m-5 p-5">Aucun offre n'est disponible</h2>
+                  @endif
                 </div>
-
-                <div class="col-lg-4 col-md-5 mt-4">
-                    <div class="p-4 rounded text-center shadow">
-                        <h5 class="text-dark">Share This Job</h5>
-                        <ul class="social-icon social list-unstyled mb-0">
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-linkedin"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-pinterest"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="rounded"><i class="mdi mdi-share-variant"></i></a></li>
-                        </ul>
-
-                        <div class="map mt-3">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569" class="rounded" style="border: 0" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- EMPLOYERS DETAILS END -->

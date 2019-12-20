@@ -30,6 +30,7 @@ Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::post('/candidater' , 'CandidaturesController@store');
 Route::get('/candidatures/{offre}' , 'CandidaturesController@index');
 Route::get('/annuler/{candidature}' , 'CandidaturesController@destroy');
+
                        /// cv ///
 Route::get('/cv' , 'CvsController@index');
 Route::get('/candidat/{show}/{cv}', 'CvsController@show');
@@ -42,6 +43,8 @@ Route::delete('supp_cv/{cv}' , 'CvsController@destroy');
 
 // RECRUTEUR Routes
 Route::get('/recruteur/{show}', 'RecruteursController@show');
+Route::get('/recruteur/{show}/offers', 'RecruteursController@showOffers');
+Route::get('/recruteur/{show}/statistics', 'RecruteursController@showStatistics');
 Route::get('/recruteur/{show}/edit', 'RecruteursController@edit');
 Route::put('/recruteur/{id}', 'RecruteursController@update');
 Route::get('/offre/create', 'OffresController@create');

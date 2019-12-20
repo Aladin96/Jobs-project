@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Recruteur;
+use App\Offre;
 use Illuminate\Http\Request;
 use Auth ;
 use Illuminate\Support\Str;
@@ -10,14 +11,23 @@ use Illuminate\Support\Facades\Hash;
 
 class RecruteursController extends Controller
 {
-  public function index(){
-
+  public function showOffers($id){
+    $offers = Offre::all()->where('id_recruteur' , $id);
+    return view('recruteurs.company_offers', compact('offers'));
+  }
+  public function showStatistics($id){
+    if (Auth::guard('recruteur')->id() != $id ) {
+      return redirect ('/');
+    }
+    $offers = Offre::all()->where('id_recruteur' , $id);
+    return view('recruteurs.company_statistics', compact('offers'));
   }
 
   public function show($id){
 
     $recruteur = Recruteur::findOrFail($id);
-    return view('recruteurs.show', compact('recruteur'));
+    $offers = Offre::all()->where('id_recruteur' , $id);
+    return view('recruteurs.show', compact('recruteur' , 'offers'));
 
   }
 

@@ -45,6 +45,23 @@
         return false;
     });
 
+    // recruiter switcher
+    $(".recruiter-switch").click(function () {
+      if ( !$(this).hasClass('active') ) {
+        let id = $(this).parent().parent().attr('id');
+        $(".recruiter-switch").removeClass('active');
+        $(this).addClass('active');
+        if ($(this).html() == "Statistiques") {
+          $("#active-section").load("/recruteur/"+1+"/statistics")
+        }
+        else {
+          $("#active-section").load("/recruteur/"+1+"/offers")
+        }
+
+      }
+
+    })
+
     function checkSection(element) {
       if (element.hasClass('formation'))
         return "f";

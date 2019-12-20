@@ -2597,6 +2597,21 @@ hr {
 }
 
 /* ==== addes by fianso ====*/
+.recruiter-switch {
+  background: #f1f1f1f1;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s ease-in;
+}
+.recruiter-switch.active {
+  background: #2443a5;
+  color: #fff;
+}
+.recruiter-switch:hover {
+  background: #244388;
+  color: #fff;
+}
 .register-success {
   color : #4f9;
   font-size: 18px;
