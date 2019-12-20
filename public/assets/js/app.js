@@ -227,4 +227,25 @@
       $(this).children('i').toggleClass('collapsed')
     })
 
+    // Statistics
+
+    $('select').on('change', function(){
+      $("#chart-form").submit();
+    })
+
+    /*$('select').on('change', function(e){
+      e.preventDefault();
+      let datas = $('#chart-form').serialize();
+      $.ajax({
+        method : "GET",
+        url : "/dashboard/statistics/offers",
+        data : datas,
+        success : function (r) {
+          console.log(r)
+          }
+      })
+    })*/
+
+
+
 })(jQuery)

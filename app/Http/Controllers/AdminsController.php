@@ -11,6 +11,10 @@ use Auth;
 
 class AdminsController extends Controller
 {
+
+    public function __construct(){
+      $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,8 +53,21 @@ class AdminsController extends Controller
         return ('404');
       }
     }
+
     /**
-     * Show the form for creating a new resource.
+    *
+    *
+    * Statistics Offers
+    */
+
+    public function statisticsOffers(){
+
+      $offers = new StatisticsController();
+
+      return $offers->offersChart();
+
+    }
+     /* Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
