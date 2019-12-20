@@ -286,21 +286,25 @@
 
     // Statistics
 
-    $('select').on('change', function(e){
-      e.preventDefault();
+    $('#select-year').on('change', function(e){
+      //e.preventDefault();
       let datas = $('#chart-form').serialize();
       $.ajax({
         method : "GET",
-        url : "/dashboard/statistics/offers?q=2020",
+        url : "/dashboard/statistics/offers",
         data : datas,
         dataType:'JSON',
         success : function (r) {
           if( r != ''){
+
+            $('canvas').remove()
+            $('.chart-section').append('<canvas id="myChart" style="height:500px"></canvas>')
+            
             var ctx = document.getElementById('myChart');
 
             var data = r.month;
 
-            var myChart = new Chart(ctx, {
+            const myChart =  new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'],
@@ -326,6 +330,7 @@
                     }
                 }
             });
+
           } // End r != ''
         } // End Success
       }); // End AJAX

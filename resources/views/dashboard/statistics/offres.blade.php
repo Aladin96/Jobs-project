@@ -7,8 +7,8 @@
   </div>
 
 
-  <form method="get" id="chart-form" class="chart-form" action="{{ url('/dashboard/statistics/offers') }}">
-    <select name="q" class="form-control">
+  <form method="get" id="chart-form" class="chart-form" action="">
+    <select name="q" class="form-control" id="select-year">
     @foreach($all_years as $y)
       <option value="{{ $y }}" {{ $y == $year ? 'selected' : '' }}>{{ $y }}</option>
     @endforeach
@@ -37,7 +37,7 @@ for (i=0; i<12; i++){
   data.push(offers);
 }
 
-var myChart = new Chart(ctx, {
+const myChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'],
