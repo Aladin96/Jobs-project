@@ -61,62 +61,19 @@
     <section class="section ">
         <div class="container">
 
-            <!-- <div class="row">
-                <div class="col-lg-12">
-                    <div class="border-top border-bottom pt-4 pb-4">
-                        <div class="row justify-content-sm-center">
-                            <div class="col-lg-2 col-md-3 col-6">
-                                <div class="text-sm-center m-14">
-                                    <h5 class="text-dark mb-2">Employer</h5>
-                                    <p class="text-muted mb-0">5540 +</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-md-3 col-6">
-                                <div class="text-sm-center m-14">
-                                    <h5 class="text-dark mb-2">Type</h5>
-                                    <p class="text-muted mb-0">Create Website</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-md-3 col-6">
-                                <div class="text-sm-center m-14">
-                                    <h5 class="text-dark mb-2">Experience</h5>
-                                    <p class="text-muted mb-0">4 Years + Exp.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-md-3 col-6">
-                                <div class="text-sm-center m-14">
-                                    <h5 class="text-dark mb-2">Salary</h5>
-                                    <p class="text-muted mb-0">$700 - $2000/month</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-md-3 col-6">
-                                <div class="text-sm-center m-14">
-                                    <h5 class="text-dark mb-2">Followers</h5>
-                                    <p class="text-muted mb-0">584230 +</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
             @if(Auth::guard('recruteur')->id() == $recruteur->id)
               <div class="row border-bottom" id="{{$recruteur->id}}">
                 <div class="col-6 p-0">
-                  <p class="recruiter-switch text-center p-3 active">Mes offres</p>
+                  <p class="recruiter-switch text-center p-3">Mes offres</p>
                 </div>
                 <div class="col-6 p-0">
-                  <p class="recruiter-switch text-center p-3">Statistiques</p>
+                  <p class="recruiter-switch text-center p-3 active">Statistiques</p>
                 </div>
               </div>
             @endif
 
 
-            <div class="row" id="active-section">
+            <div class="row" id="offers" style="{{Auth::guard('recruteur')->id() == $recruteur->id ? 'display: none' : '' }}">
                 <div class="col-lg-12 mt-4 pt-2">
                   @if( count($offers) )
                     <h4 class="mb-4">Offres de l'entreprise:</h4>
@@ -166,7 +123,33 @@
                   <h2 class="text-center text-muted m-5 p-5">Aucun offre n'est disponible</h2>
                   @endif
                 </div>
-        </div>
+              </div>
+              @if(Auth::guard('recruteur')->id() == $recruteur->id)
+              <div class="row" id="statistics">
+                <div class="col-12">
+                  <h4>statistiques de l'entreprise:</h4>
+                </div>
+                <div class="offersStats" style="width: 100%">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <h2 class="text-center text-primary">255</h2>
+                        </div>
+                        <div class="col-12">
+                          <h2 class="text-center text-primary">25</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <div class="chart-container" style="height: 400px ; width: 100%;">
+                        <canvas id="chart"  height="350"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endif
     </section>
     <!-- EMPLOYERS DETAILS END -->
 
@@ -197,7 +180,44 @@
         </div>
     </section>
     <!-- subscribe end -->
-
 @include('layouts.footer')
 
 @endsection
+@if(Auth::guard('recruteur')->id() == $recruteur->id)
+@section('scripts')
+<script type="text/javascript" src="{{asset('assets/js/Chart.min.js')}}"></script>
+<script>
+
+  var ctx = document.getElementById('chart');
+  var data = @json($monthData);
+
+  Chart.defaults.global.defaultFontColor = '#333'
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov','Dec'],
+          datasets: [{
+              label: 'Offers ' ,
+              data: data,
+              backgroundColor: 'transparent',
+              borderColor: '#25c889',
+              borderWidth: 3
+          },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      stepSize: 1
+                  }
+              }]
+          }
+      }
+  });
+</script>
+@endsection
+@endif

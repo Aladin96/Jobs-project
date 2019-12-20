@@ -43,6 +43,7 @@ for (i=0; i<12; i++){
   let offers = parseInt(document.getElementsByTagName('month')[i].textContent);
   data.push(offers);
 }
+Chart.defaults.global.defaultFontColor = '#333'
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {

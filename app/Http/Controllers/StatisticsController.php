@@ -15,7 +15,7 @@ class StatisticsController extends Controller
 
     $all_years  = Offre::select(DB::raw('YEAR(created_at) as year'))->distinct()->get()->pluck('year');
 
-    $year       = request('q') ? intval(request('q')) : 2019;
+    $year       = request('q') ? intval(request('q')) : date('Y');
 
     $janvier    = Offre::whereBetween('created_at', [ $year . '-01-01', $year . '-01-31'])->count();
     $fevrier    = Offre::whereBetween('created_at', [ $year . '-02-01', $year . '-02-31'])->count();

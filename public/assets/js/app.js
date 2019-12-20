@@ -48,14 +48,15 @@
     // recruiter switcher
     $(".recruiter-switch").click(function () {
       if ( !$(this).hasClass('active') ) {
-        let id = $(this).parent().parent().attr('id');
         $(".recruiter-switch").removeClass('active');
         $(this).addClass('active');
         if ($(this).html() == "Statistiques") {
-          $("#active-section").load("/recruteur/"+1+"/statistics")
+          $("#offers").hide();
+          $("#statistics").show();
         }
         else {
-          $("#active-section").load("/recruteur/"+1+"/offers")
+          $("#statistics").hide();
+          $("#offers").show();
         }
 
       }

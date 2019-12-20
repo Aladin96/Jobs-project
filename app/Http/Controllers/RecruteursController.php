@@ -12,24 +12,45 @@ use Illuminate\Support\Facades\Hash;
 class RecruteursController extends Controller
 {
   public function showOffers($id){
-    $offers = Offre::all()->where('id_recruteur' , $id);
-    return view('recruteurs.company_offers', compact('offers'));
-  }
-  public function showStatistics($id){
-    if (Auth::guard('recruteur')->id() != $id ) {
-      return redirect ('/');
+    if (request()->ajax()) {
+      $offers = Offre::all()->where('id_recruteur' , $id);
+      return view('recruteurs.company_offers', compact('offers'));
     }
-    $offers = Offre::all()->where('id_recruteur' , $id);
-    return view('recruteurs.company_statistics', compact('offers'));
+    return ('404');
   }
+
+  public function showStatistics($id){
+
+    $offers = Offre::all()->where('id_recruteur' , $id);
+    $year = 2019 ;
+    $months = array('janvier', 'fevrier', 'mars',
+                      'avril', 'mai', 'juin',
+                      'juillet', 'aout', 'septembre',
+                      'octobre', 'novembre', 'decembre');
+    $monthData = array();
+    foreach ($months as $index => $month) {
+      $actual_month = Offre::whereBetween('created_at', [ $year . '-' . ($index+1) .'-01', $year . '-'.($index+1) .'-31'])->where('id_recruteur' , $id)->count();
+      array_push($monthData , $actual_month);
+    }
+    return $monthData;
+  }
+  
 
   public function show($id){
 
     $recruteur = Recruteur::findOrFail($id);
     $offers = Offre::all()->where('id_recruteur' , $id);
+    if (Auth::guard('recruteur')->id() == $id) {
+      $get_stats = new RecruteursController();
+      $monthData = $get_stats->showStatistics($id);
+      return view('recruteurs.show', compact('recruteur' , 'offers' , 'monthData'));
+    }
     return view('recruteurs.show', compact('recruteur' , 'offers'));
 
   }
+
+
+
 
   public function edit($id){
 
