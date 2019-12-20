@@ -3129,3 +3129,9 @@ section.delete > div{
 .removed-f{ background: #E43F52;}
 
 .filtrer .form-control{ display: inline; width: auto}
+
+.chart-form{
+  position: absolute;
+  top: 77px;
+  right: 48px
+}

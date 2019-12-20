@@ -22,7 +22,15 @@
               </ul>
 
           </li>
-          <a href="../logout"><li class="link"> Logout</li> </a> 
+          <li class="link" data-toggle="collapse" data-target="#statistics">Statistics <i class="fas fa-chevron-left fa-xs float-right"></i>
+
+              <ul class="collapse nav-links" id="statistics">
+                <a href="{{ url('/dashboard/statistics/offers') }}"><li class="sub-link">Offers</li> </a>
+                <a href="../dashboard/recruiters"><li class="sub-link">Recruiters </li></a>
+              </ul>
+
+          </li>
+          <a href="../logout"><li class="link"> Logout</li> </a>
         </ul>
       </nav>
 

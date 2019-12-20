@@ -63,6 +63,7 @@
 <script src="{{ URL::asset('assets/js/counter.int.js') }}"></script>
 
 <script src="{{ URL::asset('assets/js/app.js') }}"></script>
+@yield('scripts')
 <script src="{{ URL::asset('assets/js/home.js') }}"></script>
 
 </body>
