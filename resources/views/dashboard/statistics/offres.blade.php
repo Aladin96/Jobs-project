@@ -7,27 +7,20 @@
   </div>
 
 
-  <form method="get" id="chart-form" class="chart-form" action="{{ url('/dashboard/statistics/offers') }}">
-    <select name="q" class="form-control">
+  <form method="get" id="chart-form" class="chart-form" action="">
+    <select name="q" class="form-control" id="select-year">
     @foreach($all_years as $y)
       <option value="{{ $y }}" {{ $y == $year ? 'selected' : '' }}>{{ $y }}</option>
     @endforeach
   </select>
   </form>
-  <div class="month">
-    <month style="display:none">{{ $janvier }}</month>
-    <month style="display:none">{{ $fevrier }}</month>
-    <month style="display:none">{{ $mars }}</month>
-    <month style="display:none">{{ $avril }}</month>
-    <month style="display:none">{{ $mai }}</month>
-    <month style="display:none">{{ $juin }}</month>
-    <month style="display:none">{{ $juillet }}</month>
-    <month style="display:none">{{ $aout }}</month>
-    <month style="display:none">{{ $septembre }}</month>
-    <month style="display:none">{{ $octobre }}</month>
-    <month style="display:none">{{ $novembre }}</month>
-    <month style="display:none">{{ $decembre }}</month>
-  </div>
+
+  <div id="month" style="display:none">
+    @foreach($month as $m )
+      <month>{{$m}}</month>
+    @endforeach
+  <div>
+
 </div>
 @endsection
 
@@ -43,8 +36,13 @@ for (i=0; i<12; i++){
   let offers = parseInt(document.getElementsByTagName('month')[i].textContent);
   data.push(offers);
 }
+<<<<<<< HEAD
 Chart.defaults.global.defaultFontColor = '#333'
 var myChart = new Chart(ctx, {
+=======
+
+const myChart = new Chart(ctx, {
+>>>>>>> 4f77f57fbd393a5f74763f3c47d9ca48b0d1fc42
     type: 'line',
     data: {
         labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'],
