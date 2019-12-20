@@ -269,23 +269,53 @@
 
     // Statistics
 
-    $('select').on('change', function(){
-      $("#chart-form").submit();
-    })
-
-    /*$('select').on('change', function(e){
+    $('select').on('change', function(e){
       e.preventDefault();
       let datas = $('#chart-form').serialize();
       $.ajax({
         method : "GET",
-        url : "/dashboard/statistics/offers",
+        url : "/dashboard/statistics/offers?q=2020",
         data : datas,
+        dataType:'JSON',
         success : function (r) {
-          console.log(r)
-          }
-      })
-    })*/
+          if( r != ''){
 
+            var ctx = document.getElementById('myChart');
 
+            var data = [ r.janvier, r.fevrier, r.mars,
+                         r.avril, r.mai, r.juin,
+                         r.juillet, r.aout, r.septembre,
+                         r.octobre, r.novembre, r.decembre ];
+
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'],
+                    datasets: [{
+                        label: 'Offers ' + r.year,
+                        data: data,
+                        backgroundColor: 'transparent',
+                        borderColor: '#FF6384',
+                        borderWidth: 3
+                    },
+                  ]
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }]
+                    }
+                }
+            });
+          } // End r != '' 
+        } // End Success
+      }); // End AJAX
+    }); // End Select on chage [ Statistics offers ]
 
 })(jQuery)

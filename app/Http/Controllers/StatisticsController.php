@@ -30,6 +30,17 @@ class StatisticsController extends Controller
     $novembre   = Offre::whereBetween('created_at', [ $year . '-11-01', $year . '-11-31'])->count();
     $decembre   = Offre::whereBetween('created_at', [ $year . '-12-01', $year . '-12-31'])->count();
 
+  if(request()->ajax()){
+    return response()->json(compact(
+                            'janvier', 'fevrier', 'mars',
+                            'avril', 'mai', 'juin',
+                            'juillet', 'aout', 'septembre',
+                            'octobre', 'novembre', 'decembre',
+                            'all_years', 'year'));
+  }
+
+    //
+
     return view('dashboard.statistics.offres', compact(
                             'janvier', 'fevrier', 'mars',
                             'avril', 'mai', 'juin',
