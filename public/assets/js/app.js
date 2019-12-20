@@ -45,16 +45,56 @@
         return false;
     });
 
+    function checkSection(element) {
+      if (element.hasClass('formation'))
+        return "f";
+      if (element.hasClass('experience'))
+        return "e";
+      if (element.hasClass('competence'))
+        return "c";
+    }
+    let counter = {
+      f : $('.section-wrapper.formation').children('.row').length,
+      e : $('.section-wrapper.experience').children('.row').length,
+      c : $('.section-wrapper.competence').find('.row').length
+    };
+    // edit RESUME
+    $('.section-wrapper').on('click' , 'i.minus-btn' ,function () {
+      let row = $(this).parent();
+      let wrapper = row.parent();
+      if (counter[checkSection(wrapper)] == 1 ) {
+        row.find('input , textarea').val('');
+      }
+      else {
+        counter[checkSection(wrapper)]--;
+        if (counter[checkSection(wrapper)] == 1) {
+            $('.section-wrapper .sep').remove();
+        }
+        if( row.find('.action').length ) {
+          row.find('input[value=update]').val('remove');
+          row.hide();
+        }
+        else {
+          row.prev().remove();
+          row.remove();
+        }
+      }
+    })
+
+
+
+
 
     // adding a training
     $(".add-more").click(function (event) {
       event.preventDefault();
       let element = $(this).parent().parent().parent().children('.section-wrapper');
-      element.children('input , textarea').value = "";
-      element.append("<div class='col-12'><hr class='sep'></div> <div class ='row'>"
+      counter[checkSection(element)]++;
+      element.append("<div class='col-12'><hr class='sep'></div> <div class ='row relative'>"
                       + element.children().first().html() + "</div>" );
-      element.children('.row').last().children().children().children('input , textarea').val('');
-      element.children('.row').last().children().children().children().children().children('input').val('');
+      element.children('.row').last().find('input , textarea').val('');
+      element.children('.row').last().find('.action').val('new');
+      element.children('.row').last().find('.action').removeAttr('class');
     })
 
     $("i.fa-trash-alt").click(function () {

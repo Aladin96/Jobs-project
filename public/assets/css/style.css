@@ -2879,8 +2879,35 @@ section.delete > div{
     height: 100%;
 }
 
+.relative {
+  position: relative;
+}
 
-
+.minus-btn {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color : #f15e5ef2;
+  cursor: pointer;
+  z-index: 5
+}
+.minus-btn::after {
+  content: attr(name);
+  position: absolute;
+  padding: 5px;
+  background: #333;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 4px;
+  top: -200%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: .3s;
+}
+.minus-btn:hover::after {
+  opacity: 1;
+}
 
 
 @keyframes alert {

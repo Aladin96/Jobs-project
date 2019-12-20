@@ -25,14 +25,19 @@ Route::get('/cancel', 'PaypalController@canceled');
 // Candidats Routes
 Route::get('/candidats', 'CandidatsController@index');
 Route::get('/candidat/{show}', 'CandidatsController@show')->name('candidat');
-Route::get('/candidat/{show}/{cv}', 'CvsController@show');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
-Route::get('/cv' , 'CvsController@index');
-Route::post('/cv' , 'CvsController@store');
 Route::post('/candidater' , 'CandidaturesController@store');
 Route::get('/candidatures/{offre}' , 'CandidaturesController@index');
 Route::get('/annuler/{candidature}' , 'CandidaturesController@destroy');
+                       /// cv ///
+Route::get('/cv' , 'CvsController@index');
+Route::get('/candidat/{show}/{cv}', 'CvsController@show');
+Route::post('/cv' , 'CvsController@store');
+Route::post('/cv/modifier' , 'CvsController@update');
+Route::get('/modifier/cv/{cv}' , 'CvsController@edit');
+Route::delete('supp_cv/{cv}' , 'CvsController@destroy');
+
 
 
 // RECRUTEUR Routes
@@ -45,6 +50,7 @@ Route::post('/offre/create', 'OffresController@store');
 // DASHBOARD Routes
 Route::get('dashboard', 'AdminsController@index');
 Route::get('dashboard/offers', 'AdminsController@manageOffers');
+Route::get('dashboard/accept/{offer}', 'AdminsController@acceptOffers');
 Route::get('dashboard/recruiters', 'AdminsController@index');
 Route::get('dashboard/candidates', 'AdminsController@index');
     // |--> Statistics Offers

@@ -9,8 +9,8 @@
             <div class="col-12">
               <h2 class="pl-4 pd-5 mb-5 text-white border-bottom">Pending offers</h2>
             </div>
-            @if( count($offers))
-            <div class="table-responsive">
+            <div class="table-responsive" id="table">
+              @if( count($offers) )
               <table class="table table-dark table-hover text-center">
                   <thead>
                     <tr>
@@ -28,19 +28,20 @@
                       <td>{{$offer->created_at->diffForHumans()}}</td>
                       <td>
                         <a href="../offre/{{$offer->id}}" target="_blank"><button class="btn btn-light">View</button></a>
-                        <button class="btn btn-primary">Accept</button>
+                        <button class="btn btn-primary btn-accept" id="{{$offer->id}}">Accept</button>
                         <button class="btn btn-danger">Delete</button>
                       </td>
                     </tr>
                     @endforeach
                   </tbody>
               </table>
+              @else
+              <div class="col-12">
+                <h2 class="text-muted text-center p-5 m-5">No offers are available</h2>
+              </div>
+              @endif
             </div>
-            @else
-            <div class="col-12">
-              <h2 class="text-muted text-center p-5 m-5">No offers are available</h2>
-            </div>
-            @endif
+
 
 
           </div>

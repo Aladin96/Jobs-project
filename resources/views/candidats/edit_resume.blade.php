@@ -35,9 +35,14 @@
    <!-- CREATE RESUME START -->
    <section class="section">
        <div class="container">
-         <form class="" action="{{url('/cv')}}" method="POST">
+         <form class="" action="{{url('/cv/modifier')}}" method="POST">
            @csrf
            <div class="row">
+               <div class="col-lg-12">
+                 @if( session()->has('modified') )
+                 <p class="alert alert-success">{{ session()->get('modified')}}</p>
+                 @endif
+               </div>
                <div class="col-lg-12">
                    <h5 class="text-dark">Information General :</h5>
                </div>
@@ -52,6 +57,7 @@
                                    <div class="form-group app-label">
                                        <label class="text-muted">Intitulé cv :</label>
                                        <input type="text" class="form-control resume" name="intitule_cv" value="{{ $cv-> titre }}">
+                                       <input type="hidden" name="id_cv" value="{{$cv->id}}">
                                    </div>
                                </div>
                            </div>
@@ -68,17 +74,20 @@
 
                <div class="col-12 mt-3">
                    <div class="custom-form p-4 border rounded">
-                       <div class="section-wrapper">
+                       <div class="section-wrapper formation">
                          @php
                          $all = App\Cv::with('formation')->find($cv->id);
                          $formations = $all->formation;
                          @endphp
                          @foreach($formations as $formation)
-                         <div class="row">
+                         <div class="row relative">
+                           <i class="fas fa-minus-circle fa-lg minus-btn" name="supprimer"></i>
                              <div class="col-md-6">
                                  <div class="form-group app-label">
                                      <label class="text-muted">Diplome</label>
                                      <input type="text" class="form-control resume" name="diplome[]" value="{{ $formation->diplome }}">
+                                     <input type="hidden" name="formation_action[]" class="action" value="update">
+                                     <input type="hidden" name="formation_id[]" value="{{ $formation->id }}">
                                  </div>
                              </div>
 
@@ -132,17 +141,20 @@
 
                <div class="col-12 mt-3">
                    <div class="custom-form p-4 border rounded">
-                       <div class="section-wrapper">
+                       <div class="section-wrapper experience">
                          @php
                          $all = App\Cv::with('experience')->find($cv->id);
                          $experiences = $all->experience;
                          @endphp
                          @foreach($experiences as $experience)
-                           <div class="row">
+                           <div class="row relative">
+                             <i class="fas fa-minus-circle fa-lg minus-btn" name="supprimer"></i>
                                <div class="col-md-12">
                                    <div class="form-group app-label">
                                        <label class="text-muted">Intitulé</label>
                                        <input name="intitule_experience[]" type="text" value="{{ $experience->intitule }}" class="form-control resume">
+                                       <input type="hidden" name="experience_action[]" class="action" value="update">
+                                       <input type="hidden" name="experience_id[]" value="{{ $experience->id }}">
                                    </div>
                                </div>
 
@@ -199,17 +211,20 @@
 
                <div class="col-12 mt-3">
                    <div class="custom-form p-4 border rounded">
-                       <div class="section-wrapper">
+                       <div class="section-wrapper competence">
                          @php
                          $all = App\Cv::with('competence')->find($cv->id);
                          $competences = $all->competence;
                          @endphp
                          @foreach($competences as $competence)
-                           <div class="row">
+                           <div class="row relative">
+                             <i class="fas fa-minus-circle fa-lg minus-btn" name="supprimer"></i>
                                <div class="col-lg-12">
                                    <div class="form-group app-label">
                                        <label class="text-muted">Comptence</label>
                                        <input name="intitule_competence[]" type="text" class="form-control resume" value="{{ $competence->intitule }}">
+                                       <input type="hidden" name="competence_action[]" class="action" value="update">
+                                       <input type="hidden" name="competence_id[]" value="{{ $competence->id }}">
                                    </div>
                                </div>
 

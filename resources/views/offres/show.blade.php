@@ -124,6 +124,13 @@
                           <div class="float-left mr-2">
                               <i class="fa fa-eye text-muted"></i>
                           </div>
+                          <p class="text-muted mb-2"> Status : {{ str_replace('_' , ' ' ,$offer->status) }}</p>
+                      </div>
+
+                      <div class="job-details-desc-item">
+                          <div class="float-left mr-2">
+                              <i class="fa fa-eye text-muted"></i>
+                          </div>
                           <p class="text-muted mb-2"> Nombre de vues : {{ $offer->vues}}</p>
                       </div>
 
@@ -187,7 +194,7 @@
                                 <div class="float-left mr-2">
                                     <i class="mdi mdi-clock-outline text-muted"></i>
                                 </div>
-                                <p class="text-muted mb-2">: {{$offer->updated_at->diffForHumans() }}</p>
+                                <p class="text-muted mb-2">: {{$offer->created_at->diffForHumans() }}</p>
                             </div>
                         </div>
                     </div>
