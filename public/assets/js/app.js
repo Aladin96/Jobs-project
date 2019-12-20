@@ -279,13 +279,9 @@
         dataType:'JSON',
         success : function (r) {
           if( r != ''){
-
             var ctx = document.getElementById('myChart');
 
-            var data = [ r.janvier, r.fevrier, r.mars,
-                         r.avril, r.mai, r.juin,
-                         r.juillet, r.aout, r.septembre,
-                         r.octobre, r.novembre, r.decembre ];
+            var data = r.month;
 
             var myChart = new Chart(ctx, {
                 type: 'line',
@@ -313,7 +309,7 @@
                     }
                 }
             });
-          } // End r != '' 
+          } // End r != ''
         } // End Success
       }); // End AJAX
     }); // End Select on chage [ Statistics offers ]

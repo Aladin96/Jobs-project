@@ -14,20 +14,13 @@
     @endforeach
   </select>
   </form>
-  <div class="month">
-    <month style="display:none">{{ $janvier }}</month>
-    <month style="display:none">{{ $fevrier }}</month>
-    <month style="display:none">{{ $mars }}</month>
-    <month style="display:none">{{ $avril }}</month>
-    <month style="display:none">{{ $mai }}</month>
-    <month style="display:none">{{ $juin }}</month>
-    <month style="display:none">{{ $juillet }}</month>
-    <month style="display:none">{{ $aout }}</month>
-    <month style="display:none">{{ $septembre }}</month>
-    <month style="display:none">{{ $octobre }}</month>
-    <month style="display:none">{{ $novembre }}</month>
-    <month style="display:none">{{ $decembre }}</month>
-  </div>
+
+  <div id="month" style="display:none">
+    @foreach($month as $m )
+      <month>{{$m}}</month>
+    @endforeach
+  <div>
+
 </div>
 @endsection
 
@@ -43,6 +36,7 @@ for (i=0; i<12; i++){
   let offers = parseInt(document.getElementsByTagName('month')[i].textContent);
   data.push(offers);
 }
+
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
