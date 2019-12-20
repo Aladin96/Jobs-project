@@ -45,6 +45,23 @@
         return false;
     });
 
+    // recruiter switcher
+    $(".recruiter-switch").click(function () {
+      if ( !$(this).hasClass('active') ) {
+        let id = $(this).parent().parent().attr('id');
+        $(".recruiter-switch").removeClass('active');
+        $(this).addClass('active');
+        if ($(this).html() == "Statistiques") {
+          $("#active-section").load("/recruteur/"+1+"/statistics")
+        }
+        else {
+          $("#active-section").load("/recruteur/"+1+"/offers")
+        }
+
+      }
+
+    })
+
     function checkSection(element) {
       if (element.hasClass('formation'))
         return "f";
@@ -280,43 +297,4 @@
       })
     })
 
-    //charts
-    var ctx = document.getElementById('chart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['jan', 'fev', 'mar'],
-        datasets: [
-          {
-            label : "cdi",
-            backgroundColor : "pink",
-            data : [5 , 5 , 17]
-          },
-          {
-            label : "cdd",
-            backgroundColor : "green",
-            data : [2 , 6 , 10]
-          },
-          {
-            label : "stage",
-            fillColor : 'white',
-            backgroundColor : "blue",
-            data : [4 , 10 , 11]
-          },
-
-        ]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }],
-            xAxes: [{
-            barThickness : 10
-        }]
-        }
-    }
-});
 })(jQuery)

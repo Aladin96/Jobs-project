@@ -80,7 +80,7 @@ class CvsController extends Controller
           $competence->description = $request->description[$index];
           $competence->save();
         }
-        return ("Resume uploaded with succeess");
+        return redirect('candidat/'.$cv->id_candidat);
     }
 
     /**
