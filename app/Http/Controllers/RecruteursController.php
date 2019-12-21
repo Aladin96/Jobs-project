@@ -15,13 +15,15 @@ class RecruteursController extends Controller
 
 
   public function show($id){
+
     $recruteur = Recruteur::findOrFail($id);
     $offers = Offre::all()->where('id_recruteur' , $id);
     if (Auth::guard('recruteur')->id() == $id) {
-      $statistic = new StatisticsController();
-      $lineChart = $statistic->lineChart($id);
-      $types = $statistic->GroupedBarChart($id);
-      return view('recruteurs.show', compact('recruteur' , 'offers' , 'lineChart' , 'types'));
+      $statistics = new StatisticsController();
+      $lineChart = $statistics->lineChart($id);
+      $types = $statistics->GroupedBarChart($id);
+      $pieChart = $statistics->PieChart($id);
+      return view('recruteurs.show', compact('recruteur' , 'offers' , 'lineChart' , 'types' , 'pieChart'));
     }
     return view('recruteurs.show', compact('recruteur' , 'offers'));
 

@@ -42,7 +42,7 @@ class StatisticsController extends Controller
       $year = request('LineChartYear');
     }
     else {
-      $year  = $years->last();
+      $year  = $years->first();
     }
     $monthData = array();
     for ($i=1 ; $i<=12; $i++) {
@@ -68,7 +68,7 @@ class StatisticsController extends Controller
       $year = request('LineChartYear');
     }
     else {
-      $year  = $years->last();
+      $year  = $years->first();
     }
     $cdi = $cdd = $stage = array();
     for ($i=1 ; $i<=12; $i++) {
@@ -83,6 +83,30 @@ class StatisticsController extends Controller
     }
 
       return $monthData;
+
+  }
+  public function PieChart($id){
+
+    $years = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' , $id)->distinct()->get()->pluck('year');
+    $data = array();
+    if (request()->ajax()) {
+      $year = request('LineChartYear');
+    }
+    else {
+      $year  = $years->first();
+    }
+
+    $cities = Offre::whereBetween('created_at', [ $year . '-01-01', $year . '-12-31'])->where('id_recruteur' , $id)->distinct()->get()->pluck('lieu_de_travail');
+    foreach ( $cities as $city ) {
+      $data[$city] = Offre::whereBetween('created_at', [ $year . '-01-01', $year . '-12-31'])->where('id_recruteur' , $id)->where('lieu_de_travail' , $city)->get()->count() ;
+    }
+
+    // return
+    if(request()->ajax()){
+      return response()->json( $data );
+    }
+
+      return $data;
 
   }
 

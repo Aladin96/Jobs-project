@@ -134,7 +134,7 @@
                 <div class="offersStat">
                   <div class="row">
                     <div class="col-12">
-                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">nombre d'offre par année :</h6>
+                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">Nombre d'offres par année :</h6>
                       <form method="get" id="chart-form" class="float-right" action="">
                         <select name="LineChartYear" class="form-control">
                           <option value="2019">2019</option>
@@ -166,7 +166,7 @@
                 <div class="offersStat">
                   <div class="row">
                     <div class="col-12">
-                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">nombre d'offre par année :</h6>
+                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">Type d'offres par année :</h6>
                       <form method="get" id="chart-form" class="float-right" action="">
                         <select name="LineChartYear" class="form-control">
                           <option value="2019">2019</option>
@@ -197,6 +197,43 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- PieChart -->
+                <div class="offersStat">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">nombre d'offre par année :</h6>
+                      <form method="get" id="chart-form" class="float-right" action="">
+                        <select name="LineChartYear" class="form-control">
+                          <option value="2019">2019</option>
+                          <option value="2019">2018</option>
+                      </select>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="chart-wrapper">
+                    <div class="row">
+                      <div class="col-10">
+                        <canvas id="PieChart"  height="300"></canvas>
+                      </div>
+                        <div class="col-2">
+                          <div class="inner-box rd">
+                            <p class="text-primary">Cdi</p>
+                            <h4 class="text-primary">255</h4>
+                          </div>
+                          <div class="inner-box rd">
+                            <p class="text-primary">Cdd</p>
+                            <h4 class="text-primary">12</h4>
+                          </div>
+                          <div class="inner-box rd">
+                            <p class="text-primary">Stage</p>
+                            <h4 class="text-primary">12</h4>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
               @endif
     </section>
@@ -240,11 +277,16 @@
 
   let lineChart = document.getElementById('LineChart');
   let barChart = document.getElementById('GroupedBarChart');
+  let PieChart = document.getElementById('PieChart');
 
     // |-> getting datas
 
   let lineData = @json($lineChart);
   let barData = @json($types);
+  let pieData = @json($pieChart);
+  let pieDataName = Array.from(Object.keys(pieData));
+  let pieDataValues = Array.from(Object.values(pieData));
+
 
   Chart.defaults.global.defaultFontColor = '#333';
     // |-> initializing lineChart
@@ -293,8 +335,36 @@
         {
             label: "Stage",
             backgroundColor: "#3338",
-            data: barData['stage']     // test values : [2,2,6,8,0,4,9,12,2,14,3,13]
+            data: barData['stage']
+            // test values : [2,2,6,8,0,4,9,12,2,14,3,13]
         }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      stepSize: 1
+                  }
+              }]
+          }
+      }
+  });
+
+    // |-> initializing PieChart
+  let pie = new Chart(PieChart, {
+      type: 'pie',
+      data: {
+          labels: pieDataName,
+          datasets: [{
+              label: 'Offers ' ,
+              data: pieDataValues,
+              backgroundColor: [ 'pink' , '#202' , '#3338' , '#2f55d4' , '#FAA916' , '#FF1744' , '#0D1321' ],
+              borderWidth: 3
+          },
         ]
       },
       options: {
