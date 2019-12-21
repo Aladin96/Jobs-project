@@ -62,6 +62,22 @@
       }
 
     })
+    ///  |-> Recruiter own statistics
+
+    $('select[name=LineChartYear]').on("change" ,function () {
+      let data = $('#chart-form').serialize();
+      $.ajax ({
+        url : '/recruteur/1',
+        method : 'GET',
+        data : data,
+        success : function (results) {
+          alert(results)
+        }
+      })
+    })
+
+
+    ///  |-> End Recruiter own statistics
 
     function checkSection(element) {
       if (element.hasClass('formation'))
@@ -300,7 +316,7 @@
 
             $('canvas').remove()
             $('.chart-section').append('<canvas id="myChart" style="height:500px"></canvas>')
-            
+
             var ctx = document.getElementById('myChart');
 
             var data = r.month;

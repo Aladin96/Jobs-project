@@ -129,22 +129,71 @@
                 <div class="col-12">
                   <h4>statistiques de l'entreprise:</h4>
                 </div>
-                <div class="offersStats" style="width: 100%">
+
+                <!-- LineChart -->
+                <div class="offersStat">
                   <div class="row">
-                    <div class="col-4">
-                      <div class="row">
-                        <div class="col-12">
-                          <h2 class="text-center text-primary">255</h2>
+                    <div class="col-12">
+                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">nombre d'offre par année :</h6>
+                      <form method="get" id="chart-form" class="float-right" action="">
+                        <select name="LineChartYear" class="form-control">
+                          <option value="2019">2019</option>
+                          <option value="2019">2018</option>
+                      </select>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="chart-wrapper">
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="inner-box">
+                          <p class="text-primary">Total</p>
+                          <h2 class="text-primary">255</h2>
                         </div>
-                        <div class="col-12">
-                          <h2 class="text-center text-primary">25</h2>
+                        <div class="inner-box">
+                          <p class="text-primary">L'an 2019</p>
+                          <h2 class="text-primary">12</h2>
                         </div>
+                      </div>
+                      <div class="col-8">
+                        <canvas id="LineChart"  height="300"></canvas>
                       </div>
                     </div>
-                    <div class="col-8">
-                      <div class="chart-container" style="height: 400px ; width: 100%;">
-                        <canvas id="chart"  height="350"></canvas>
+                  </div>
+                </div>
+
+                <!-- GroupedBarChart -->
+                <div class="offersStat">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6 class="text-muted mt-2 mb-2 pl-2 float-left">nombre d'offre par année :</h6>
+                      <form method="get" id="chart-form" class="float-right" action="">
+                        <select name="LineChartYear" class="form-control">
+                          <option value="2019">2019</option>
+                          <option value="2019">2018</option>
+                      </select>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="chart-wrapper">
+                    <div class="row">
+                      <div class="col-10">
+                        <canvas id="GroupedBarChart"  height="300"></canvas>
                       </div>
+                        <div class="col-2">
+                          <div class="inner-box rd">
+                            <p class="text-primary">Cdi</p>
+                            <h4 class="text-primary">255</h4>
+                          </div>
+                          <div class="inner-box rd">
+                            <p class="text-primary">Cdd</p>
+                            <h4 class="text-primary">12</h4>
+                          </div>
+                          <div class="inner-box rd">
+                            <p class="text-primary">Stage</p>
+                            <h4 class="text-primary">12</h4>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -187,22 +236,65 @@
 @section('scripts')
 <script type="text/javascript" src="{{asset('assets/js/Chart.min.js')}}"></script>
 <script>
+    // |-> getting context
 
-  var ctx = document.getElementById('chart');
-  var data = @json($monthData);
+  let lineChart = document.getElementById('LineChart');
+  let barChart = document.getElementById('GroupedBarChart');
 
-  Chart.defaults.global.defaultFontColor = '#333'
-  var myChart = new Chart(ctx, {
+    // |-> getting datas
+
+  let lineData = @json($lineChart);
+  let barData = @json($types);
+
+  Chart.defaults.global.defaultFontColor = '#333';
+    // |-> initializing lineChart
+  let line = new Chart(lineChart, {
       type: 'line',
       data: {
           labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov','Dec'],
           datasets: [{
               label: 'Offers ' ,
-              data: data,
+              data: lineData,
               backgroundColor: 'transparent',
-              borderColor: '#25c889',
+              borderColor: '#2f55d4 ',
               borderWidth: 3
           },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      stepSize: 1
+                  }
+              }]
+          }
+      }
+  });
+
+    // |-> initializing GroupedBarChart
+  let groupedBar = new Chart(barChart, {
+      type: 'bar',
+      data: {
+          labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov','Dec'],
+          datasets: [ {
+            label: "Cdi",
+            backgroundColor: "#ffc0cb",
+            data: barData['cdi']      //test values : [8,2,1,9,9,5,7,3,0,1,6,15]
+        },
+        {
+            label: "Cdd",
+            backgroundColor: "#2f55d4",
+            data: barData['cdd']      //test values : [18,2,3,4,9,0,0,4,0,3,10,15]
+        },
+        {
+            label: "Stage",
+            backgroundColor: "#3338",
+            data: barData['stage']     // test values : [2,2,6,8,0,4,9,12,2,14,3,13]
+        }
         ]
       },
       options: {

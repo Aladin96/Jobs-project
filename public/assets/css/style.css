@@ -2612,6 +2612,29 @@ hr {
   background: #244388;
   color: #fff;
 }
+.offersStat {
+  padding: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  box-shadow: 3px 3px 6px 0px #4442;
+  border-radius: 5px;
+}
+.offersStat .inner-box{
+  height:  50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: .3s;
+  border-radius: 4px;
+}
+.offersStat .inner-box.rd{
+  height:  33.3%;
+}
+.offersStat .inner-box:hover{
+  background: #2022;
+}
 .register-success {
   color : #4f9;
   font-size: 18px;

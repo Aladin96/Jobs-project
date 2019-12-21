@@ -36,13 +36,8 @@ for (i=0; i<12; i++){
   let offers = parseInt(document.getElementsByTagName('month')[i].textContent);
   data.push(offers);
 }
-<<<<<<< HEAD
-Chart.defaults.global.defaultFontColor = '#333'
-var myChart = new Chart(ctx, {
-=======
 
 const myChart = new Chart(ctx, {
->>>>>>> 4f77f57fbd393a5f74763f3c47d9ca48b0d1fc42
     type: 'line',
     data: {
         labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'],
