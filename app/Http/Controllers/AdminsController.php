@@ -75,8 +75,8 @@ class AdminsController extends Controller
     public function statisticsOffers(){
 
       $offers = new StatisticsController();
-
-      return $offers->offersChart();
+      $lineData = $offers->lineChart("","<>");
+      return view('dashboard.statistics.offres', compact('lineData') );
 
     }
      /* Show the form for creating a new resource.

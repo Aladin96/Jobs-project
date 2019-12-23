@@ -35,15 +35,15 @@ class StatisticsController extends Controller
 
   // |-> Profile statistics lineChart
 
-  public function lineChart($id){
+  public function lineChart($id , $op = "="){
 
-    $years  = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' , $id)->distinct()->get()->pluck('year');
+    $years  = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' ,$op, $id)->distinct()->get()->pluck('year');
 
     $year   = request('line') ? intval(request('line')) : $years->first();
 
     $monthData = array();
     for ($i=1 ; $i<=12; $i++) {
-      $actual_month = Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' , $id)->count();
+      $actual_month = Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' ,$op, $id)->count();
       array_push($monthData , $actual_month);
     }
     // return
@@ -71,12 +71,7 @@ class StatisticsController extends Controller
       array_push($cdd , Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' , $id)->where('type' , 'Cdd')->count());
     }
     return compact('stage' , 'cdi' , 'cdd');
-    // return
-    if(request()->ajax()){
-      return response()->json( $monthData );
-    }
 
-      return $monthData;
 
   }
   public function PieChart($id){

@@ -2972,7 +2972,9 @@ section.delete > div{
 
 /*================== dashboard ================*/
 #dashboard-wrapper {
-  background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+  background-image: linear-gradient(45deg, rgba(49, 255, 255, 0.8) , rgba(0, 255, 220, 0.8)) , url('../images/img-1.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .navigation {
   background: #3338;
@@ -3124,11 +3126,49 @@ section.delete > div{
   padding: 0;
   line-height: 67px;
 }
+.statistics-wrapper {
+  position: relative;
+  background: #0003;
+  box-shadow: 2px 2px 4px #3332;
+  padding: 10px;
+  border-radius: 4px;
 
-
-
-
-
+}
+.statistics {
+  height: 300px;
+}
+.nbr-statistics {
+  height: 300px;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+.nbr-statistics h2 {
+  padding: 40px;
+  color: #fff;
+  border-radius: 4px;
+}
+.nbr-statistics h2:hover {
+  background: #fff5;
+}
+.border-b {
+  border-bottom: 1.5px solid #ddd5
+}
+.year-form {
+  position: absolute;
+  z-index: 10;
+  right: 50px;
+  top: 5px;
+}
+.year-form select {
+  background: #0003;
+  outline: none;
+  padding: 5px 10px ;
+  border-radius: 10px;
+  border: 1px solid #fff8;
+  color: #fff;
+}
 @keyframes scaleIn {
   from{
     transform: scale(1);

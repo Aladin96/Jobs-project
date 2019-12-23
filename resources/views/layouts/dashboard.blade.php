@@ -12,13 +12,13 @@
         </div>
         <p class="nav-header">MAIN NAVIGATION :</p>
         <ul class="nav-links">
-          <a href="../dashboard"><li class="link"> Dashboard</li></a>
-          <a href="../dashboard/offers"><li class="link">Offers</li> </a>
+          <a href="/dashboard"><li class="link"> Dashboard</li></a>
+          <a href="/dashboard/offers"><li class="link">Offers</li> </a>
           <li class="link" data-toggle="collapse" data-target="#expand">Users <i class="fas fa-chevron-left fa-xs float-right"></i>
 
               <ul class="collapse nav-links" id="expand">
-                <a href="../dashboard/candidates"><li class="sub-link">Candidates</li> </a>
-                <a href="../dashboard/recruiters"><li class="sub-link">Recruiters </li></a>
+                <a href="/dashboard/candidates"><li class="sub-link">Candidates</li> </a>
+                <a href="/dashboard/recruiters"><li class="sub-link">Recruiters </li></a>
               </ul>
 
           </li>

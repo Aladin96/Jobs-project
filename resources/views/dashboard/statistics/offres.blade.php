@@ -2,24 +2,36 @@
 
 @section('dash_content')
 <div class="container">
-  <div class="chart-section jumbotron p-2 m-5" style="margin-bottom:0!important;background:#fff">
-    <canvas id="myChart" style="height:500px"></canvas>
-  </div>
+
+      <!-- LineChart -->
+      <div class="statistics-wrapper">
+        <form class="year-form">
+          <select name="line">
+            <option value="">2019</option>
+          </select>
+        </form>
+        <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers charts & lorem ipsum</h5>
+        <div class="statistics">
+          <div class="row">
+            <div class="col-2 pr-0">
+              <div class="nbr-statistics">
+                <h2 class="border-b">256</h2>
+                <h2>256</h2>
+              </div>
+            </div>
+            <div class="col-10 pl-0">
+              <canvas id="LineChart" height="300"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-  <form method="get" id="chart-form" class="chart-form" action="">
-    <select name="q" class="form-control" id="select-year">
-    @foreach($all_years as $y)
-      <option value="{{ $y }}" {{ $y == $year ? 'selected' : '' }}>{{ $y }}</option>
-    @endforeach
-  </select>
-  </form>
 
-  <div id="month" style="display:none">
-    @foreach($month as $m )
-      <month>{{$m}}</month>
-    @endforeach
-  <div>
+
+
+
+
 
 </div>
 @endsection
@@ -28,24 +40,27 @@
 <script type="text/javascript" src="{{asset('assets/js/Chart.min.js')}}"></script>
 <script>
 
-var ctx = document.getElementById('myChart');
-var data = [];
-var i;
+// |-> getting context
 
-for (i=0; i<12; i++){
-  let offers = parseInt(document.getElementsByTagName('month')[i].textContent);
-  data.push(offers);
-}
+let lineChart = document.getElementById('LineChart');
 
-const myChart = new Chart(ctx, {
+
+// |-> getting datas
+
+let lineData = @json($lineData);
+
+
+Chart.defaults.global.defaultFontColor = "#fff";
+// |-> initializing lineChart
+let myChart = new Chart(lineChart, {
     type: 'line',
     data: {
-        labels: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'],
+        labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov','Dec'],
         datasets: [{
-            label: 'Offers ' + {{$year}},
-            data: data,
-            backgroundColor: 'transparent',
-            borderColor: '#FF6384',
+            label: 'Offers ',
+            data: lineData,
+            backgroundColor: '#fff2',
+            borderColor: '#fff',
             borderWidth: 3
         },
       ]
@@ -55,13 +70,22 @@ const myChart = new Chart(ctx, {
       maintainAspectRatio: false,
         scales: {
             yAxes: [{
+                gridLines: {
+                  drawOnChartArea: false
+                } ,
                 ticks: {
                     beginAtZero: true,
                     stepSize: 1
                 }
-            }]
+            }],
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+            }
+          }],
         }
     }
 });
+
 </script>
 @endsection

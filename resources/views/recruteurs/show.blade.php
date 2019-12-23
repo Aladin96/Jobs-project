@@ -282,7 +282,7 @@
 
     // |-> getting datas
 
-  let lineData = @json($lineChart);
+  let lineData = @json($lineChart['monthData']);
   let barData = @json($types);
   let pieData = @json($pieChart);
   let pieDataName = Array.from(Object.keys(pieData));
@@ -300,7 +300,8 @@
               data: lineData,
               backgroundColor: 'transparent',
               borderColor: '#2f55d4 ',
-              borderWidth: 3
+              borderWidth: 3,
+              lineTension : 0
           },
         ]
       },
