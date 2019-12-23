@@ -76,7 +76,9 @@ class AdminsController extends Controller
 
       $offers = new StatisticsController();
       $lineData = $offers->lineChart("","<>");
-      return view('dashboard.statistics.offres', compact('lineData') );
+      $barData = $offers->GroupedBarChart(1);
+      $pieChart = $offers->PieChart(1);
+      return view('dashboard.statistics.offres', compact('lineData','barData' , 'pieChart') );
 
     }
      /* Show the form for creating a new resource.
