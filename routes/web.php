@@ -43,8 +43,7 @@ Route::delete('supp_cv/{cv}' , 'CvsController@destroy');
 
 // RECRUTEUR Routes
 Route::get('/recruteur/{show}', 'RecruteursController@show');
-Route::get('/recruteur/{show}/offers', 'RecruteursController@showOffers');
-Route::get('/recruteur/{show}/statistics', 'RecruteursController@showStatistics');
+Route::get('/recruteur/{show}/chart', 'RecruteursController@updateCharts');
 Route::get('/recruteur/{show}/edit', 'RecruteursController@edit');
 Route::put('/recruteur/{id}', 'RecruteursController@update');
 Route::get('/offre/create', 'OffresController@create');

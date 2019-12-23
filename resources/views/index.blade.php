@@ -1307,3 +1307,6 @@
  @include('layouts.footer')
 
 @endsection
+@section('counter')
+<script src="{{ URL::asset('assets/js/counter.int.js') }}"></script>
+@endsection

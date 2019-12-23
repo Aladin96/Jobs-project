@@ -125,6 +125,7 @@
                 </div>
               </div>
               @if(Auth::guard('recruteur')->id() == $recruteur->id)
+              <input type="hidden" name="id_rec" value="{{$recruteur->id}}">
               <div class="row" id="statistics">
                 <div class="col-12">
                   <h4>statistiques de l'entreprise:</h4>
@@ -135,10 +136,10 @@
                   <div class="row">
                     <div class="col-12">
                       <h6 class="text-muted mt-2 mb-2 pl-2 float-left">Nombre d'offres par année :</h6>
-                      <form method="get" id="chart-form" class="float-right" action="">
-                        <select name="LineChartYear" class="form-control">
+                      <form method="get" id="lineChartForm" class="float-right" action="">
+                        <select name="line" class="form-control">
                           <option value="2019">2019</option>
-                          <option value="2019">2018</option>
+                          <option value="2018">2018</option>
                       </select>
                       </form>
                     </div>
@@ -167,10 +168,10 @@
                   <div class="row">
                     <div class="col-12">
                       <h6 class="text-muted mt-2 mb-2 pl-2 float-left">Type d'offres par année :</h6>
-                      <form method="get" id="chart-form" class="float-right" action="">
-                        <select name="LineChartYear" class="form-control">
+                      <form method="get"  class="float-right" action="">
+                        <select name="bar" class="form-control">
                           <option value="2019">2019</option>
-                          <option value="2019">2018</option>
+                          <option value="2018">2018</option>
                       </select>
                       </form>
                     </div>
@@ -203,10 +204,10 @@
                   <div class="row">
                     <div class="col-12">
                       <h6 class="text-muted mt-2 mb-2 pl-2 float-left">nombre d'offre par année :</h6>
-                      <form method="get" id="chart-form" class="float-right" action="">
-                        <select name="LineChartYear" class="form-control">
+                      <form method="get" class="float-right" action="">
+                        <select name="pie" class="form-control">
                           <option value="2019">2019</option>
-                          <option value="2019">2018</option>
+                          <option value="2018">2018</option>
                       </select>
                       </form>
                     </div>

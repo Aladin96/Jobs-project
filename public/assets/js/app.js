@@ -64,19 +64,38 @@
     })
     ///  |-> Recruiter own statistics
 
-    $('select[name=LineChartYear]').on("change" ,function () {
-      let data = $('#chart-form').serialize();
+    $('.offersStat select').on("change" ,function () {
+      let data = $(this).parent().serialize();
+      let type = $(this).attr('name');
+      let id = $('input[name=id_rec]').val();
       $.ajax ({
-        url : '/recruteur/1',
+        url : '/recruteur/'+id+'/chart',
         method : 'GET',
         data : data,
         success : function (results) {
-          alert(results)
+          updateCharts(results , type);
         }
       })
     })
 
-
+    function updateCharts( data , type) {
+      if (type == "line") {
+        line.data.datasets[0].data = data;
+        line.update();
+      }
+      else if (type == "pie") {
+        console.log(data);
+        pie.data.labels = Array.from(Object.keys(data));
+        pie.data.datasets[0].data = Array.from(Object.values(data));
+        pie.update();
+      }
+      else {
+        groupedBar.data.datasets[0].data = data['cdi'];
+        groupedBar.data.datasets[1].data = data['cdd'];
+        groupedBar.data.datasets[2].data = data['stage'];
+        groupedBar.update();
+      }
+    }
     ///  |-> End Recruiter own statistics
 
     function checkSection(element) {

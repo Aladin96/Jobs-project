@@ -29,7 +29,20 @@ class RecruteursController extends Controller
 
   }
 
-
+  public function updateCharts($id)
+  {
+    if (request()->ajax()) {
+      $statistics = new StatisticsController();
+      if (request('line')) {
+        return $statistics->lineChart($id);
+      }
+      elseif (request('bar')) {
+        return $statistics->GroupedBarChart($id);;
+      }
+      return $statistics->PieChart($id);
+    }
+    return ('404');
+  }
 
 
   public function edit($id){

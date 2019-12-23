@@ -37,13 +37,10 @@ class StatisticsController extends Controller
 
   public function lineChart($id){
 
-    $years = $year  = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' , $id)->distinct()->get()->pluck('year');
-    if (request()->ajax()) {
-      $year = request('LineChartYear');
-    }
-    else {
-      $year  = $years->first();
-    }
+    $years  = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' , $id)->distinct()->get()->pluck('year');
+
+    $year   = request('line') ? intval(request('line')) : $years->first();
+
     $monthData = array();
     for ($i=1 ; $i<=12; $i++) {
       $actual_month = Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' , $id)->count();
@@ -64,12 +61,9 @@ class StatisticsController extends Controller
   public function GroupedBarChart($id){
 
     $years = $year  = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' , $id)->distinct()->get()->pluck('year');
-    if (request()->ajax()) {
-      $year = request('LineChartYear');
-    }
-    else {
-      $year  = $years->first();
-    }
+
+    $year   = request('bar') ? intval(request('bar')) : $years->first();
+
     $cdi = $cdd = $stage = array();
     for ($i=1 ; $i<=12; $i++) {
       array_push($stage , Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' , $id)->where('type' , 'Stage')->count());
@@ -89,12 +83,8 @@ class StatisticsController extends Controller
 
     $years = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur' , $id)->distinct()->get()->pluck('year');
     $data = array();
-    if (request()->ajax()) {
-      $year = request('LineChartYear');
-    }
-    else {
-      $year  = $years->first();
-    }
+
+    $year   = request('pie') ? intval(request('pie')) : $years->first();
 
     $cities = Offre::whereBetween('created_at', [ $year . '-01-01', $year . '-12-31'])->where('id_recruteur' , $id)->distinct()->get()->pluck('lieu_de_travail');
     foreach ( $cities as $city ) {
