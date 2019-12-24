@@ -15,14 +15,14 @@ class RecruteursController extends Controller
 
 
   public function show($id){
-
+    $years = $years = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur', $id)->distinct()->get()->pluck('year');
     $recruteur = Recruteur::findOrFail($id);
     $offers = Offre::all()->where('id_recruteur' , $id);
     if (Auth::guard('recruteur')->id() == $id) {
       $statistics = new StatisticsController();
-      $lineChart = $statistics->lineChart($id);
-      $types = $statistics->GroupedBarChart($id);
-      $pieChart = $statistics->PieChart($id);
+      $lineChart = $statistics->lineChart($id , $years);
+      $types = $statistics->GroupedBarChart($id , $years);
+      $pieChart = $statistics->PieChart($id , $years);
       return view('recruteurs.show', compact('recruteur' , 'offers' , 'lineChart' , 'types' , 'pieChart'));
     }
     return view('recruteurs.show', compact('recruteur' , 'offers'));

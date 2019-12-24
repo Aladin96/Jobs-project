@@ -8,6 +8,7 @@ use App\Candidat;
 use App\Recruteur;
 use App\Offre;
 use Auth;
+use DB;
 
 class AdminsController extends Controller
 {
@@ -73,13 +74,29 @@ class AdminsController extends Controller
     */
 
     public function statisticsOffers(){
+      $years = Offre::select(DB::raw('YEAR(created_at) as year'))->distinct()->get()->pluck('year');
+      $statistics = new StatisticsController();
+      $lineData = $statistics->lineChart("",$years,"<>");
+      $barData = $statistics->GroupedBarChart("",$years,"<>");
+      $pieChart = $statistics->PieChart("",$years,"<>");
+      $years = array_values(array_reverse((array)$years));
+      $years = $years[0];
+      return view('dashboard.statistics.offres', compact('lineData','barData' , 'pieChart' , 'years') );
 
-      $offers = new StatisticsController();
-      $lineData = $offers->lineChart("","<>");
-      $barData = $offers->GroupedBarChart(1);
-      $pieChart = $offers->PieChart(1);
-      return view('dashboard.statistics.offres', compact('lineData','barData' , 'pieChart') );
+    }
 
+    public function updateStatistics(){
+      if (request()->ajax()) {
+        $statistics = new StatisticsController();
+        if (request('line')) {
+          return $statistics->lineChart("","","<>");
+        }
+        elseif (request('bar')) {
+          return $statistics->GroupedBarChart("","","<>");;
+        }
+        return $statistics->PieChart("","","<>");
+      }
+      return ('404');
     }
      /* Show the form for creating a new resource.
      *

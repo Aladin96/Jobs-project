@@ -66,6 +66,7 @@
 
     $('.offersStat select').on("change" ,function () {
       let data = $(this).parent().serialize();
+      let year = $(this).val();
       let type = $(this).attr('name');
       let id = $('input[name=id_rec]').val();
       $.ajax ({
@@ -73,13 +74,30 @@
         method : 'GET',
         data : data,
         success : function (results) {
-          updateCharts(results , type);
+          alert(results)
+          updateCharts(results , type , year);
+        }
+      })
+    })
+    /// |-> Dashboard statistics
+
+    $('.year-form select').on('change' , function () {
+      let data = $(this).parent().serialize();
+      let year =$(this).val();
+      let type = $(this).attr('name');
+      $.ajax ({
+        url : '/dashboard/update',
+        method : 'GET',
+        data : data,
+        success : function (results) {
+          updateCharts(results , type , year);
         }
       })
     })
 
-    function updateCharts( data , type) {
+    function updateCharts( data , type , year) {
       if (type == "line") {
+        line.data.datasets[0].label = "offers - "+year;
         line.data.datasets[0].data = data;
         line.update();
       }

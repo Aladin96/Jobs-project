@@ -7,10 +7,12 @@
       <div class="statistics-wrapper mb-4">
         <form class="year-form">
           <select name="line">
-            <option value="">2019</option>
+            @foreach($years as $year)
+              <option value="{{$year}}">{{$year}}</option>
+            @endforeach
           </select>
         </form>
-        <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers charts & lorem ipsum</h5>
+        <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers per year</h5>
         <div class="statistics">
           <div class="row">
             <div class="col-2 pr-0">
@@ -29,7 +31,14 @@
       <!-- GroupedBarChart -->
       <div class="col-8">
         <div class="statistics-wrapper">
-          <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers charts & lorem ipsum</h5>
+          <form class="year-form">
+            <select name="bar">
+              @foreach($years as $year)
+                <option value="{{$year}}">{{$year}}</option>
+              @endforeach
+            </select>
+          </form>
+          <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers per types</h5>
           <div class="statistics">
                 <canvas id="GroupedBarChart" height="300"></canvas>
             </div>
@@ -39,7 +48,14 @@
       <!-- PieChart -->
       <div class="col-4">
         <div class="statistics-wrapper">
-          <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers charts & lorem ipsum</h5>
+          <form class="year-form">
+            <select name="pie">
+              @foreach($years as $year)
+                <option value="{{$year}}">{{$year}}</option>
+              @endforeach
+            </select>
+          </form>
+          <h5 class="text-white mt-1 ml-2 mb-0 border-b">Offers per cities</h5>
           <div class="statistics">
             <div class="row">
               <div class="col-12">
@@ -84,12 +100,12 @@ let pieDataValues = Array.from(Object.values(pieData));
 
 Chart.defaults.global.defaultFontColor = "#fff";
 // |-> initializing lineChart
-let myChart = new Chart(lineChart, {
+let line = new Chart(lineChart, {
     type: 'line',
     data: {
         labels: ['Jan', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sept', 'Oct', 'Nov','Dec'],
         datasets: [{
-            label: 'Offers ',
+            label: 'offers - '+ {{$years[0]}},
             data: lineData,
             backgroundColor: '#fff2',
             borderColor: '#fff',

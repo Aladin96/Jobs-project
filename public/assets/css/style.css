@@ -3158,7 +3158,7 @@ section.delete > div{
 .year-form {
   position: absolute;
   z-index: 10;
-  right: 50px;
+  right: 20px;
   top: 5px;
 }
 .year-form select {

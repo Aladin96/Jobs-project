@@ -57,6 +57,7 @@ Route::get('dashboard/recruiters', 'AdminsController@index');
 Route::get('dashboard/candidates', 'AdminsController@index');
     // |--> Statistics Offers
 Route::get('dashboard/statistics/offers', 'AdminsController@statisticsOffers');
+Route::get('dashboard/update', 'AdminsController@updateStatistics');
 
 // Jobs
 Route::get('/offres' , 'OffresController@index');
