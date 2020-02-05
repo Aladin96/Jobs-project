@@ -32,6 +32,12 @@ Route::post('/candidater' , 'CandidaturesController@store');
 Route::get('/candidatures/{offre}' , 'CandidaturesController@index');
 Route::get('/annuler/{candidature}' , 'CandidaturesController@destroy');
 
+Route::get('/stories', 'StoryController@index');
+Route::get('/stories/create', function(){
+  return view('stories.create');
+});
+Route::post('/stories/create', 'StoryController@store');
+
                        /// cv ///
 Route::get('/cv' , 'CvsController@index');
 Route::get('/candidat/{show}/{cv}', 'CvsController@show');

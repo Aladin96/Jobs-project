@@ -58,7 +58,7 @@
              <!-- Navigation Menu-->
              <ul class="navigation-menu">
                  <li><a href="{{ url('/') }}">Acceuil</a></li>
-                 <li><a href="#">Offres d'emploi</a></li>
+                 <li><a href="/offres">Offres d'emploi</a></li>
 
                  <li class="has-submenu">
                      <a href="javascript:void(0)">S'inscrire</a><span class="menu-arrow"></span>
@@ -68,7 +68,7 @@
                      </ul>
                  </li>
                  <li>
-                     <a href="contact.html">contact</a>
+                     <a href="/stories">Stories</a>
                  </li>
              </ul><!--end navigation menu-->
          </div><!--end navigation-->

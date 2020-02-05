@@ -66,16 +66,14 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="javascript:void(0)">Recherche</a><span class="menu-arrow"></span>
+                    <a href="javascript:void(0)">Stories</a><span class="menu-arrow"></span>
                     <ul class="submenu">
-                        <li><a href="#">Recherche rapide</a></li>
-                        <li><a href="#">Recherche avancée</a></li>
+                        <li><a href="/stories">Storiees</a></li>
+                        <li><a href="/stories/create">Create your story</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ url('/') }}">Offres d'emploi</a></li>
-                <li>
-                    <a href="contact.html">contact</a>
-                </li>
+              
                 <li>
                     <a href="{{url('/logout')}}">Déconnexion</a>
                 </li>

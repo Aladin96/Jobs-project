@@ -19,5 +19,7 @@ class Candidat extends Authenticatable
          'password', 'remember_token'
      ];
 
-
+     public function stories(){
+       return $this->hasMany('App\Story', 'id_candidat', 'id');
+     }
 }

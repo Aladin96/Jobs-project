@@ -65,13 +65,7 @@
                         <li><a href="{{ url('/recruteur/' . $id . '/edit' ) }}">Modifier Mon profile</a></li>
                     </ul>
                 </li>
-                <li class="has-submenu">
-                    <a href="javascript:void(0)">Recherche</a><span class="menu-arrow"></span>
-                    <ul class="submenu">
-                        <li><a href="#">Recherche rapide</a></li>
-                        <li><a href="#">Recherche avancée</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{ url('/stories') }}">Stories</a></li>
                 <li><a href="{{ url('/candidats') }}">Candidats</a></li>
                 <li>
                     <a href="{{ url('/favoris') }}">Mes favoris</a>
