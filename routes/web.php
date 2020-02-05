@@ -15,6 +15,7 @@ Route::get('/','HomeController@index');
 
 // route Search
 Route::get('/search', 'SearchController@index');
+Route::get('/search/candidat', 'SearchController@searchCandidats');
 
 // Paypal Routes
 

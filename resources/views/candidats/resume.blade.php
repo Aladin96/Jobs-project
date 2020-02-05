@@ -32,7 +32,11 @@
    </section>
    <!-- end home -->
 
-  @include('search.component') 
+   @if(Auth::guard('recruteur')->check())
+    @include('search.componentCandidat')
+  @else
+    @include('search.component')
+  @endif
 
    <!-- CREATE RESUME START -->
    <section class="section">
