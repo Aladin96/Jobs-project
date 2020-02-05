@@ -52,11 +52,18 @@
         $(this).addClass('active');
         if ($(this).html() == "Statistiques") {
           $("#offers").hide();
+          $("#demandes").hide();
           $("#statistics").show();
+        }
+        else if( $(this).html() === "Mes offres") {
+          $("#statistics").hide();
+          $("#demandes").hide();
+          $("#offers").show();
         }
         else {
           $("#statistics").hide();
-          $("#offers").show();
+          $("#offers").hide();
+          $("#demandes").show();
         }
 
       }
@@ -335,7 +342,57 @@
           }
         }
       })
-    })
+    });
+
+    //-> spontaner
+
+    $('#spForm').on('click' , '.spontaner' , function(event) {
+      event.preventDefault();
+      let data = $(this).parent().serialize();
+      $.ajax({
+        method : 'POST',
+        url : '../spontaner',
+        data : data,
+        success : function (data) {
+          if(data == "error")
+            alert('nice attempt')
+          else {
+            $('#spForm').load(' #spForm');
+            $('body').append('<div class="added-f">Candidature envoyé avec succés</div>');
+
+            setTimeout(function(){
+              $('.added-f').fadeOut(300).remove()
+            },3000);
+          }
+        }
+      })
+    });
+
+
+    //-> spontaner => annuler
+
+    $('#spForm').on('click' , '.unspontaner' , function(event) {
+      event.preventDefault();
+      let data = $('input[name=recruteur_id]').val();
+      $.ajax({
+        method : 'get',
+        url : '../annuler_sp/'+data,
+        success : function (data) {
+          if(data == "error")
+            alert('nice attempt')
+          else {
+            $('#spForm').load(' #spForm');
+            $('body').append('<div class="removed-f">Candidature supprimer avec succés</div>');
+
+            setTimeout(function(){
+              $('.removed-f').fadeOut(300).remove()
+            },3000);
+          }
+        }
+      })
+    });
+
+
 
     /*================= DASHBOARD ================*/
 

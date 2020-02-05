@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Recruteur;
 use App\Offre;
+use App\Demande;
 use Illuminate\Http\Request;
 use Auth ;
 use DB;
@@ -18,12 +19,14 @@ class RecruteursController extends Controller
     $years = $years = Offre::select(DB::raw('YEAR(created_at) as year'))->where('id_recruteur', $id)->distinct()->get()->pluck('year');
     $recruteur = Recruteur::findOrFail($id);
     $offers = Offre::all()->where('id_recruteur' , $id);
+    $demandes = Demande::all()->where('id_recruteur' , $id);
     if (Auth::guard('recruteur')->id() == $id) {
       $statistics = new StatisticsController();
       $lineChart = $statistics->lineChart($id , $years);
       $types = $statistics->GroupedBarChart($id , $years);
       $pieChart = $statistics->PieChart($id , $years);
-      return view('recruteurs.show', compact('recruteur' , 'offers' , 'lineChart' , 'types' , 'pieChart'));
+      $bar = "";
+      return view('recruteurs.show', compact('recruteur' , 'offers' , 'lineChart' , 'types' , 'pieChart' , 'demandes'));
     }
     return view('recruteurs.show', compact('recruteur' , 'offers'));
 

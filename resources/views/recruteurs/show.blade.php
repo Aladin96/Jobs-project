@@ -43,8 +43,19 @@
                                     <p class="text-white"><i class="mdi mdi-cellphone-iphone mr-2"></i>{{ $recruteur->tel }}</p>
                                 </li>
                                 @if(Auth::guard('candidat')->check())
+                                @php
+                                    $id_candidat = Auth::guard('candidat')->id();
+                                    $demandExist = App\Demande::All()->where('id_candidat' , $id_candidat) ;
+                                    $ifExist = count($demandExist);
+
+                                @endphp
                                 <li class="list-inline-item">
-                                    <button class="btn btn-primary pl-5 pr-5">Spontaner</button>
+                                  <form id="spForm" action="" method="post">
+                                    @csrf
+                                    <input type="hidden" name="recruteur_id" value="{{$recruteur->id}}">
+                                    <button class="btn {{ ( $ifExist  ) ? 'btn-danger unspontaner' : 'btn-primary spontaner'}} pl-5 pr-5 ">{{( $ifExist  ) ? 'Annuler la demande' : 'Spontaner'}} </button>
+                                  </form>
+
                                 </li>
                                 @endif
                             </ul>
@@ -63,11 +74,14 @@
 
             @if(Auth::guard('recruteur')->id() == $recruteur->id)
               <div class="row border-bottom" id="{{$recruteur->id}}">
-                <div class="col-6 p-0">
+                <div class="col-4 p-0">
                   <p class="recruiter-switch text-center p-3">Mes offres</p>
                 </div>
-                <div class="col-6 p-0">
+                <div class="col-4 p-0">
                   <p class="recruiter-switch text-center p-3 active">Statistiques</p>
+                </div>
+                <div class="col-4 p-0">
+                  <p class="recruiter-switch text-center p-3 ">demande d'emplois</p>
                 </div>
               </div>
             @endif
@@ -128,7 +142,7 @@
               <input type="hidden" name="id_rec" value="{{$recruteur->id}}">
               <div class="row" id="statistics">
                 <div class="col-12">
-                  <h4>statistiques de l'entreprise:</h4>
+                  <h4 class="mt-4">Statistiques de l'entreprise:</h4>
                 </div>
 
                 <!-- LineChart -->
@@ -235,6 +249,37 @@
                   </div>
                 </div>
 
+              </div>
+              <div class="row" id="demandes" style="display : none">
+                <div class="col-12">
+                  <h4 class="mt-4">Demandes d'emplois :</h4>
+                </div>
+                @if( count($demandes) )
+                <table class="table table-hover">
+                    <thead class="thead-dark text-center mt-">
+                      <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Date de naissance</th>
+                        <th scope="col">Aperçu</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($demandes as $demande)
+                      <tr class="text-center">
+                        <td>{{$demande->candidat->nom}}</td>
+                        <td>{{$demande->candidat->prenom}}</td>
+                        <td>{{$demande->candidat->date_de_naissance}}</td>
+                        <td><a href="../candidat/{{$demande->candidat->id}}">Aperçu</a></td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+              </table>
+              @else
+              <div class="col-12">
+                <h2 class="mt-5 text-muted text-center">Aucune demandes d'emplois </h2>
+              </div>
+              @endif
               </div>
               @endif
     </section>

@@ -154,7 +154,8 @@
                           <div class="job-list-desc candidates-profile-exp-desc">
                               <h5 class="f-19 mb-2 text-dark">{{ $experience->intitule }}</h5>
                               <p class="text-muted mb-2 f-16">{{ $experience->lieu }}</p>
-                              <p class="text-muted mb-0 f-16 pt-2 border-top">{{ $experience->date_debut }} - {{ $experience->date_fin }}</p>
+                              <p class="text-muted mb-2 f-16 pt-1 ">{{ $experience->date_debut }} - {{ $experience->date_fin }}</p>
+                              <p class="text-muted mb-0 f-16 pt-2 border-top">{{ $experience->description }}</p>
                           </div>
                       </div>
                   </div>
