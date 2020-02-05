@@ -59,9 +59,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="show-results">
-                        <div class="float-left">
-                            <h5 class="text-dark mb-0 pt-2">Showing  Results : {{$candidats->firstItem()}}-{{ $candidats->count() }} of {{$candidats->total()}}</h5>
-                        </div>
+
                         <div class="sort-button text-center float-sm-right">
                             <ul class="list-unstyled mb-0">
                                 <li class="list-inline-item mb-0 mr-3">
@@ -91,9 +89,11 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="candidates-listing-item">
 
-                      @foreach( $candidats as $candidat )
+                      @foreach( $result as $se )
+
                         @php
-                         if(App\Http\Controllers\FavoriController::checkIfIsFavorite(Auth::guard('recruteur')->id(), $candidat->id))
+                        $q = App\Candidat::find($se);
+                         if(App\Http\Controllers\FavoriController::checkIfIsFavorite(Auth::guard('recruteur')->id(), $q->id))
                            $class="active";
                          else
                            $class="";
@@ -103,14 +103,14 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="float-left mr-4">
-                                        <img src="{{ $candidat->photo }}" alt="" class="d-block rounded" height="90">
+                                        <img src="{{ $q->photo }}" alt="" class="d-block rounded" height="90">
                                     </div>
                                     <div class="candidates-list-desc overflow-hidden job-single-meta  pt-2">
-                                        <h5 class="mb-2"><a href="{{ route('candidat', [ 'show' => $candidat->id ] ) }}" class="text-dark">{{ $candidat->nom . ' ' .  $candidat->prenom }}</a></h5>
+                                        <h5 class="mb-2"><a href="{{ route('candidat', [ 'show' => $q->id ] ) }}" class="text-dark">{{ $q->nom . ' ' .  $q->prenom }}</a></h5>
                                         <ul class="list-unstyled">
-                                            <li class="text-muted"><i class="mdi mdi-account mr-1"></i>{{ $candidat->tel }}</li>
-                                            <li class="text-muted"><i class="mdi mdi-map-marker mr-1"></i>{{ $candidat->adresse }}</li>
-                                            <li class="text-muted"><i class="mdi mdi-currency-usd mr-1"></i>{{ $candidat->date_de_naissance }}</li>
+                                            <li class="text-muted"><i class="mdi mdi-account mr-1"></i>{{ $q->tel }}</li>
+                                            <li class="text-muted"><i class="mdi mdi-map-marker mr-1"></i>{{ $q->adresse }}</li>
+                                            <li class="text-muted"><i class="mdi mdi-currency-usd mr-1"></i>{{ $q->date_de_naissance }}</li>
                                         </ul>
                                         <p class="text-muted mt-1 mb-0">Skills : HTML, CSS, JavaScript, Wordpress, PHP, jQueary.</p>
                                     </div>
@@ -119,7 +119,7 @@
                                     <div class="candidates-list-fav-btn text-right">
                                       <form method="POST" action="{{url('/favoris')}}">
                                         @csrf
-                                        <input type="hidden" name="candidat" value="{{$candidat->id}}">
+                                        <input type="hidden" name="candidat" value="{{$q->id}}">
                                       <button type="submit" class="btn">
                                         <div class="fav-icon">
                                             <i class="mdi mdi-heart {{$class}}" ></i>
@@ -127,7 +127,7 @@
                                       </button>
                                       </form>
                                         <div class="candidates-listing-btn mt-4">
-                                            <a href="{{ route('candidat', [ 'show' => $candidat->id ] ) }}" class="btn btn-primary-outline btn-sm">View Profile</a>
+                                            <a href="{{ route('candidat', [ 'show' => $q->id ] ) }}" class="btn btn-primary-outline btn-sm">View Profile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
                     </div>
 
                     <nav aria-label="Page navigation example">
-                      {{ $candidats->links() }}
+
                     </nav>
                 </div>
             </div>

@@ -33,7 +33,11 @@
   </section>
   <!-- end home -->
 
-  @include('search.component')
+  @if(Auth::guard('recruteur')->check())
+   @include('search.componentCandidat')
+ @else
+   @include('search.component')
+ @endif
 
   <!-- JOB LIST START -->
   <section class="section pt-0">

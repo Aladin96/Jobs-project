@@ -29,9 +29,11 @@
      </div>
  </section>
  <!-- end home -->
-
-  @include('search.component')
-
+   @if(Auth::guard('recruteur')->check())
+    @include('search.componentCandidat')
+  @else
+    @include('search.component')
+  @endif
  <!-- popular category start -->
  <section class="section">
      <div class="container">

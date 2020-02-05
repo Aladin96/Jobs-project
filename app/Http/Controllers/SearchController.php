@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Offre;
+use App\Candidat;
+use App\Cv;
 
 class SearchController extends Controller
 {
@@ -51,6 +53,60 @@ class SearchController extends Controller
 
     }
 
+  }
+
+  public function searchCandidats(){
+    if( request('civ') && request('wilaya') && request('formation') ){
+      if(request('civ') == -1 && request('wilaya') == -1 && request('formation') != 1 ){
+
+        $result = Cv::whereHas('formation', function($q){ $q->where('domaine', request('formation'));})->distinct()->pluck('id_candidat')->toArray();
+
+
+      }elseif( request('civ') == '-1' && request('wilaya') != '-1' && request('formation') != '-1' ){
+
+        $result = [];
+        $s = Cv::whereHas('formation', function($q){ $q->where('domaine', request('formation'));})->distinct()->pluck('id_candidat')->toArray();
+
+        foreach ($s as $se) {
+          $result = Candidat::where('wilaya', request('wilaya'))->where('id', $se)->pluck('id');
+        }
+
+      }elseif( request('civ') != '-1' && request('wilaya') == '-1' && request('formation') != '-1' ){
+
+        $result = [];
+        $s = Cv::whereHas('formation', function($q){ $q->where('domaine', request('formation'));})->distinct()->pluck('id_candidat')->toArray();
+
+        foreach ($s as $se) {
+          $result = Candidat::where('civilite', request('civ'))->where('id', $se)->pluck('id');
+        }
+
+
+      }elseif(request('formation') == '-1' && request('civ') == '-1' && request('wilaya') != '-1'){
+
+        $result = Candidat::where('wilaya', request('wilaya'))->pluck('id')->toArray();
+
+
+      }elseif( request('formation') == '-1' && request('wilaya') == '-1' && request('civ') != '-1'){
+
+        $result = Candidat::where('civilite', request('civ'))->pluck('id');
+
+      }elseif(request('formation') == '-1' && request('wilaya') != '-1' && request('civ') != '-1'){
+
+        $result = Candidat::where('civilite', request('civ'))->where('wilaya', request('wilaya'))->pluck('id');
+
+      }else{
+
+        $result = [];
+        $s = Cv::whereHas('formation', function($q){ $q->where('domaine', 'informatique');})->distinct()->pluck('id_candidat')->toArray();
+
+        foreach ($s as $se) {
+          $result = Candidat::where('civilite', request('civ'))->where('wilaya', request('wilaya'))->where('id', $se)->pluck('id');
+        }
+
+      }
+
+      return view('search.indexCandidat', compact('result'));
+    }
   }
 
     /**
