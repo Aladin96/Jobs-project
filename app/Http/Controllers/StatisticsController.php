@@ -15,7 +15,7 @@ class StatisticsController extends Controller
 
   // |-> Profile statistics lineChart
 
-  public function lineChart($id , $years , $op = "="){
+  public function lineChart($id , $years = [] , $op = "="){
 
     $year   = request('line') ? intval(request('line')) : $years->first();
 
@@ -36,7 +36,7 @@ class StatisticsController extends Controller
 
   // |-> Profile statistics GroupedBarChart
 
-  public function GroupedBarChart($id , $years , $op = "="){
+  public function GroupedBarChart($id , $years = [] , $op = "="){
 
     $year   = request('bar') ? intval(request('bar')) : $years->first();
 
@@ -50,7 +50,7 @@ class StatisticsController extends Controller
 
 
   }
-  public function PieChart($id , $years , $op = "="){
+  public function PieChart($id , $years = [], $op = "="){
 
     $data = array();
     $year   = request('pie') ? intval(request('pie')) : $years->first();

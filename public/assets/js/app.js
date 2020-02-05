@@ -68,13 +68,22 @@
       let data = $(this).parent().serialize();
       let year = $(this).val();
       let type = $(this).attr('name');
+      let statHolder = $(this).parent().parent().parent().next();
       let id = $('input[name=id_rec]').val();
       $.ajax ({
         url : '/recruteur/'+id+'/chart',
         method : 'GET',
         data : data,
         success : function (results) {
-          alert(results)
+          if (type === "line") {
+            statHolder.find('.inner-box:last p').html('L\'an '+ year);
+            statHolder.find('.inner-box:last h2').html(results.reduce((a, b) => a + b, 0));
+          }
+          else if (type === 'bar') {
+            statHolder.find(".inner-box:first h4").html(results['cdi'].reduce((a, b) => a + b, 0));
+            statHolder.find(".inner-box.cdd h4").html(results['cdd'].reduce((a, b) => a + b, 0));
+            statHolder.find(".inner-box:last h4").html(results['stage'].reduce((a, b) => a + b, 0));
+          }
           updateCharts(results , type , year);
         }
       })

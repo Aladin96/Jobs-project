@@ -29,8 +29,7 @@ class RecruteursController extends Controller
 
   }
 
-  public function updateCharts($id)
-  {
+  public function updateCharts($id){
     if (request()->ajax()) {
       $statistics = new StatisticsController();
       if (request('line')) {

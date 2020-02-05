@@ -149,11 +149,11 @@
                       <div class="col-4">
                         <div class="inner-box">
                           <p class="text-primary">Total</p>
-                          <h2 class="text-primary">255</h2>
+                          <h2 class="text-primary">{{ 3 }}</h2>
                         </div>
                         <div class="inner-box">
                           <p class="text-primary">L'an 2019</p>
-                          <h2 class="text-primary">12</h2>
+                          <h2 class="text-primary">{{ array_sum($lineChart)}}</h2>
                         </div>
                       </div>
                       <div class="col-8">
@@ -184,15 +184,15 @@
                         <div class="col-2">
                           <div class="inner-box rd">
                             <p class="text-primary">Cdi</p>
-                            <h4 class="text-primary">255</h4>
+                            <h4 class="text-primary">{{ array_sum($types['cdi'])}}</h4>
                           </div>
-                          <div class="inner-box rd">
+                          <div class="inner-box rd cdd">
                             <p class="text-primary">Cdd</p>
-                            <h4 class="text-primary">12</h4>
+                            <h4 class="text-primary">{{ array_sum($types['cdd'])}}</h4>
                           </div>
                           <div class="inner-box rd">
                             <p class="text-primary">Stage</p>
-                            <h4 class="text-primary">12</h4>
+                            <h4 class="text-primary">{{ array_sum($types['stage'])}}</h4>
                           </div>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                       <div class="col-10">
                         <canvas id="PieChart"  height="300"></canvas>
                       </div>
-                        <div class="col-2">
+                        <!-- <div class="col-2">
                           <div class="inner-box rd">
                             <p class="text-primary">Cdi</p>
                             <h4 class="text-primary">255</h4>
@@ -230,7 +230,7 @@
                             <p class="text-primary">Stage</p>
                             <h4 class="text-primary">12</h4>
                           </div>
-                        </div>
+                        </div> -->
                     </div>
                   </div>
                 </div>
@@ -282,7 +282,7 @@
 
     // |-> getting datas
 
-  let lineData = @json($lineChart['monthData']);
+  let lineData = @json($lineChart);
   let barData = @json($types);
   let pieData = @json($pieChart);
   let pieDataName = Array.from(Object.keys(pieData));
