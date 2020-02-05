@@ -446,6 +446,7 @@ class ComposerStaticInitdb53f32ba09eb1bf927c6986e8aad793
         'App\\Http\\Controllers\\PaypalController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaypalController.php',
         'App\\Http\\Controllers\\RecruteursController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecruteursController.php',
         'App\\Http\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchController.php',
+        'App\\Http\\Controllers\\StatisticsController' => __DIR__ . '/../..' . '/app/Http/Controllers/StatisticsController.php',
         'App\\Http\\Controllers\\TestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

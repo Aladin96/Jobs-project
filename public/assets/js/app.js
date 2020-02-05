@@ -52,11 +52,18 @@
         $(this).addClass('active');
         if ($(this).html() == "Statistiques") {
           $("#offers").hide();
+          $("#demandes").hide();
           $("#statistics").show();
+        }
+        else if( $(this).html() === "Mes offres") {
+          $("#statistics").hide();
+          $("#demandes").hide();
+          $("#offers").show();
         }
         else {
           $("#statistics").hide();
-          $("#offers").show();
+          $("#offers").hide();
+          $("#demandes").show();
         }
 
       }
@@ -336,6 +343,34 @@
         }
       })
     })
+
+    //-> spontaner
+
+    $('.spontaner').click(function(event) {
+      event.preventDefault();
+      let data = $(this).parent().serialize();
+      console.log(data);
+      $.ajax({
+        method : 'POST',
+        url : '../spontaner',
+        data : data,
+        success : function (data) {
+          alert(data)
+          if(data == "error")
+            alert('nice attempt')
+          else {
+            $('#spForm').load(' #spForm');
+            $('body').append('<div class="added-f">Candidature envoyé avec succés</div>');
+
+            setTimeout(function(){
+              $('.added-f').fadeOut(300).remove()
+            },3000);
+          }
+        }
+      })
+    })
+
+
 
     /*================= DASHBOARD ================*/
 

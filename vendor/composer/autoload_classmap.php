@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Controllers\\PaypalController' => $baseDir . '/app/Http/Controllers/PaypalController.php',
     'App\\Http\\Controllers\\RecruteursController' => $baseDir . '/app/Http/Controllers/RecruteursController.php',
     'App\\Http\\Controllers\\SearchController' => $baseDir . '/app/Http/Controllers/SearchController.php',
+    'App\\Http\\Controllers\\StatisticsController' => $baseDir . '/app/Http/Controllers/StatisticsController.php',
     'App\\Http\\Controllers\\TestsController' => $baseDir . '/app/Http/Controllers/TestsController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

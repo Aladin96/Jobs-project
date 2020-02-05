@@ -50,6 +50,7 @@ class StatisticsController extends Controller
 
 
   }
+
   public function PieChart($id , $years = [], $op = "="){
 
     $data = array();
@@ -69,6 +70,20 @@ class StatisticsController extends Controller
 
   }
 
+  public function ndBar($id , $years = [] , $op = "="){
+
+    $year   = request('ndbar') ? intval(request('ndbar')) : $years->first();
+
+    $cdi = $cdd = $stage = array();
+    for ($i=1 ; $i<=12; $i++) {
+      array_push($stage , Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' ,$op, $id)->where('type' , 'Stage')->count());
+      array_push($cdi , Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' ,$op, $id)->where('type' , 'Cdi')->count());
+      array_push($cdd , Offre::whereBetween('created_at', [ $year . '-' . $i .'-01', $year . '-'. $i .'-31'])->where('id_recruteur' ,$op, $id)->where('type' , 'Cdd')->count());
+    }
+    return compact('stage' , 'cdi' , 'cdd');
+
+
+  }
 
 
 

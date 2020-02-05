@@ -28,6 +28,7 @@ Route::get('/candidat/{show}', 'CandidatsController@show')->name('candidat');
 Route::get('/candidat/{show}/edit', 'CandidatsController@edit');
 Route::put('/candidat/{id}', 'CandidatsController@update');
 Route::post('/candidater' , 'CandidaturesController@store');
+Route::post('/spontaner' , 'DemandesController@store');
 Route::get('/candidatures/{offre}' , 'CandidaturesController@index');
 Route::get('/annuler/{candidature}' , 'CandidaturesController@destroy');
 
