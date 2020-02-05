@@ -342,20 +342,18 @@
           }
         }
       })
-    })
+    });
 
     //-> spontaner
 
-    $('.spontaner').click(function(event) {
+    $('#spForm').on('click' , '.spontaner' , function(event) {
       event.preventDefault();
       let data = $(this).parent().serialize();
-      console.log(data);
       $.ajax({
         method : 'POST',
         url : '../spontaner',
         data : data,
         success : function (data) {
-          alert(data)
           if(data == "error")
             alert('nice attempt')
           else {
@@ -368,7 +366,31 @@
           }
         }
       })
-    })
+    });
+
+
+    //-> spontaner => annuler
+
+    $('#spForm').on('click' , '.unspontaner' , function(event) {
+      event.preventDefault();
+      let data = $('input[name=recruteur_id]').val();
+      $.ajax({
+        method : 'get',
+        url : '../annuler_sp/'+data,
+        success : function (data) {
+          if(data == "error")
+            alert('nice attempt')
+          else {
+            $('#spForm').load(' #spForm');
+            $('body').append('<div class="removed-f">Candidature supprimer avec succés</div>');
+
+            setTimeout(function(){
+              $('.removed-f').fadeOut(300).remove()
+            },3000);
+          }
+        }
+      })
+    });
 
 
 

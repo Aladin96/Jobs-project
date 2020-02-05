@@ -53,7 +53,7 @@
                                   <form id="spForm" action="" method="post">
                                     @csrf
                                     <input type="hidden" name="recruteur_id" value="{{$recruteur->id}}">
-                                    <button class="btn {{ ( $ifExist  ) ? 'btn-danger' : 'btn-primary'}} pl-5 pr-5 spontaner">{{( $ifExist  ) ? 'Annuler la demande' : 'Spontaner'}} </button>
+                                    <button class="btn {{ ( $ifExist  ) ? 'btn-danger unspontaner' : 'btn-primary spontaner'}} pl-5 pr-5 ">{{( $ifExist  ) ? 'Annuler la demande' : 'Spontaner'}} </button>
                                   </form>
 
                                 </li>

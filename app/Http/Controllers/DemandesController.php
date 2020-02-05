@@ -95,6 +95,13 @@ class DemandesController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $id_candidat = Auth::guard('candidat')->id();
+      $apply = Demande::All()->where('id_candidat' , $id_candidat)->where('id_recruteur' , $id);
+      if ( count($apply) ) {
+        $apply[0]->delete();
+      }
+      else {
+        echo "error";
+      }
     }
 }

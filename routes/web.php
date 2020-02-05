@@ -32,6 +32,7 @@ Route::post('/candidater' , 'CandidaturesController@store');
 Route::post('/spontaner' , 'DemandesController@store');
 Route::get('/candidatures/{offre}' , 'CandidaturesController@index');
 Route::get('/annuler/{candidature}' , 'CandidaturesController@destroy');
+Route::get('/annuler_sp/{candidature}' , 'DemandesController@destroy');
 
                        /// cv ///
 Route::get('/cv' , 'CvsController@index');
