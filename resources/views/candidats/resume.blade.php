@@ -174,6 +174,12 @@
                                        </div>
                                    </div>
                                </div>
+                               <div class="col-lg-12">
+                                   <div class="form-group app-label">
+                                       <label class="text-muted">Description :</label>
+                                       <textarea name="description_exp[]" rows="4" class="form-control resume" placeholder=""></textarea>
+                                   </div>
+                               </div>
                            </div>
                        </div>
                        <div class="row">

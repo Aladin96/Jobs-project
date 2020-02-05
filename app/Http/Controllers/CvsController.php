@@ -70,6 +70,7 @@ class CvsController extends Controller
           $experience->lieu = $request->wilaya[$index];
           $experience->date_debut = $request->dd_experience[$index];
           $experience->date_fin = $request->df_experience[$index];
+          $experience->description = $request->description_exp[$index];
           $experience->save();
         }
 
